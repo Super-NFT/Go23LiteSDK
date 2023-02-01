@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'Go23LiteSDK_Example' do
+  pod 'Go23LiteSDK', :path => '../'
+
+  target 'Go23LiteSDK_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
