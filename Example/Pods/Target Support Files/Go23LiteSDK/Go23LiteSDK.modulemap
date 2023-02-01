@@ -1,0 +1,6 @@
+framework module Go23LiteSDK {
+  umbrella header "Go23LiteSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

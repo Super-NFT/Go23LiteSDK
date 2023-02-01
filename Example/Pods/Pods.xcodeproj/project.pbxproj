@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05264969A4FC0547B5924548047FC3A3 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DB1DE33F0E02C4595909E90F6E0C24 /* ReplaceMe.swift */; };
+		164D2C6EE017261CE4AB38E52075EE4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		1B6D62766CC28B6CF01BF8C3E6477114 /* Pods-Go23LiteSDK_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F593FB569C52039A8B305B5F7ECFA0 /* Pods-Go23LiteSDK_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FDCA3F0ADB968E69BECCFBF62062BE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		295BCF8E48A343E45B824EC012C88A23 /* Pods-Go23LiteSDK_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFA6982D880FAF158FDE5DACA48796 /* Pods-Go23LiteSDK_Tests-dummy.m */; };
+		59D3C2B7E3B8D86D86B8CC4D29A16AC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		5D9D84703222F21BEBC07653EFF7B3BB /* Go23LiteSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F60B86C5219F7413EBAE5E81E633E698 /* Go23LiteSDK-dummy.m */; };
+		B6DA518F5A3EBBDF4F77ABC0F873E9B7 /* Pods-Go23LiteSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC4580C567620F6A34C15424649F88A /* Pods-Go23LiteSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8CE5FAFC4C4675D6376D0A9FA0C0193 /* Go23LiteSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB2ADD9503C3A072D2D1FBBB778ECAA /* Go23LiteSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9E65D03B172823228777E5569FBD62A /* Pods-Go23LiteSDK_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4098A88C302840A6BE093C20EFD1D6F /* Pods-Go23LiteSDK_Example-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		09A0974ADA1DE10B71D94B1D5DA2E316 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A71993EB598175C71A1DC7781E29928;
+			remoteInfo = "Pods-Go23LiteSDK_Example";
+		};
+		2F9897DE9DB39C2D00772533D51D21B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E5BA9B7AB5BAAB5D05D7BDE42D01F53;
+			remoteInfo = Go23LiteSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		030CBE43749041B07AA6D0A19A013C32 /* Pods-Go23LiteSDK_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Go23LiteSDK_Tests"; path = Pods_Go23LiteSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0695119038E17B48B3095E15928C05C2 /* Pods-Go23LiteSDK_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Go23LiteSDK_Example-Info.plist"; sourceTree = "<group>"; };
+		08D1FED21B397597B6DEB6565B40E898 /* Pods-Go23LiteSDK_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Go23LiteSDK_Example"; path = Pods_Go23LiteSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08F284E7829749CD2DBBAC173E795982 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		0E0E01AE4EB592F6BC37901CBF4AA1D2 /* Pods-Go23LiteSDK_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Go23LiteSDK_Tests-Info.plist"; sourceTree = "<group>"; };
+		13A875B148D73E14CAB48FE10A819F51 /* Go23LiteSDK-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Go23LiteSDK-Info.plist"; sourceTree = "<group>"; };
+		157C686DC42EA4DA3C44676D133ECDD9 /* Pods-Go23LiteSDK_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Go23LiteSDK_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1D541814CC03982DE49565F2BB17C1DF /* Go23LiteSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Go23LiteSDK.release.xcconfig; sourceTree = "<group>"; };
+		1F08E2A32C8249870DF4E7B356F050EA /* Pods-Go23LiteSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Go23LiteSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		21DB1DE33F0E02C4595909E90F6E0C24 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = Go23LiteSDK/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		24F593FB569C52039A8B305B5F7ECFA0 /* Pods-Go23LiteSDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Go23LiteSDK_Tests-umbrella.h"; sourceTree = "<group>"; };
+		357A39E528EDDD7BF84E07622EE149B1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		4DC4580C567620F6A34C15424649F88A /* Pods-Go23LiteSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Go23LiteSDK_Example-umbrella.h"; sourceTree = "<group>"; };
+		51410FB85958EED929418D876B40895B /* Go23LiteSDK */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Go23LiteSDK; path = Go23LiteSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5366402501BC48FACB60D15D598FEB9B /* Pods-Go23LiteSDK_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Go23LiteSDK_Example-frameworks.sh"; sourceTree = "<group>"; };
+		5D63A9862995CBBB2DEBE566DE544139 /* Pods-Go23LiteSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Go23LiteSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		64F690373B9F071A54298F97910F5EBA /* Pods-Go23LiteSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Go23LiteSDK_Example.modulemap"; sourceTree = "<group>"; };
+		65B47F40972C15AA3D1DE4411B9653BE /* Pods-Go23LiteSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Go23LiteSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7EB2ADD9503C3A072D2D1FBBB778ECAA /* Go23LiteSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Go23LiteSDK-umbrella.h"; sourceTree = "<group>"; };
+		9409F6B684AD41583023B179DE114EE2 /* Pods-Go23LiteSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Go23LiteSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F6CBFA143C513246196CD5EF1A4518E /* Pods-Go23LiteSDK_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Go23LiteSDK_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		B4EEC616C04A55687E3B661C5E443D6B /* Go23LiteSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Go23LiteSDK.modulemap; sourceTree = "<group>"; };
+		BFA7F1490E526F8962B9D8C483ABD0D7 /* Go23LiteSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Go23LiteSDK-prefix.pch"; sourceTree = "<group>"; };
+		D8800F054235D9F3A83A04438901972C /* Pods-Go23LiteSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Go23LiteSDK_Tests.modulemap"; sourceTree = "<group>"; };
+		E3BFA6982D880FAF158FDE5DACA48796 /* Pods-Go23LiteSDK_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Go23LiteSDK_Tests-dummy.m"; sourceTree = "<group>"; };
+		E4098A88C302840A6BE093C20EFD1D6F /* Pods-Go23LiteSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Go23LiteSDK_Example-dummy.m"; sourceTree = "<group>"; };
+		EB46DF88E2097D61A78B7E5125620B1D /* Pods-Go23LiteSDK_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Go23LiteSDK_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		F60B86C5219F7413EBAE5E81E633E698 /* Go23LiteSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Go23LiteSDK-dummy.m"; sourceTree = "<group>"; };
+		FB6C9E9C0EACCB69CD5C2E8C3669454B /* Go23LiteSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Go23LiteSDK.debug.xcconfig; sourceTree = "<group>"; };
+		FBEC00EE9B5A38CE296F344DBDC6A59C /* Go23LiteSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Go23LiteSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FEF3C7BAB7650D69C55F05230B6EB381 /* Pods-Go23LiteSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Go23LiteSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50C7793897A0ABF06936D2886C6F9417 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FDCA3F0ADB968E69BECCFBF62062BE2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AF79207E0948EDBFEF95BEC98F3B154 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59D3C2B7E3B8D86D86B8CC4D29A16AC4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB0C626B0F047BA09DB0D4B15CE45DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				164D2C6EE017261CE4AB38E52075EE4F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E83E41D03917FC3F64CE8F8A3072054 /* Pods-Go23LiteSDK_Example */ = {
+			isa = PBXGroup;
+			children = (
+				64F690373B9F071A54298F97910F5EBA /* Pods-Go23LiteSDK_Example.modulemap */,
+				9409F6B684AD41583023B179DE114EE2 /* Pods-Go23LiteSDK_Example-acknowledgements.markdown */,
+				9F6CBFA143C513246196CD5EF1A4518E /* Pods-Go23LiteSDK_Example-acknowledgements.plist */,
+				E4098A88C302840A6BE093C20EFD1D6F /* Pods-Go23LiteSDK_Example-dummy.m */,
+				5366402501BC48FACB60D15D598FEB9B /* Pods-Go23LiteSDK_Example-frameworks.sh */,
+				0695119038E17B48B3095E15928C05C2 /* Pods-Go23LiteSDK_Example-Info.plist */,
+				4DC4580C567620F6A34C15424649F88A /* Pods-Go23LiteSDK_Example-umbrella.h */,
+				1F08E2A32C8249870DF4E7B356F050EA /* Pods-Go23LiteSDK_Example.debug.xcconfig */,
+				65B47F40972C15AA3D1DE4411B9653BE /* Pods-Go23LiteSDK_Example.release.xcconfig */,
+			);
+			name = "Pods-Go23LiteSDK_Example";
+			path = "Target Support Files/Pods-Go23LiteSDK_Example";
+			sourceTree = "<group>";
+		};
+		2E976E3449DB6DD6FD0716AF65595E76 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1E83E41D03917FC3F64CE8F8A3072054 /* Pods-Go23LiteSDK_Example */,
+				5D1ED88DF3D59C1B9A3BE1ABE94CD409 /* Pods-Go23LiteSDK_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		57B413DC4284EF360991726ED818FE47 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				FBEC00EE9B5A38CE296F344DBDC6A59C /* Go23LiteSDK.podspec */,
+				357A39E528EDDD7BF84E07622EE149B1 /* LICENSE */,
+				08F284E7829749CD2DBBAC173E795982 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		5D1ED88DF3D59C1B9A3BE1ABE94CD409 /* Pods-Go23LiteSDK_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D8800F054235D9F3A83A04438901972C /* Pods-Go23LiteSDK_Tests.modulemap */,
+				157C686DC42EA4DA3C44676D133ECDD9 /* Pods-Go23LiteSDK_Tests-acknowledgements.markdown */,
+				EB46DF88E2097D61A78B7E5125620B1D /* Pods-Go23LiteSDK_Tests-acknowledgements.plist */,
+				E3BFA6982D880FAF158FDE5DACA48796 /* Pods-Go23LiteSDK_Tests-dummy.m */,
+				0E0E01AE4EB592F6BC37901CBF4AA1D2 /* Pods-Go23LiteSDK_Tests-Info.plist */,
+				24F593FB569C52039A8B305B5F7ECFA0 /* Pods-Go23LiteSDK_Tests-umbrella.h */,
+				5D63A9862995CBBB2DEBE566DE544139 /* Pods-Go23LiteSDK_Tests.debug.xcconfig */,
+				FEF3C7BAB7650D69C55F05230B6EB381 /* Pods-Go23LiteSDK_Tests.release.xcconfig */,
+			);
+			name = "Pods-Go23LiteSDK_Tests";
+			path = "Target Support Files/Pods-Go23LiteSDK_Tests";
+			sourceTree = "<group>";
+		};
+		822E2E049CBC4561480576201800A5C4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B4EEC616C04A55687E3B661C5E443D6B /* Go23LiteSDK.modulemap */,
+				F60B86C5219F7413EBAE5E81E633E698 /* Go23LiteSDK-dummy.m */,
+				13A875B148D73E14CAB48FE10A819F51 /* Go23LiteSDK-Info.plist */,
+				BFA7F1490E526F8962B9D8C483ABD0D7 /* Go23LiteSDK-prefix.pch */,
+				7EB2ADD9503C3A072D2D1FBBB778ECAA /* Go23LiteSDK-umbrella.h */,
+				FB6C9E9C0EACCB69CD5C2E8C3669454B /* Go23LiteSDK.debug.xcconfig */,
+				1D541814CC03982DE49565F2BB17C1DF /* Go23LiteSDK.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Go23LiteSDK";
+			sourceTree = "<group>";
+		};
+		8412A122A9196DFC92095D80413ADB79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				51410FB85958EED929418D876B40895B /* Go23LiteSDK */,
+				08D1FED21B397597B6DEB6565B40E898 /* Pods-Go23LiteSDK_Example */,
+				030CBE43749041B07AA6D0A19A013C32 /* Pods-Go23LiteSDK_Tests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				DC9B09731D58611103C3B71521E63EF1 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				8412A122A9196DFC92095D80413ADB79 /* Products */,
+				2E976E3449DB6DD6FD0716AF65595E76 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC9B09731D58611103C3B71521E63EF1 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F12519F55453CBD75E7F95586676D423 /* Go23LiteSDK */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		F12519F55453CBD75E7F95586676D423 /* Go23LiteSDK */ = {
+			isa = PBXGroup;
+			children = (
+				21DB1DE33F0E02C4595909E90F6E0C24 /* ReplaceMe.swift */,
+				57B413DC4284EF360991726ED818FE47 /* Pod */,
+				822E2E049CBC4561480576201800A5C4 /* Support Files */,
+			);
+			name = Go23LiteSDK;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2CEC675AC90E66BBF494E8A088ABDEC2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6DA518F5A3EBBDF4F77ABC0F873E9B7 /* Pods-Go23LiteSDK_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8F1BDE1C2B2CA58B1F2445A01770471 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8CE5FAFC4C4675D6376D0A9FA0C0193 /* Go23LiteSDK-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE7C54B4AF4FD61AFF9118455D569E2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B6D62766CC28B6CF01BF8C3E6477114 /* Pods-Go23LiteSDK_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5A675CFF763D2F3B799DFE00336A8004 /* Pods-Go23LiteSDK_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC6C9BE5BE17E513A9F99EA889EF5B51 /* Build configuration list for PBXNativeTarget "Pods-Go23LiteSDK_Tests" */;
+			buildPhases = (
+				FEE7C54B4AF4FD61AFF9118455D569E2 /* Headers */,
+				46C764DF25CC991732B4B62D78012B99 /* Sources */,
+				50C7793897A0ABF06936D2886C6F9417 /* Frameworks */,
+				A4AD68AA87F47EB88720AC12B21D35A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				987F2881ABD6B514D7D1A23ECFF2207A /* PBXTargetDependency */,
+			);
+			name = "Pods-Go23LiteSDK_Tests";
+			productName = Pods_Go23LiteSDK_Tests;
+			productReference = 030CBE43749041B07AA6D0A19A013C32 /* Pods-Go23LiteSDK_Tests */;
+			productType = "com.apple.product-type.framework";
+		};
+		8A71993EB598175C71A1DC7781E29928 /* Pods-Go23LiteSDK_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2415970D39433DFE3F416715135F0A80 /* Build configuration list for PBXNativeTarget "Pods-Go23LiteSDK_Example" */;
+			buildPhases = (
+				2CEC675AC90E66BBF494E8A088ABDEC2 /* Headers */,
+				1E7AE6433444146B2D15DA4587F88838 /* Sources */,
+				6EB0C626B0F047BA09DB0D4B15CE45DC /* Frameworks */,
+				8EE03C331EE02D14060F8B1FB19DC143 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C183E78A953C19CF28A41FD8EDA5346 /* PBXTargetDependency */,
+			);
+			name = "Pods-Go23LiteSDK_Example";
+			productName = Pods_Go23LiteSDK_Example;
+			productReference = 08D1FED21B397597B6DEB6565B40E898 /* Pods-Go23LiteSDK_Example */;
+			productType = "com.apple.product-type.framework";
+		};
+		9E5BA9B7AB5BAAB5D05D7BDE42D01F53 /* Go23LiteSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09AD8DBA7FB5FEF33537652F56BC19BD /* Build configuration list for PBXNativeTarget "Go23LiteSDK" */;
+			buildPhases = (
+				F8F1BDE1C2B2CA58B1F2445A01770471 /* Headers */,
+				776745050912FD77573AC86CE5F46F46 /* Sources */,
+				6AF79207E0948EDBFEF95BEC98F3B154 /* Frameworks */,
+				6A1910462EB9B180F9BEB656D861E2FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Go23LiteSDK;
+			productName = Go23LiteSDK;
+			productReference = 51410FB85958EED929418D876B40895B /* Go23LiteSDK */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 8412A122A9196DFC92095D80413ADB79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E5BA9B7AB5BAAB5D05D7BDE42D01F53 /* Go23LiteSDK */,
+				8A71993EB598175C71A1DC7781E29928 /* Pods-Go23LiteSDK_Example */,
+				5A675CFF763D2F3B799DFE00336A8004 /* Pods-Go23LiteSDK_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6A1910462EB9B180F9BEB656D861E2FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8EE03C331EE02D14060F8B1FB19DC143 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4AD68AA87F47EB88720AC12B21D35A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E7AE6433444146B2D15DA4587F88838 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9E65D03B172823228777E5569FBD62A /* Pods-Go23LiteSDK_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46C764DF25CC991732B4B62D78012B99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295BCF8E48A343E45B824EC012C88A23 /* Pods-Go23LiteSDK_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		776745050912FD77573AC86CE5F46F46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D9D84703222F21BEBC07653EFF7B3BB /* Go23LiteSDK-dummy.m in Sources */,
+				05264969A4FC0547B5924548047FC3A3 /* ReplaceMe.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C183E78A953C19CF28A41FD8EDA5346 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Go23LiteSDK;
+			target = 9E5BA9B7AB5BAAB5D05D7BDE42D01F53 /* Go23LiteSDK */;
+			targetProxy = 2F9897DE9DB39C2D00772533D51D21B0 /* PBXContainerItemProxy */;
+		};
+		987F2881ABD6B514D7D1A23ECFF2207A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Go23LiteSDK_Example";
+			target = 8A71993EB598175C71A1DC7781E29928 /* Pods-Go23LiteSDK_Example */;
+			targetProxy = 09A0974ADA1DE10B71D94B1D5DA2E316 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1559E33FF9B5443810EF5E7D4B68FB3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D63A9862995CBBB2DEBE566DE544139 /* Pods-Go23LiteSDK_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Go23LiteSDK_Tests/Pods-Go23LiteSDK_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Go23LiteSDK_Tests/Pods-Go23LiteSDK_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		236D117E99BC0131C52E276DCC83DF45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEF3C7BAB7650D69C55F05230B6EB381 /* Pods-Go23LiteSDK_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Go23LiteSDK_Tests/Pods-Go23LiteSDK_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Go23LiteSDK_Tests/Pods-Go23LiteSDK_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		52AE35A78A604E3EF9E4474F76B661C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D541814CC03982DE49565F2BB17C1DF /* Go23LiteSDK.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Go23LiteSDK/Go23LiteSDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Go23LiteSDK/Go23LiteSDK-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Go23LiteSDK/Go23LiteSDK.modulemap";
+				PRODUCT_MODULE_NAME = Go23LiteSDK;
+				PRODUCT_NAME = Go23LiteSDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6C315DA99A83898FE69F9D7896FA3B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB6C9E9C0EACCB69CD5C2E8C3669454B /* Go23LiteSDK.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Go23LiteSDK/Go23LiteSDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Go23LiteSDK/Go23LiteSDK-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Go23LiteSDK/Go23LiteSDK.modulemap";
+				PRODUCT_MODULE_NAME = Go23LiteSDK;
+				PRODUCT_NAME = Go23LiteSDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		A890A203EE9F77F9CB28D3D65D0E18CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65B47F40972C15AA3D1DE4411B9653BE /* Pods-Go23LiteSDK_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		EA1168A336AE879CE5E8EC6E04A1B25D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F08E2A32C8249870DF4E7B356F050EA /* Pods-Go23LiteSDK_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09AD8DBA7FB5FEF33537652F56BC19BD /* Build configuration list for PBXNativeTarget "Go23LiteSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C315DA99A83898FE69F9D7896FA3B94 /* Debug */,
+				52AE35A78A604E3EF9E4474F76B661C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2415970D39433DFE3F416715135F0A80 /* Build configuration list for PBXNativeTarget "Pods-Go23LiteSDK_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA1168A336AE879CE5E8EC6E04A1B25D /* Debug */,
+				A890A203EE9F77F9CB28D3D65D0E18CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
+				7EE7A78859F657F6BEFC651185B43192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC6C9BE5BE17E513A9F99EA889EF5B51 /* Build configuration list for PBXNativeTarget "Pods-Go23LiteSDK_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1559E33FF9B5443810EF5E7D4B68FB3E /* Debug */,
+				236D117E99BC0131C52E276DCC83DF45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

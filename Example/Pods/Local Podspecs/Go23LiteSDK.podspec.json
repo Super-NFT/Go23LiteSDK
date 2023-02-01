@@ -1,0 +1,22 @@
+{
+  "name": "Go23LiteSDK",
+  "version": "0.1.0",
+  "summary": "A short description of Go23LiteSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/ming.lu/Go23LiteSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ming.lu": "ming.lu@coins.ph"
+  },
+  "source": {
+    "git": "https://github.com/ming.lu/Go23LiteSDK.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Go23LiteSDK/Classes/**/*"
+}
