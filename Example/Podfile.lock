@@ -1,5 +1,5 @@
 PODS:
-  - Go23LiteSDK (0.1.0)
+  - Go23LiteSDK (0.2.0)
 
 DEPENDENCIES:
   - Go23LiteSDK (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Go23LiteSDK: cff8f134f15fe415f03428ad6b8a645afa7b1182
+  Go23LiteSDK: c4c723b42d3d2c1dae34665985e6056fb69b67e5
 
 PODFILE CHECKSUM: 567ec698a0760c9f2a57bf29097ccdbdc8436784
 

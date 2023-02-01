@@ -212,10 +212,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2N2X94J685;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2N2X94J685;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -478,6 +480,7 @@
 			baseConfigurationReference = 21DB9A5A86D95F11700F1D73 /* Pods-Go23LiteSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2N2X94J685;
 				INFOPLIST_FILE = Go23LiteSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -493,6 +496,7 @@
 			baseConfigurationReference = EFFCDFD00B8981F1634E7AAD /* Pods-Go23LiteSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2N2X94J685;
 				INFOPLIST_FILE = Go23LiteSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -507,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 29C7A88687FC77FCFD6F0C5B /* Pods-Go23LiteSDK_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2N2X94J685;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -529,6 +534,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0346D04DA6269058E72DDF1 /* Pods-Go23LiteSDK_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2N2X94J685;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
