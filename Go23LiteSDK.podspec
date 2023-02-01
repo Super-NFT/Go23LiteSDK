@@ -31,6 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'Go23LiteSDK/Classes/**/*'
+  s.swift_version = '5.0'
   
   # s.resource_bundles = {
   #   'Go23LiteSDK' => ['Go23LiteSDK/Assets/*.png']
