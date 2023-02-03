@@ -1,6 +1,6 @@
 {
   "name": "Go23LiteSDK",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "summary": "A short description of Go23LiteSDK.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/Super-NFT/Go23LiteSDK",
@@ -13,12 +13,55 @@
   },
   "source": {
     "git": "https://github.com/Super-NFT/Go23LiteSDK.git",
-    "tag": "0.2.0"
+    "tag": "0.3.0"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "13.0"
   },
-  "source_files": "Go23LiteSDK/Classes/**/*",
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-lObjC"
+    ]
+  },
+  "public_header_files": "Pod/Classes/**/*.h",
+  "source_files": "Go23LiteSDK/Classes/**/*.{swift}",
   "swift_versions": "5.0",
+  "resource_bundles": {
+    "Go23_Go23LiteSDK": [
+      "Go23LiteSDK/Assets/*.gif",
+      "Go23LiteSDK/Assets/Images.xcassets"
+    ]
+  },
+  "vendored_frameworks": [
+    "Go23LiteSDK/Classes/Frameworks/Client.xcframework",
+    "Go23LiteSDK/Classes/Frameworks/Go23SDK.framework"
+  ],
+  "dependencies": {
+    "IQKeyboardManager": [
+
+    ],
+    "Alamofire": [
+      "4.9.1"
+    ],
+    "SDWebImage": [
+
+    ],
+    "SDWebImageWebPCoder": [
+
+    ],
+    "MJRefresh": [
+      "3.7.2"
+    ],
+    "FDFullscreenPopGesture": [
+
+    ],
+    "BigInt": [
+
+    ],
+    "SnapKit": [
+
+    ]
+  },
   "swift_version": "5.0"
 }

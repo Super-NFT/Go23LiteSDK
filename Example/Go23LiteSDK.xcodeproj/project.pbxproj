@@ -13,8 +13,9 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		9E6D32FAFE9FE2493F8DFB86 /* Pods_Go23LiteSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F38EC95C723B7020E87CA9 /* Pods_Go23LiteSDK_Example.framework */; };
-		B3B4C0BED49680619EDB8280 /* Pods_Go23LiteSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7256C7A3D391E861A7E12B /* Pods_Go23LiteSDK_Tests.framework */; };
+		61E8B5C0298CE81000118825 /* BarlowCondensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61E8B5BF298CE7F800118825 /* BarlowCondensed-Medium.ttf */; };
+		68CDD24F3E2D4FB78B12A033 /* Pods_Go23LiteSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C75ED616E286801EE07C71 /* Pods_Go23LiteSDK_Example.framework */; };
+		B7D36CAC871A9FA7024597C5 /* Pods_Go23LiteSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F6864B0409CA449D574BBA /* Pods_Go23LiteSDK_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,10 +29,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		048EEE664305238E6A22E149 /* Go23LiteSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Go23LiteSDK.podspec; path = ../Go23LiteSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		1D95C609E9C8719A3F0E0817 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		21DB9A5A86D95F11700F1D73 /* Pods-Go23LiteSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23LiteSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		29C7A88687FC77FCFD6F0C5B /* Pods-Go23LiteSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23LiteSDK_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Go23LiteSDK_Tests/Pods-Go23LiteSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		0C5127126DB2BBA5C8B173E9 /* Pods-Go23LiteSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23LiteSDK_Tests.release.xcconfig"; path = "Target Support Files/Pods-Go23LiteSDK_Tests/Pods-Go23LiteSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		2AFEC0B5AA54074CB2812090 /* Pods-Go23LiteSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23LiteSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
+		34D1C3B93772677909749DD4 /* Go23LiteSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Go23LiteSDK.podspec; path = ../Go23LiteSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		41E48DC04905C1CCE59DEE4F /* Pods-Go23LiteSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23LiteSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		42F6864B0409CA449D574BBA /* Pods_Go23LiteSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Go23LiteSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* Go23LiteSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Go23LiteSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,11 +44,11 @@
 		607FACE51AFB9204008FA782 /* Go23LiteSDK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Go23LiteSDK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		7D7256C7A3D391E861A7E12B /* Pods_Go23LiteSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Go23LiteSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C861B88F39F658DB25C52070 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		E0346D04DA6269058E72DDF1 /* Pods-Go23LiteSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23LiteSDK_Tests.release.xcconfig"; path = "Target Support Files/Pods-Go23LiteSDK_Tests/Pods-Go23LiteSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		EFFCDFD00B8981F1634E7AAD /* Pods-Go23LiteSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23LiteSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
-		F5F38EC95C723B7020E87CA9 /* Pods_Go23LiteSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Go23LiteSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61E8B5BF298CE7F800118825 /* BarlowCondensed-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-Medium.ttf"; sourceTree = "<group>"; };
+		73C75ED616E286801EE07C71 /* Pods_Go23LiteSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Go23LiteSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		760AB92737DEB08EBDC5CAD3 /* Pods-Go23LiteSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23LiteSDK_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Go23LiteSDK_Tests/Pods-Go23LiteSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC4F62E2A66BE7E94FECBE6E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F5917267F77DDE5BC758324C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E6D32FAFE9FE2493F8DFB86 /* Pods_Go23LiteSDK_Example.framework in Frameworks */,
+				68CDD24F3E2D4FB78B12A033 /* Pods_Go23LiteSDK_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,22 +64,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3B4C0BED49680619EDB8280 /* Pods_Go23LiteSDK_Tests.framework in Frameworks */,
+				B7D36CAC871A9FA7024597C5 /* Pods_Go23LiteSDK_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A0343112901A7DAEFFB8374 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F5F38EC95C723B7020E87CA9 /* Pods_Go23LiteSDK_Example.framework */,
-				7D7256C7A3D391E861A7E12B /* Pods_Go23LiteSDK_Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -85,8 +78,8 @@
 				607FACD21AFB9204008FA782 /* Example for Go23LiteSDK */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				A653F8C73FA996A094F809BF /* Pods */,
-				1A0343112901A7DAEFFB8374 /* Frameworks */,
+				BB09FBD29BF81C3AD96A8ACF /* Pods */,
+				76E290A2D732A91AAEF48BAE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +95,7 @@
 		607FACD21AFB9204008FA782 /* Example for Go23LiteSDK */ = {
 			isa = PBXGroup;
 			children = (
+				61E8B5BF298CE7F800118825 /* BarlowCondensed-Medium.ttf */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -141,20 +135,29 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				048EEE664305238E6A22E149 /* Go23LiteSDK.podspec */,
-				1D95C609E9C8719A3F0E0817 /* README.md */,
-				C861B88F39F658DB25C52070 /* LICENSE */,
+				34D1C3B93772677909749DD4 /* Go23LiteSDK.podspec */,
+				AC4F62E2A66BE7E94FECBE6E /* README.md */,
+				F5917267F77DDE5BC758324C /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		A653F8C73FA996A094F809BF /* Pods */ = {
+		76E290A2D732A91AAEF48BAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				21DB9A5A86D95F11700F1D73 /* Pods-Go23LiteSDK_Example.debug.xcconfig */,
-				EFFCDFD00B8981F1634E7AAD /* Pods-Go23LiteSDK_Example.release.xcconfig */,
-				29C7A88687FC77FCFD6F0C5B /* Pods-Go23LiteSDK_Tests.debug.xcconfig */,
-				E0346D04DA6269058E72DDF1 /* Pods-Go23LiteSDK_Tests.release.xcconfig */,
+				73C75ED616E286801EE07C71 /* Pods_Go23LiteSDK_Example.framework */,
+				42F6864B0409CA449D574BBA /* Pods_Go23LiteSDK_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB09FBD29BF81C3AD96A8ACF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41E48DC04905C1CCE59DEE4F /* Pods-Go23LiteSDK_Example.debug.xcconfig */,
+				2AFEC0B5AA54074CB2812090 /* Pods-Go23LiteSDK_Example.release.xcconfig */,
+				760AB92737DEB08EBDC5CAD3 /* Pods-Go23LiteSDK_Tests.debug.xcconfig */,
+				0C5127126DB2BBA5C8B173E9 /* Pods-Go23LiteSDK_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -166,11 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Go23LiteSDK_Example" */;
 			buildPhases = (
-				7F21639D5C436E6E6333BBAC /* [CP] Check Pods Manifest.lock */,
+				EC6338B7E19CCDBA9E603764 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				82BD18D0835CD94B70479B17 /* [CP] Embed Pods Frameworks */,
+				780E97C13D8F619683720A21 /* [CP] Copy Pods Resources */,
+				B0B65D86F10A8A82806BD411 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,7 +189,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Go23LiteSDK_Tests" */;
 			buildPhases = (
-				6113297EB2CD71B23EDFC44F /* [CP] Check Pods Manifest.lock */,
+				1D62D16109594FA17E76F17C /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -212,12 +216,10 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 2N2X94J685;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 2N2X94J685;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -248,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61E8B5C0298CE81000118825 /* BarlowCondensed-Medium.ttf in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -264,7 +267,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6113297EB2CD71B23EDFC44F /* [CP] Check Pods Manifest.lock */ = {
+		1D62D16109594FA17E76F17C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,7 +289,59 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7F21639D5C436E6E6333BBAC /* [CP] Check Pods Manifest.lock */ = {
+		780E97C13D8F619683720A21 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Go23LiteSDK/Go23_Go23LiteSDK.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Go23_Go23LiteSDK.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0B65D86F10A8A82806BD411 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImageWebPCoder/SDWebImageWebPCoder.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageWebPCoder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC6338B7E19CCDBA9E603764 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -306,24 +361,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		82BD18D0835CD94B70479B17 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Go23LiteSDK/Go23LiteSDK.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Go23LiteSDK.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Go23LiteSDK_Example/Pods-Go23LiteSDK_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -421,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -467,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -477,14 +514,15 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21DB9A5A86D95F11700F1D73 /* Pods-Go23LiteSDK_Example.debug.xcconfig */;
+			baseConfigurationReference = 41E48DC04905C1CCE59DEE4F /* Pods-Go23LiteSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2N2X94J685;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Go23LiteSDK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.Go23LiteSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -493,14 +531,15 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFFCDFD00B8981F1634E7AAD /* Pods-Go23LiteSDK_Example.release.xcconfig */;
+			baseConfigurationReference = 2AFEC0B5AA54074CB2812090 /* Pods-Go23LiteSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2N2X94J685;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Go23LiteSDK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.Go23LiteSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -509,9 +548,9 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29C7A88687FC77FCFD6F0C5B /* Pods-Go23LiteSDK_Tests.debug.xcconfig */;
+			baseConfigurationReference = 760AB92737DEB08EBDC5CAD3 /* Pods-Go23LiteSDK_Tests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 2N2X94J685;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -532,9 +571,9 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0346D04DA6269058E72DDF1 /* Pods-Go23LiteSDK_Tests.release.xcconfig */;
+			baseConfigurationReference = 0C5127126DB2BBA5C8B173E9 /* Pods-Go23LiteSDK_Tests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 2N2X94J685;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

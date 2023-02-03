@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Go23LiteSDK'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'A short description of Go23LiteSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -26,18 +26,30 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'ming.lu' => 'ming.lu@coins.ph' }
   s.source           = { :git => 'https://github.com/Super-NFT/Go23LiteSDK.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
+  s.static_framework = true
+#  s.requires_arc = true
+#  s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC'}
+  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => ['-lObjC'] }
 
-  s.source_files = 'Go23LiteSDK/Classes/**/*'
+  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.source_files = 'Go23LiteSDK/Classes/**/*.{swift}'
   s.swift_version = '5.0'
-  
-  # s.resource_bundles = {
-  #   'Go23LiteSDK' => ['Go23LiteSDK/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+   s.resource_bundles = {
+     'Go23_Go23LiteSDK' => ['Go23LiteSDK/Assets/*.gif','Go23LiteSDK/Assets/Images.xcassets']
+   }
+   
+   s.vendored_frameworks = ['Go23LiteSDK/Classes/Frameworks/Client.xcframework','Go23LiteSDK/Classes/Frameworks/Go23SDK.framework']
+   s.dependency 'IQKeyboardManager'
+   s.dependency 'Alamofire','4.9.1'
+   s.dependency 'SDWebImage'
+   s.dependency 'SDWebImageWebPCoder'
+   s.dependency 'MJRefresh', '3.7.2'
+   s.dependency 'FDFullscreenPopGesture'
+
+   s.dependency 'BigInt'
+   s.dependency 'SnapKit'
+   
 end

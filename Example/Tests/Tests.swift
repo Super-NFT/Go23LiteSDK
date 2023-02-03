@@ -1,5 +1,5 @@
 import XCTest
-import Go23LiteSDK
+//import Go23LiteSDK
 
 class Tests: XCTestCase {
     
