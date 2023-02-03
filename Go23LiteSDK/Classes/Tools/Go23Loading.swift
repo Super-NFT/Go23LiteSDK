@@ -144,7 +144,7 @@ class Go23Loading: UIView {
 //            }
 //        }
 //        centerIcon.animationImages = images
-        if let gifUrlStr = Bundle.main.path(forResource: "loading", ofType: "gif"),
+        if let bundlePath = Bundle(for: Self.self).path(forResource: "Go23_Go23LiteSDK", ofType: "bundle"), let bundle = Bundle(path: bundlePath), let gifUrlStr = bundle.path(forResource: "loading", ofType: "gif"),
            let gifData = try? NSData(contentsOfFile: gifUrlStr) {
             let image = UIImage.sd_image(withGIFData: gifData as Data)
             centerIcon.image = image

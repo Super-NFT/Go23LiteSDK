@@ -73,7 +73,7 @@ public class Go23Helper {
         if _currentBundle == nil {
             if let bundlePath = Bundle(for: Self.self).path(forResource: "Go23_Go23LiteSDK", ofType: "bundle"), let bundle = Bundle(path: bundlePath) {
                 _currentBundle = bundle
-//                print("bundle === \(bundlePath)")
+                print("bundle === \(bundlePath)")
             }
         }
         return _currentBundle ?? Bundle.main

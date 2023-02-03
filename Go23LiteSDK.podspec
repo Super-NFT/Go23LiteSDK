@@ -32,6 +32,7 @@ TODO: Add long description of the pod here.
 #  s.requires_arc = true
 #  s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC'}
   s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => ['-lObjC'] }
+  s.pod_target_xcconfig = { 'VALID_ARCHS[sdk=iphonesimulator*]' => '' }
 
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.source_files = 'Go23LiteSDK/Classes/**/*.{swift}'

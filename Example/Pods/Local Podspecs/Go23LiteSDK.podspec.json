@@ -20,9 +20,7 @@
   },
   "static_framework": true,
   "pod_target_xcconfig": {
-    "OTHER_LDFLAGS": [
-      "-lObjC"
-    ]
+    "VALID_ARCHS[sdk=iphonesimulator*]": ""
   },
   "public_header_files": "Pod/Classes/**/*.h",
   "source_files": "Go23LiteSDK/Classes/**/*.{swift}",
