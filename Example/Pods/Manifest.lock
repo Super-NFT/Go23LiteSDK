@@ -2,10 +2,8 @@ PODS:
   - FDFullscreenPopGesture (1.1)
   - Go23LiteSDK (0.3.0):
     - FDFullscreenPopGesture
-    - IQKeyboardManagerSwift
     - Kingfisher
     - MJRefresh (= 3.7.2)
-  - IQKeyboardManagerSwift (6.5.11)
   - Kingfisher (6.3.1)
   - MJRefresh (3.7.2)
 
@@ -14,7 +12,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - IQKeyboardManagerSwift
     - Kingfisher
   trunk:
     - FDFullscreenPopGesture
@@ -26,8 +23,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  Go23LiteSDK: 0a187dde002990f04788bdbfe9c48fbed4acadf0
-  IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
+  Go23LiteSDK: bb2a52f694006fa3c45741c9ee428a3d480b5f20
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
 

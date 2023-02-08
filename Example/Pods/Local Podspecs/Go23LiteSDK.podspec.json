@@ -39,9 +39,6 @@
     "Go23LiteSDK/Classes/Frameworks/Go23SDK.framework"
   ],
   "dependencies": {
-    "IQKeyboardManagerSwift": [
-
-    ],
     "Kingfisher": [
 
     ],

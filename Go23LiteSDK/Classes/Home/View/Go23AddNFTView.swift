@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
 import Go23SDK
 
 class Go23AddNFTView: UIView {

@@ -50,7 +50,7 @@ TODO: Add long description of the pod here.
 #   s.dependency 'SDWebImageWebPCoder'
 #   s.dependency 'BigInt'
 #   s.dependency 'SnapKit'
-   s.dependency 'IQKeyboardManagerSwift'
+#   s.dependency 'IQKeyboardManagerSwift'
    s.dependency 'Kingfisher'
    s.dependency 'MJRefresh', '3.7.2'
    s.dependency 'FDFullscreenPopGesture'
