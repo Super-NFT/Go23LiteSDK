@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import IQKeyboardManager
+import IQKeyboardManagerSwift
 import Go23SDK
 
 class Go23AddNFTView: UIView {
@@ -19,7 +19,7 @@ class Go23AddNFTView: UIView {
         
         initSubviews()
         
-        IQKeyboardManager.shared().keyboardDistanceFromTextField = 100
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 100
         
     }
     
