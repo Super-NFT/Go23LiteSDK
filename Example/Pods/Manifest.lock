@@ -1,9 +1,7 @@
 PODS:
   - Go23LiteSDK (0.3.0):
     - Kingfisher
-    - MJRefresh (= 3.7.2)
   - Kingfisher (6.3.1)
-  - MJRefresh (3.7.2)
 
 DEPENDENCIES:
   - Go23LiteSDK (from `../`)
@@ -11,17 +9,14 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Kingfisher
-  trunk:
-    - MJRefresh
 
 EXTERNAL SOURCES:
   Go23LiteSDK:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Go23LiteSDK: 00a96fad945652278a462398bf51a738e6ef9b48
+  Go23LiteSDK: 40de89949e22b65563c70f3540526f2ab0fa682b
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
-  MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
 
 PODFILE CHECKSUM: a0620bed99ebaa5078e606bb33a8b61e83d04ac4
 

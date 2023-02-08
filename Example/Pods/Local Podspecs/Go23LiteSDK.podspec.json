@@ -41,9 +41,6 @@
   "dependencies": {
     "Kingfisher": [
 
-    ],
-    "MJRefresh": [
-      "3.7.2"
     ]
   },
   "swift_version": "5.0"
