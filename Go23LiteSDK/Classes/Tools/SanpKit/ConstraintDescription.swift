@@ -28,7 +28,7 @@
 #endif
 
 
-public class ConstraintDescription {
+class ConstraintDescription {
     
     internal let item: LayoutConstraintItem
     internal var attributes: ConstraintAttributes

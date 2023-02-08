@@ -28,7 +28,7 @@
 #endif
 
 
-public protocol LayoutConstraintItem: AnyObject {
+protocol LayoutConstraintItem: AnyObject {
 }
 
 @available(iOS 9.0, OSX 10.11, *)

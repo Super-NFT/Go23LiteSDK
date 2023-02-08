@@ -28,7 +28,7 @@
 #endif
 
 
-public class ConstraintMakerFinalizable {
+class ConstraintMakerFinalizable {
     
     internal let description: ConstraintDescription
     
@@ -37,12 +37,12 @@ public class ConstraintMakerFinalizable {
     }
     
     @discardableResult
-    public func labeled(_ label: String) -> ConstraintMakerFinalizable {
+    func labeled(_ label: String) -> ConstraintMakerFinalizable {
         self.description.label = label
         return self
     }
     
-    public var constraint: Constraint {
+    var constraint: Constraint {
         return self.description.constraint!
     }
     

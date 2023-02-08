@@ -28,7 +28,7 @@
 #endif
 
 
-public protocol ConstraintInsetTarget: ConstraintConstantTarget {
+protocol ConstraintInsetTarget: ConstraintConstantTarget {
 }
 
 extension Int: ConstraintInsetTarget {

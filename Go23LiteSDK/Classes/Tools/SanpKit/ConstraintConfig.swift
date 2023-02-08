@@ -23,15 +23,15 @@
 
 #if os(iOS) || os(tvOS)
     import UIKit
-    public typealias ConstraintInterfaceLayoutDirection = UIUserInterfaceLayoutDirection
+    typealias ConstraintInterfaceLayoutDirection = UIUserInterfaceLayoutDirection
 #else
     import AppKit
-    public typealias ConstraintInterfaceLayoutDirection = NSUserInterfaceLayoutDirection
+    typealias ConstraintInterfaceLayoutDirection = NSUserInterfaceLayoutDirection
 #endif
 
 
-public struct ConstraintConfig {
+struct ConstraintConfig {
     
-    public static var interfaceLayoutDirection: ConstraintInterfaceLayoutDirection = .leftToRight
+    static var interfaceLayoutDirection: ConstraintInterfaceLayoutDirection = .leftToRight
     
 }

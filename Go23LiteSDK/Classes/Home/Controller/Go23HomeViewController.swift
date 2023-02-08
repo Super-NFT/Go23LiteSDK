@@ -342,7 +342,7 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
 // MARK: - pragma mark =========== JXSegmentedViewDelegate ===========
 
 extension Go23HomeViewController: JXSegmentedViewDelegate {
-   public func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
+    func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (self.segmentedView.selectedIndex == 0)
             segmentedView.dataSource = dataSource
             segmentedView.reloadItem(at: index)
@@ -351,14 +351,14 @@ extension Go23HomeViewController: JXSegmentedViewDelegate {
 
 // MARK: - pragma mark =========== JXSegmentedListContainerViewDataSource ===========
 extension Go23HomeViewController: JXSegmentedListContainerViewDataSource {
-  public  func numberOfLists(in listContainerView: JXSegmentedListContainerView) -> Int {
+    func numberOfLists(in listContainerView: JXSegmentedListContainerView) -> Int {
         if let titleDataSource = segmentedView.dataSource as? JXSegmentedBaseDataSource {
             return titleDataSource.dataSource.count
         }
         return 0
     }
 
-   public func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
+    func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
         if index == 0 {
             let vc = Go23TokenListViewController()
             return vc

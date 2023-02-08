@@ -28,7 +28,7 @@
 #endif
 
 
-public protocol ConstraintConstantTarget {
+protocol ConstraintConstantTarget {
 }
 
 extension CGPoint: ConstraintConstantTarget {

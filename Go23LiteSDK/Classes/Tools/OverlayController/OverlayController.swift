@@ -9,7 +9,7 @@
 import UIKit
 
 /// Control view mask style
-public enum OverlayMaskStyle {
+enum OverlayMaskStyle {
     
     case darkBlur
     
@@ -25,7 +25,7 @@ public enum OverlayMaskStyle {
 }
 
 /// Control the style of view Presenting
-public enum OverlaySlideStyle {
+enum OverlaySlideStyle {
     
     case fromToTop
     
@@ -41,7 +41,7 @@ public enum OverlaySlideStyle {
 }
 
 /// Control where the view finally position
-public enum OverlayLayoutPosition {
+enum OverlayLayoutPosition {
     
     case top
     
@@ -55,7 +55,7 @@ public enum OverlayLayoutPosition {
 }
 
 /// Control the display level of the overlay
-public enum OverlayWindowLevel: Int {
+enum OverlayWindowLevel: Int {
     
     case veryLow
     
@@ -69,7 +69,7 @@ public enum OverlayWindowLevel: Int {
 }
 
 /// Control the overlay you want to dissmiss
-public enum DissmissOptions {
+enum DissmissOptions {
     
     case first
     
@@ -78,7 +78,7 @@ public enum DissmissOptions {
     case all
 }
 
-public extension UIView {
+extension UIView {
     
     /// Present your overlayController of view
     func present(overlay controller: OverlayController,
@@ -106,49 +106,49 @@ public extension UIView {
     }
 }
 
-public class OverlayController: NSObject {
+class OverlayController: NSObject {
     
     /// The `view` is the initialize view
-    public private(set) var view: UIView!
+    private(set) var view: UIView!
     
     /// Whether the view is presenting
-    public private(set) var isPresenting: Bool = false
+    private(set) var isPresenting: Bool = false
     
     /// Set overlay view mask style. default is OverlayMaskStyle..black(opacity: 0.5)
-    public var maskStyle: OverlayMaskStyle = .black(opacity: 0.5)
+    var maskStyle: OverlayMaskStyle = .black(opacity: 0.5)
     
     /// Set overlay view display position. default is OverlayLayoutType.center
-    public var layoutPosition: OverlayLayoutPosition = .center
+    var layoutPosition: OverlayLayoutPosition = .center
 
     /// Set overlay view present slide style. default is OverlaySlideStyle.fade
-    public var presentationStyle: OverlaySlideStyle = .fade
+    var presentationStyle: OverlaySlideStyle = .fade
     
     /// Set overlay view dismiss slide style. default is `presentationStyle`
-    public var dismissonStyle: OverlaySlideStyle?
+    var dismissonStyle: OverlaySlideStyle?
     
     /// Set overlay view priority. default is OverlayLevel.normal
-    public var windowLevel: OverlayWindowLevel = .normal
+    var windowLevel: OverlayWindowLevel = .normal
     
     /// The view will disappear after `dismissAfterDelay` seconds，default is 0 will not disappear
-    public var dismissAfterDelay: TimeInterval = 0
+    var dismissAfterDelay: TimeInterval = 0
     
     /// default is YES. if NO, Mask view will not respond to events.
-    public var isDismissOnMaskTouched = true
+    var isDismissOnMaskTouched = true
     
     /// default is NO. if YES, Popup view will allow to drag
-    public var isPanGestureEnabled = false
+    var isPanGestureEnabled = false
     
     /// When drag position meets the screen ratio the view will dismiss
-    public var panDismissPercent: CGFloat = 0.5
+    var panDismissPercent: CGFloat = 0.5
     
     /// Adjust the layout position by `offsetSpacing`
-    public var layoutPositionOffset: CGFloat = 0
+    var layoutPositionOffset: CGFloat = 0
     
     /// Adjust the relative position offset with the keyboard
-    public var keyboardRelativeOffset: CGFloat = 0
+    var keyboardRelativeOffset: CGFloat = 0
     
     /// default is NO. if YES, Will adjust view position when keyboard changes
-    public var shouldKeyboardChangeFollow = false {
+    var shouldKeyboardChangeFollow = false {
         didSet {
             guard shouldKeyboardChangeFollow else { return }
             bindKeyboardNotifications()
@@ -159,25 +159,25 @@ public class OverlayController: NSObject {
     /// If you want to make the animation consistent:
     /// You need to call the method "becomeFirstResponder()" in "willPresentClosure", don't call it before that.
     /// You need to call the method "resignFirstResponder()" in "willDismissClosure".
-    public var shouldKeyboardFirstRespond = false
+    var shouldKeyboardFirstRespond = false
     
     /// Closure gets called when internal trigger dismiss.
-    public var defaultDismissClosure: (OverlayController) -> ()
+    var defaultDismissClosure: (OverlayController) -> ()
     
     /// Closure gets called when view will present.
-    public var willPresentClosure: ((OverlayController) -> ())?
+    var willPresentClosure: ((OverlayController) -> ())?
     
     /// Closure gets called when view did present.
-    public var didPresentClosure: ((OverlayController) -> ())?
+    var didPresentClosure: ((OverlayController) -> ())?
     
     /// Closure gets called when view will dismiss.
-    public var willDismissClosure: ((OverlayController) -> ())?
+    var willDismissClosure: ((OverlayController) -> ())?
     
     /// Closure gets called when view will dismiss.
-    public var didDismissClosure: ((OverlayController) -> ())?
+    var didDismissClosure: ((OverlayController) -> ())?
 
     /// Designated initializer，Must set your content view and its size
-    public init(view: UIView, size: CGSize = .zero) {
+    init(view: UIView, size: CGSize = .zero) {
         let _size = size.equalTo(.zero) ? view.bounds.size : size
         view.frame = CGRect(origin: .zero, size: _size)
         self.view = view
@@ -557,7 +557,7 @@ public class OverlayController: NSObject {
 
 extension OverlayController: UIGestureRecognizerDelegate {
     
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if gestureRecognizer.isKind(of: UITapGestureRecognizer.self) {
             return !touch.view!.isDescendant(of: view)
         }

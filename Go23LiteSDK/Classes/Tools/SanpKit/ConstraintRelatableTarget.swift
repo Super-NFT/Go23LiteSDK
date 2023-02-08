@@ -28,7 +28,7 @@
 #endif
 
 
-public protocol ConstraintRelatableTarget {
+protocol ConstraintRelatableTarget {
 }
 
 extension Int: ConstraintRelatableTarget {

@@ -28,7 +28,7 @@ import AppKit
 #endif
 
 #if os(iOS) || os(tvOS)
-public protocol ConstraintDirectionalInsetTarget: ConstraintConstantTarget {
+protocol ConstraintDirectionalInsetTarget: ConstraintConstantTarget {
 }
 
 @available(iOS 11.0, tvOS 11.0, *)

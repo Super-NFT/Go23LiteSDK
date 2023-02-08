@@ -27,7 +27,7 @@
     import AppKit
 #endif
 
-public extension LayoutConstraint {
+extension LayoutConstraint {
     
     override var description: String {
         var description = "<"

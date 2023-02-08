@@ -29,9 +29,9 @@
 
 
 @available(iOS 8.0, *)
-public struct ConstraintLayoutSupportDSL: ConstraintDSL {
+struct ConstraintLayoutSupportDSL: ConstraintDSL {
     
-    public var target: AnyObject? {
+    var target: AnyObject? {
         return self.support
     }
     
@@ -42,15 +42,15 @@ public struct ConstraintLayoutSupportDSL: ConstraintDSL {
         
     }
     
-    public var top: ConstraintItem {
+    var top: ConstraintItem {
         return ConstraintItem(target: self.target, attributes: ConstraintAttributes.top)
     }
     
-    public var bottom: ConstraintItem {
+    var bottom: ConstraintItem {
         return ConstraintItem(target: self.target, attributes: ConstraintAttributes.bottom)
     }
     
-    public var height: ConstraintItem {
+    var height: ConstraintItem {
         return ConstraintItem(target: self.target, attributes: ConstraintAttributes.height)
     }
 }

@@ -512,7 +512,7 @@
 		3B069F2103785D5CF3E910E7ABA3F2C8 /* HNavgationBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HNavgationBar.swift; sourceTree = "<group>"; };
 		3B9ED88F9D9FCE01E2ADEB13B577BC8F /* JXSegmentedIndicatorGradientView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorGradientView.swift; sourceTree = "<group>"; };
 		3BE157BC6E09B3D1B124813622282465 /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackFooter.m; path = MJRefresh/Base/MJRefreshBackFooter.m; sourceTree = "<group>"; };
-		3C696A404DBAA5917808146F8526BC39 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3C696A404DBAA5917808146F8526BC39 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		3D0011E6EE63B8DDDC055DC846C9AED4 /* JXSegmentedIndicatorParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorParams.swift; sourceTree = "<group>"; };
 		3D816BE923D843F14C6884A8DEC11406 /* Go23ReceiveView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Go23ReceiveView.swift; sourceTree = "<group>"; };
 		3DE41C9B07B41BB6221FB96942F31AC6 /* IQKeyboardManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQKeyboardManager.release.xcconfig; sourceTree = "<group>"; };
@@ -551,7 +551,7 @@
 		53D10E7A667570006FA264BCC8558669 /* SessionDataTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDataTask.swift; path = Sources/Networking/SessionDataTask.swift; sourceTree = "<group>"; };
 		53F991C9FBD4DB939A9DFBB119B5611A /* JXSegmentedTitleGradientItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleGradientItemModel.swift; sourceTree = "<group>"; };
 		5516A4CE4E764C66708EB8D9AF6D3DE2 /* go23Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = go23Constants.swift; sourceTree = "<group>"; };
-		55A733D2DD185D78EBD6CA352218470B /* Client.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = Client.xcframework; path = Go23LiteSDK/Classes/Frameworks/Client.xcframework; sourceTree = "<group>"; };
+		55A733D2DD185D78EBD6CA352218470B /* Client.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Client.xcframework; path = Go23LiteSDK/Classes/Frameworks/Client.xcframework; sourceTree = "<group>"; };
 		55EC16F748BCA6C3EE942805526E0F3B /* JXSegmentedBaseCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JXSegmentedBaseCell.swift; sourceTree = "<group>"; };
 		55F6CDB641AF08330791A167D4B85568 /* Pods-Go23LiteSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Go23LiteSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		58B3B1EC82BDBCF693EE6A65D3A4D86E /* MJRefreshNormalTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalTrailer.h; path = MJRefresh/Custom/Trailer/MJRefreshNormalTrailer.h; sourceTree = "<group>"; };
@@ -652,14 +652,14 @@
 		9A17E1CD08AADC8F1720ACB595C44D49 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
 		9A5A4DF603BAA17744A540FDA3063910 /* LBXScanViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LBXScanViewController.swift; sourceTree = "<group>"; };
 		9BF78CB610B5F82854A7FA14DCD90C90 /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/General/KingfisherManager.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E30C78F8203FB21EEA8BF6B7D87B507 /* MJRefresh-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MJRefresh-Info.plist"; sourceTree = "<group>"; };
 		9FF5FFA04E9316E4380B7095C6385E3C /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+FDFullscreenPopGesture.h"; path = "FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		9FF9655E27137406B95EE09D288D5ED3 /* JXSegmentedBaseItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JXSegmentedBaseItemModel.swift; sourceTree = "<group>"; };
 		A033BC7B33B3D2C2B3DBFC57B28F518B /* Go23TokenDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Go23TokenDetailViewController.swift; sourceTree = "<group>"; };
 		A056D26B50646349B2AD067AE5E2A51C /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LayoutConstraintItem.swift; sourceTree = "<group>"; };
 		A0A66F1B707D40B0B61D2086C1E5FA07 /* MJRefreshComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshComponent.m; path = MJRefresh/Base/MJRefreshComponent.m; sourceTree = "<group>"; };
-		A0C012B9FD3F72467FB9349482071406 /* Go23_Go23LiteSDK.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Go23_Go23LiteSDK.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C012B9FD3F72467FB9349482071406 /* Go23LiteSDK-Go23_Go23LiteSDK */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Go23LiteSDK-Go23_Go23LiteSDK"; path = Go23_Go23LiteSDK.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11A5673512032428C156BF8470C60FF /* Go23AddNFTView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Go23AddNFTView.swift; sourceTree = "<group>"; };
 		A1B35C98B07A848F1EFE113CAA2DF05A /* SizeExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SizeExtensions.swift; path = Sources/Utility/SizeExtensions.swift; sourceTree = "<group>"; };
 		A2882528A6D8C89BA46601BFD31D29E8 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
@@ -684,7 +684,7 @@
 		AE4E484C9423C0391D1BE05D5815F8F0 /* Go23SettingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Go23SettingViewController.swift; sourceTree = "<group>"; };
 		AECA47A0E5A52FD1D0A3E5FBC94B7301 /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
 		AEDB91DA2FE3039F0E49C8BE8A238434 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		AF289303C62B103E5DD246322B6C5A27 /* Go23LiteSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Go23LiteSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AF289303C62B103E5DD246322B6C5A27 /* Go23LiteSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Go23LiteSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AFA8311C5CE7DC32F7717BF7FFEFD4D2 /* Go23NFTListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Go23NFTListViewController.swift; sourceTree = "<group>"; };
 		AFB76E1210B72D696C6FA7EB56EF2CDE /* IQTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTextView.h; path = IQKeyboardManager/IQTextView/IQTextView.h; sourceTree = "<group>"; };
 		B161956E4F3C6CDA5FF4D21800CF9E9F /* Go23ChooseAlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Go23ChooseAlertView.swift; sourceTree = "<group>"; };
@@ -776,7 +776,7 @@
 		F339D26F51A3125C477EADEAF34C1C60 /* JXSegmentedAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JXSegmentedAnimator.swift; sourceTree = "<group>"; };
 		F393A6CDBCA092C7778535B734BAC5FD /* Go23ConfirmTransferView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Go23ConfirmTransferView.swift; sourceTree = "<group>"; };
 		F420DD23E575560261B37DCB95A6289D /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
-		F4373DC464D9DC6C14B6D6838322CB76 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F4373DC464D9DC6C14B6D6838322CB76 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		F485DF95D5D40713F9C525144106375D /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Kingfisher.swift"; path = "Sources/Extensions/UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
 		F4F2342473A9482E6FD41433B5AB1846 /* UIViewController+Husky.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Husky.swift"; sourceTree = "<group>"; };
 		F88F80A4961BDCB74E9B078212B1DD5B /* Go23UIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Go23UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -892,6 +892,7 @@
 				EB88BABA910F598C664AC53904161F6F /* TitleImage */,
 				52658C440638865A0351553DDC236C71 /* TitleOrImage */,
 			);
+			name = JXSegmentedView;
 			path = JXSegmentedView;
 			sourceTree = "<group>";
 		};
@@ -900,7 +901,7 @@
 			children = (
 				85D03BEC2CA9B2DB28398618379E7744 /* FDFullscreenPopGesture */,
 				51410FB85958EED929418D876B40895B /* Go23LiteSDK */,
-				A0C012B9FD3F72467FB9349482071406 /* Go23_Go23LiteSDK.bundle */,
+				A0C012B9FD3F72467FB9349482071406 /* Go23LiteSDK-Go23_Go23LiteSDK */,
 				98527D7196957AAB07B79E2E2AFDE23E /* IQKeyboardManager */,
 				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
 				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */,
@@ -946,6 +947,7 @@
 				A033BC7B33B3D2C2B3DBFC57B28F518B /* Go23TokenDetailViewController.swift */,
 				E34B161AA6BF897342CEF787C0550403 /* Go23TokenListViewController.swift */,
 			);
+			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -990,6 +992,7 @@
 				2B7E4E08225BDD77954A46C60A2E2B44 /* Typealiases.swift */,
 				82437DCCCC8DE1FF8C1F0F9D4C8F9292 /* UILayoutSupport+Extensions.swift */,
 			);
+			name = SanpKit;
 			path = SanpKit;
 			sourceTree = "<group>";
 		};
@@ -1004,6 +1007,7 @@
 				147F53098DF34FD6B1ED359EC22518DC /* LBXScanViewStyle.swift */,
 				CDBBF2B521211774F4D6C3514352D8A6 /* LBXScanWrapper.swift */,
 			);
+			name = swiftScan;
 			path = swiftScan;
 			sourceTree = "<group>";
 		};
@@ -1045,6 +1049,7 @@
 				013496DE6EFB2B65DCDD6A1A022B54BF /* JXSegmentedTitleGradientDataSource.swift */,
 				53F991C9FBD4DB939A9DFBB119B5611A /* JXSegmentedTitleGradientItemModel.swift */,
 			);
+			name = TitleGradient;
 			path = TitleGradient;
 			sourceTree = "<group>";
 		};
@@ -1055,6 +1060,7 @@
 				6B7CC99EE9577C0AF17EFD82632A5AC4 /* JXSegmentedTitleDataSource.swift */,
 				436218866A1F25F540652A5DD716BB27 /* JXSegmentedTitleItemModel.swift */,
 			);
+			name = Title;
 			path = Title;
 			sourceTree = "<group>";
 		};
@@ -1065,6 +1071,7 @@
 				63CF8EFD286C257333A3107CC606C422 /* UINavigationController+FDFullscreenPopGesture.m */,
 				F2B4A39C6C7A233F836D23D310ADB661 /* Support Files */,
 			);
+			name = FDFullscreenPopGesture;
 			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
@@ -1075,6 +1082,7 @@
 				23551B6D4A53A33DB1C2F7E56B9D04EE /* JXSegmentedTitleOrImageDataSource.swift */,
 				D0CFB667A9EB944AB7FC510C96BA1D51 /* JXSegmentedTitleOrImageItemModel.swift */,
 			);
+			name = TitleOrImage;
 			path = TitleOrImage;
 			sourceTree = "<group>";
 		};
@@ -1098,6 +1106,7 @@
 				99E193D334C50AA44137B6D0706F7C6B /* JXSegmentedCollectionView.swift */,
 				A5F6419363F56266043617A7FA5D383F /* JXSegmentedView.swift */,
 			);
+			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -1182,6 +1191,7 @@
 				146D825B1B3A7AD67BF1B3F68769D664 /* JXSegmentedDotDataSource.swift */,
 				E26F96D50506EB15E4BBFB5431679D48 /* JXSegmentedDotItemModel.swift */,
 			);
+			name = Dot;
 			path = Dot;
 			sourceTree = "<group>";
 		};
@@ -1232,6 +1242,7 @@
 				6B77D5620458D74D3BD596F92C2ED999 /* JXSegmentedRTLLayout.swift */,
 				8C03596703F2A5A13F9D14D964A45C93 /* JXSegmentedViewTool.swift */,
 			);
+			name = Common;
 			path = Common;
 			sourceTree = "<group>";
 		};
@@ -1296,6 +1307,7 @@
 				FB4611613DA47FBFE37693C112B92497 /* WKInterfaceImage+Kingfisher.swift */,
 				B3BC57C0BCDE7BEE21B862A5FD8610D1 /* Support Files */,
 			);
+			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -1337,6 +1349,7 @@
 				7D32391A12F00A6B09D094572FBA925B /* JXSegmentedNumberDataSource.swift */,
 				9799BE5FA6C6C62BD778F27BDF4342C6 /* JXSegmentedNumberItemModel.swift */,
 			);
+			name = Number;
 			path = Number;
 			sourceTree = "<group>";
 		};
@@ -1351,6 +1364,7 @@
 				46F348A217FDA2A29BA4F1137AD2E35A /* UIView+Husky.swift */,
 				F4F2342473A9482E6FD41433B5AB1846 /* UIViewController+Husky.swift */,
 			);
+			name = NavigationBar;
 			path = NavigationBar;
 			sourceTree = "<group>";
 		};
@@ -1361,6 +1375,7 @@
 				FB45ACA733D8861084DF23462BCA328C /* JXSegmentedTitleAttributeDataSource.swift */,
 				C13BE5881FC2709D124EC1B09E905F4E /* JXSegmentedTitleAttributeItemModel.swift */,
 			);
+			name = AttributeTitle;
 			path = AttributeTitle;
 			sourceTree = "<group>";
 		};
@@ -1393,6 +1408,7 @@
 				EDB8B1AE0CD38C193E1A92C9C7280ABD /* JXPagingSmoothView.swift */,
 				877429F20ECB7E918E0CE540A8E762BE /* JXPagingView.swift */,
 			);
+			name = JXPagingView;
 			path = JXPagingView;
 			sourceTree = "<group>";
 		};
@@ -1401,6 +1417,7 @@
 			children = (
 				6686E10A5CD8AB345D00722525038F66 /* OverlayController.swift */,
 			);
+			name = OverlayController;
 			path = OverlayController;
 			sourceTree = "<group>";
 		};
@@ -1437,6 +1454,7 @@
 				14C5822AFD6008CAA6DA0E736A50048C /* IQUIViewController+Additions.m */,
 				68AEADC709B94D2373097F3B2AFE4A34 /* Support Files */,
 			);
+			name = IQKeyboardManager;
 			path = IQKeyboardManager;
 			sourceTree = "<group>";
 		};
@@ -1464,6 +1482,7 @@
 				C97CC6E683E29A7FA7C4677C2910E25B /* HomeHeaderView.swift */,
 				34E3173E20FB1C619D1866F549D7E879 /* PinCodeInputView.swift */,
 			);
+			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1474,6 +1493,7 @@
 				E817CB55E13B4A2012C89C56FE38874B /* JXSegmentedTitleImageDataSource.swift */,
 				C9A0BF5D09E4C1017DF35912EDE11384 /* JXSegmentedTitleImageItemModel.swift */,
 			);
+			name = TitleImage;
 			path = TitleImage;
 			sourceTree = "<group>";
 		};
@@ -1554,6 +1574,7 @@
 				2DC12B3124A132B080A4B87FEAF59BB3 /* Resources */,
 				28806926934B3FE74B746771F034B94B /* Support Files */,
 			);
+			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -1574,6 +1595,7 @@
 				99927FAD798195F32416FF024EBD8BC8 /* JXSegmentedIndicatorRainbowLineView.swift */,
 				612D9DBECA5627C4343D6BF98AE331E4 /* JXSegmentedIndicatorTriangleView.swift */,
 			);
+			name = Indicator;
 			path = Indicator;
 			sourceTree = "<group>";
 		};
@@ -1598,6 +1620,7 @@
 				5DCF4D42C50C5A494EB6333EC5D57BBC /* Timeline.swift */,
 				C3CEDF2E68E4357CD79C8B8DD920A07E /* Validation.swift */,
 			);
+			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1819,7 +1842,7 @@
 			);
 			name = "Go23LiteSDK-Go23_Go23LiteSDK";
 			productName = Go23_Go23LiteSDK;
-			productReference = A0C012B9FD3F72467FB9349482071406 /* Go23_Go23LiteSDK.bundle */;
+			productReference = A0C012B9FD3F72467FB9349482071406 /* Go23LiteSDK-Go23_Go23LiteSDK */;
 			productType = "com.apple.product-type.bundle";
 		};
 		E8022D22FAA6690B5E1C379C1BCE1491 /* Kingfisher */ = {
@@ -1866,11 +1889,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
-				TargetAttributes = {
-					AD2E611A0D20D80820633FDCB97DC5CF = {
-						DevelopmentTeam = 23HBK637BA;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2412,7 +2430,6 @@
 			baseConfigurationReference = 73A0F83FFDE7466E65652D71252254CA /* Go23LiteSDK.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Go23LiteSDK";
-				DEVELOPMENT_TEAM = 23HBK637BA;
 				IBSC_MODULE = Go23LiteSDK;
 				INFOPLIST_FILE = "Target Support Files/Go23LiteSDK/ResourceBundle-Go23_Go23LiteSDK-Go23LiteSDK-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2496,7 +2513,6 @@
 			baseConfigurationReference = 2A22D3E8C7B9831957ABE48ED6C6DBDC /* Go23LiteSDK.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Go23LiteSDK";
-				DEVELOPMENT_TEAM = 23HBK637BA;
 				IBSC_MODULE = Go23LiteSDK;
 				INFOPLIST_FILE = "Target Support Files/Go23LiteSDK/ResourceBundle-Go23_Go23LiteSDK-Go23LiteSDK-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2747,7 +2763,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

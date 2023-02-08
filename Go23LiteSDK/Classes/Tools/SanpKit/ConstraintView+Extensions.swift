@@ -28,7 +28,7 @@
 #endif
 
 
-public extension ConstraintView {
+extension ConstraintView {
     
     @available(*, deprecated, renamed:"snp.left")
     var snp_left: ConstraintItem { return self.snp.left }

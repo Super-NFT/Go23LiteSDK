@@ -27,7 +27,7 @@
 
     
 @available(iOS 8.0, *)
-public extension ConstraintLayoutSupport {
+extension ConstraintLayoutSupport {
     
     var snp: ConstraintLayoutSupportDSL {
         return ConstraintLayoutSupportDSL(support: self)

@@ -29,7 +29,7 @@
 
 
 #if os(iOS) || os(tvOS)
-    public typealias ConstraintInsets = UIEdgeInsets
+    typealias ConstraintInsets = UIEdgeInsets
 #else
-    public typealias ConstraintInsets = NSEdgeInsets
+    typealias ConstraintInsets = NSEdgeInsets
 #endif

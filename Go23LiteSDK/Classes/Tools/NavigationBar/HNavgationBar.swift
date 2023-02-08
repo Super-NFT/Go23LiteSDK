@@ -10,7 +10,7 @@ import UIKit
 let barPadding:CGFloat = 5.0
 let barGap:CGFloat = 5.0
 
-@IBDesignable public class HNavgationBar: UIView {
+@IBDesignable class HNavgationBar: UIView {
 
     @IBInspectable var title: String?{
         didSet{
@@ -23,9 +23,9 @@ let barGap:CGFloat = 5.0
         }
     }
 
-    public let statusBarView: UIView = UIView.init()
-    public let navgationContentView: UIView =  UIView.init()
-    public var shadow: UIView  =  UIView.init()
+    let statusBarView: UIView = UIView.init()
+    let navgationContentView: UIView =  UIView.init()
+    var shadow: UIView  =  UIView.init()
     
     let navgationHeight: CGFloat = 44
     
@@ -132,7 +132,7 @@ let barGap:CGFloat = 5.0
     }
     
     
-    public override func didMoveToSuperview() {
+    override func didMoveToSuperview() {
         if self.superview == nil {
             return
         }

@@ -28,7 +28,7 @@
 #endif
 
 
-public protocol ConstraintMultiplierTarget {
+protocol ConstraintMultiplierTarget {
     
     var constraintMultiplierTargetValue: CGFloat { get }
     
@@ -36,7 +36,7 @@ public protocol ConstraintMultiplierTarget {
 
 extension Int: ConstraintMultiplierTarget {
     
-    public var constraintMultiplierTargetValue: CGFloat {
+    var constraintMultiplierTargetValue: CGFloat {
         return CGFloat(self)
     }
     
@@ -44,7 +44,7 @@ extension Int: ConstraintMultiplierTarget {
 
 extension UInt: ConstraintMultiplierTarget {
     
-    public var constraintMultiplierTargetValue: CGFloat {
+    var constraintMultiplierTargetValue: CGFloat {
         return CGFloat(self)
     }
     
@@ -52,7 +52,7 @@ extension UInt: ConstraintMultiplierTarget {
 
 extension Float: ConstraintMultiplierTarget {
     
-    public var constraintMultiplierTargetValue: CGFloat {
+    var constraintMultiplierTargetValue: CGFloat {
         return CGFloat(self)
     }
     
@@ -60,7 +60,7 @@ extension Float: ConstraintMultiplierTarget {
 
 extension Double: ConstraintMultiplierTarget {
     
-    public var constraintMultiplierTargetValue: CGFloat {
+    var constraintMultiplierTargetValue: CGFloat {
         return CGFloat(self)
     }
     
@@ -68,7 +68,7 @@ extension Double: ConstraintMultiplierTarget {
 
 extension CGFloat: ConstraintMultiplierTarget {
     
-    public var constraintMultiplierTargetValue: CGFloat {
+    var constraintMultiplierTargetValue: CGFloat {
         return self
     }
     

@@ -28,30 +28,30 @@
 #endif
 
 
-public struct ConstraintViewDSL: ConstraintAttributesDSL {
+struct ConstraintViewDSL: ConstraintAttributesDSL {
     
     @discardableResult
-    public func prepareConstraints(_ closure: (_ make: ConstraintMaker) -> Void) -> [Constraint] {
+    func prepareConstraints(_ closure: (_ make: ConstraintMaker) -> Void) -> [Constraint] {
         return ConstraintMaker.prepareConstraints(item: self.view, closure: closure)
     }
     
-    public func makeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
+    func makeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
         ConstraintMaker.makeConstraints(item: self.view, closure: closure)
     }
     
-    public func remakeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
+    func remakeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
         ConstraintMaker.remakeConstraints(item: self.view, closure: closure)
     }
     
-    public func updateConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
+    func updateConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
         ConstraintMaker.updateConstraints(item: self.view, closure: closure)
     }
     
-    public func removeConstraints() {
+    func removeConstraints() {
         ConstraintMaker.removeConstraints(item: self.view)
     }
     
-    public var contentHuggingHorizontalPriority: Float {
+    var contentHuggingHorizontalPriority: Float {
         get {
             return self.view.contentHuggingPriority(for: .horizontal).rawValue
         }
@@ -60,7 +60,7 @@ public struct ConstraintViewDSL: ConstraintAttributesDSL {
         }
     }
     
-    public var contentHuggingVerticalPriority: Float {
+    var contentHuggingVerticalPriority: Float {
         get {
             return self.view.contentHuggingPriority(for: .vertical).rawValue
         }
@@ -69,7 +69,7 @@ public struct ConstraintViewDSL: ConstraintAttributesDSL {
         }
     }
     
-    public var contentCompressionResistanceHorizontalPriority: Float {
+    var contentCompressionResistanceHorizontalPriority: Float {
         get {
             return self.view.contentCompressionResistancePriority(for: .horizontal).rawValue
         }
@@ -78,7 +78,7 @@ public struct ConstraintViewDSL: ConstraintAttributesDSL {
         }
     }
     
-    public var contentCompressionResistanceVerticalPriority: Float {
+    var contentCompressionResistanceVerticalPriority: Float {
         get {
             return self.view.contentCompressionResistancePriority(for: .vertical).rawValue
         }
@@ -87,7 +87,7 @@ public struct ConstraintViewDSL: ConstraintAttributesDSL {
         }
     }
     
-    public var target: AnyObject? {
+    var target: AnyObject? {
         return self.view
     }
     

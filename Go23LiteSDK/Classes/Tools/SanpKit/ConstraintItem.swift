@@ -28,7 +28,7 @@
 #endif
 
 
-public final class ConstraintItem {
+final class ConstraintItem {
     
     internal weak var target: AnyObject?
     internal let attributes: ConstraintAttributes
@@ -44,7 +44,7 @@ public final class ConstraintItem {
     
 }
 
-public func ==(lhs: ConstraintItem, rhs: ConstraintItem) -> Bool {
+func ==(lhs: ConstraintItem, rhs: ConstraintItem) -> Bool {
     // pointer equality
     guard lhs !== rhs else {
         return true

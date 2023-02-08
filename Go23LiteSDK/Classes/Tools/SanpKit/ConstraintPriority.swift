@@ -27,28 +27,28 @@
     import AppKit
 #endif
 
-public struct ConstraintPriority : ExpressibleByFloatLiteral, Equatable, Strideable {
-    public typealias FloatLiteralType = Float
+struct ConstraintPriority : ExpressibleByFloatLiteral, Equatable, Strideable {
+    typealias FloatLiteralType = Float
     
-    public let value: Float
+    let value: Float
     
-    public init(floatLiteral value: Float) {
+    init(floatLiteral value: Float) {
         self.value = value
     }
     
-    public init(_ value: Float) {
+    init(_ value: Float) {
         self.value = value
     }
     
-    public static var required: ConstraintPriority {
+    static var required: ConstraintPriority {
         return 1000.0
     }
     
-    public static var high: ConstraintPriority {
+    static var high: ConstraintPriority {
         return 750.0
     }
     
-    public static var medium: ConstraintPriority {
+    static var medium: ConstraintPriority {
         #if os(OSX)
             return 501.0
         #else
@@ -57,21 +57,21 @@ public struct ConstraintPriority : ExpressibleByFloatLiteral, Equatable, Stridea
         
     }
     
-    public static var low: ConstraintPriority {
+    static var low: ConstraintPriority {
         return 250.0
     }
     
-    public static func ==(lhs: ConstraintPriority, rhs: ConstraintPriority) -> Bool {
+    static func ==(lhs: ConstraintPriority, rhs: ConstraintPriority) -> Bool {
         return lhs.value == rhs.value
     }
 
     // MARK: Strideable
 
-    public func advanced(by n: FloatLiteralType) -> ConstraintPriority {
+    func advanced(by n: FloatLiteralType) -> ConstraintPriority {
         return ConstraintPriority(floatLiteral: value + n)
     }
 
-    public func distance(to other: ConstraintPriority) -> FloatLiteralType {
+    func distance(to other: ConstraintPriority) -> FloatLiteralType {
         return other.value - value
     }
 }

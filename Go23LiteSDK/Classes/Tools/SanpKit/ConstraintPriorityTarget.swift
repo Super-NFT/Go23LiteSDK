@@ -28,7 +28,7 @@
 #endif
 
 
-public protocol ConstraintPriorityTarget {
+protocol ConstraintPriorityTarget {
     
     var constraintPriorityTargetValue: Float { get }
     
@@ -36,7 +36,7 @@ public protocol ConstraintPriorityTarget {
 
 extension Int: ConstraintPriorityTarget {
     
-    public var constraintPriorityTargetValue: Float {
+    var constraintPriorityTargetValue: Float {
         return Float(self)
     }
     
@@ -44,7 +44,7 @@ extension Int: ConstraintPriorityTarget {
 
 extension UInt: ConstraintPriorityTarget {
     
-    public var constraintPriorityTargetValue: Float {
+    var constraintPriorityTargetValue: Float {
         return Float(self)
     }
     
@@ -52,7 +52,7 @@ extension UInt: ConstraintPriorityTarget {
 
 extension Float: ConstraintPriorityTarget {
     
-    public var constraintPriorityTargetValue: Float {
+    var constraintPriorityTargetValue: Float {
         return self
     }
     
@@ -60,7 +60,7 @@ extension Float: ConstraintPriorityTarget {
 
 extension Double: ConstraintPriorityTarget {
     
-    public var constraintPriorityTargetValue: Float {
+    var constraintPriorityTargetValue: Float {
         return Float(self)
     }
     
@@ -68,7 +68,7 @@ extension Double: ConstraintPriorityTarget {
 
 extension CGFloat: ConstraintPriorityTarget {
     
-    public var constraintPriorityTargetValue: Float {
+    var constraintPriorityTargetValue: Float {
         return Float(self)
     }
     
@@ -77,7 +77,7 @@ extension CGFloat: ConstraintPriorityTarget {
 #if os(iOS) || os(tvOS)
 extension UILayoutPriority: ConstraintPriorityTarget {
 
-    public var constraintPriorityTargetValue: Float {
+    var constraintPriorityTargetValue: Float {
         return self.rawValue
     }
 

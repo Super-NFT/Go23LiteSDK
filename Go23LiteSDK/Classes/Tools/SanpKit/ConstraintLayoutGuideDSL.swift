@@ -29,30 +29,30 @@
 
 
 @available(iOS 9.0, OSX 10.11, *)
-public struct ConstraintLayoutGuideDSL: ConstraintAttributesDSL {
+struct ConstraintLayoutGuideDSL: ConstraintAttributesDSL {
     
     @discardableResult
-    public func prepareConstraints(_ closure: (_ make: ConstraintMaker) -> Void) -> [Constraint] {
+    func prepareConstraints(_ closure: (_ make: ConstraintMaker) -> Void) -> [Constraint] {
         return ConstraintMaker.prepareConstraints(item: self.guide, closure: closure)
     }
     
-    public func makeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
+    func makeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
         ConstraintMaker.makeConstraints(item: self.guide, closure: closure)
     }
     
-    public func remakeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
+    func remakeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
         ConstraintMaker.remakeConstraints(item: self.guide, closure: closure)
     }
     
-    public func updateConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
+    func updateConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
         ConstraintMaker.updateConstraints(item: self.guide, closure: closure)
     }
     
-    public func removeConstraints() {
+    func removeConstraints() {
         ConstraintMaker.removeConstraints(item: self.guide)
     }
     
-    public var target: AnyObject? {
+    var target: AnyObject? {
         return self.guide
     }
     
