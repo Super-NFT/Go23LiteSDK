@@ -1,7 +1,5 @@
 PODS:
-  - FDFullscreenPopGesture (1.1)
   - Go23LiteSDK (0.3.0):
-    - FDFullscreenPopGesture
     - Kingfisher
     - MJRefresh (= 3.7.2)
   - Kingfisher (6.3.1)
@@ -14,7 +12,6 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Kingfisher
   trunk:
-    - FDFullscreenPopGesture
     - MJRefresh
 
 EXTERNAL SOURCES:
@@ -22,8 +19,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  Go23LiteSDK: bb2a52f694006fa3c45741c9ee428a3d480b5f20
+  Go23LiteSDK: 00a96fad945652278a462398bf51a738e6ef9b48
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
 
