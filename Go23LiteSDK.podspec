@@ -29,13 +29,11 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '13.0'
   s.static_framework = true
-#  s.requires_arc = true
-#  s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC'}
-  s.pod_target_xcconfig = {
-      'OTHER_LDFLAGS' => ['-lObjC'] ,
-      'VALID_ARCHS[sdk=iphonesimulator*]' => '' }
+  s.requires_arc = true
+  s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC'}
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
-#  s.public_header_files = 'Pod/Classes/**/*.h'
   s.source_files = 'Go23LiteSDK/Classes/**/*.{swift}'
   s.swift_version = '5.0'
 

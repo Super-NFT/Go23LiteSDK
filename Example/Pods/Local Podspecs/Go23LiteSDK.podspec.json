@@ -19,11 +19,15 @@
     "ios": "13.0"
   },
   "static_framework": true,
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
   "pod_target_xcconfig": {
-    "OTHER_LDFLAGS": [
-      "-lObjC"
-    ],
-    "VALID_ARCHS[sdk=iphonesimulator*]": ""
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
   },
   "source_files": "Go23LiteSDK/Classes/**/*.{swift}",
   "swift_versions": "5.0",
