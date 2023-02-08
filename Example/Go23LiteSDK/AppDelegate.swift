@@ -8,9 +8,8 @@
 
 import UIKit
 import Go23LiteSDK
-import IQKeyboardManager
-import SDWebImageWebPCoder
-import CoreTelephony
+//import IQKeyboardManager
+//import SDWebImageWebPCoder
 import Go23SDK
 
 @UIApplicationMain
@@ -21,14 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let WebPCoder = SDImageWebPCoder.shared
-        SDImageCodersManager.shared.addCoder(WebPCoder)
-        
-        IQKeyboardManager.shared().isEnabled = true
-        IQKeyboardManager.shared().isEnableAutoToolbar = false
-        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
-        IQKeyboardManager.shared().previousNextDisplayMode = .alwaysHide
-        IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
+//        let WebPCoder = SDImageWebPCoder.shared
+//        SDImageCodersManager.shared.addCoder(WebPCoder)
+//
+//        IQKeyboardManager.shared().isEnabled = true
+//        IQKeyboardManager.shared().isEnableAutoToolbar = false
+//        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
+//        IQKeyboardManager.shared().previousNextDisplayMode = .alwaysHide
+//        IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
 
         // Replace yout appKey and secretKey here.
         Go23WalletSDK.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e",

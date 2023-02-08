@@ -351,8 +351,7 @@ class ChooseView: UIView {
     
     func filled(title: String, img: String) {
         
-        iconImgv.sd_setImage(with: URL(string: img), placeholderImage: nil, completed: nil)
-        
+        iconImgv.kf.setImage(with: URL(string: img))
         let attri = NSMutableAttributedString()
         attri.add(text: " ") { attr in
             

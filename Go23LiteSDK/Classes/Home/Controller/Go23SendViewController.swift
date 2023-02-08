@@ -834,7 +834,7 @@ class SendHeaderView: UIView {
     }
     
     func filled(cover: String, name: String) {
-        self.coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil)
+        self.coverImgv.kf.setImage(with: URL(string: cover))
         self.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 18), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: name)
     }
     

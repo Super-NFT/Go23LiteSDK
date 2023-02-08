@@ -77,7 +77,7 @@ class Go23TokenListTableViewCell: UITableViewCell {
     }
     
     func filled(cover: String, title: String, type: String, money: String, sourceImg: String) {
-        iconImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil)
+        iconImgv.kf.setImage(with: URL(string: cover))
         titleLabel.text = title
         tokenTypeLabel.text = type
          if let mon = Double(money), mon <= 0 {
@@ -106,7 +106,7 @@ class Go23TokenListTableViewCell: UITableViewCell {
             }
         }
         moneyLabel.text = "$ \(money)"
-        sourceImgv.sd_setImage(with: URL(string: sourceImg), placeholderImage: nil)
+        sourceImgv.kf.setImage(with: URL(string: sourceImg))
     }
     
     private lazy var iconImgv: UIImageView = {

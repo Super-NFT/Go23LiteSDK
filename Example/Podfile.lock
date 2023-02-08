@@ -3,38 +3,22 @@ PODS:
   - Go23LiteSDK (0.3.0):
     - FDFullscreenPopGesture
     - IQKeyboardManager
+    - Kingfisher
     - MJRefresh (= 3.7.2)
-    - SDWebImage
-    - SDWebImageWebPCoder
   - IQKeyboardManager (6.5.10)
-  - libwebp (1.2.4):
-    - libwebp/demux (= 1.2.4)
-    - libwebp/mux (= 1.2.4)
-    - libwebp/webp (= 1.2.4)
-  - libwebp/demux (1.2.4):
-    - libwebp/webp
-  - libwebp/mux (1.2.4):
-    - libwebp/demux
-  - libwebp/webp (1.2.4)
+  - Kingfisher (6.3.1)
   - MJRefresh (3.7.2)
-  - SDWebImage (5.15.0):
-    - SDWebImage/Core (= 5.15.0)
-  - SDWebImage/Core (5.15.0)
-  - SDWebImageWebPCoder (0.10.0):
-    - libwebp (~> 1.0)
-    - SDWebImage/Core (~> 5.15)
 
 DEPENDENCIES:
   - Go23LiteSDK (from `../`)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Kingfisher
   trunk:
     - FDFullscreenPopGesture
     - IQKeyboardManager
-    - libwebp
     - MJRefresh
-    - SDWebImage
-    - SDWebImageWebPCoder
 
 EXTERNAL SOURCES:
   Go23LiteSDK:
@@ -42,12 +26,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  Go23LiteSDK: 264bf9aa1215796fab8ceac1e904812371a2633b
+  Go23LiteSDK: c087291b2c8dc08389780f5dc64e3fe69c0ab682
   IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
-  libwebp: f62cb61d0a484ba548448a4bd52aabf150ff6eef
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
-  SDWebImage: 9bec4c5cdd9579e1f57104735ee0c37df274d593
-  SDWebImageWebPCoder: 07b5d53b3adcc3d491312a58ea103e36af1692c1
 
 PODFILE CHECKSUM: a0620bed99ebaa5078e606bb33a8b61e83d04ac4
 

@@ -46,8 +46,9 @@ TODO: Add long description of the pod here.
    s.vendored_frameworks = ['Go23LiteSDK/Classes/Frameworks/Client.xcframework','Go23LiteSDK/Classes/Frameworks/Go23SDK.framework']
    s.dependency 'IQKeyboardManager'
 #   s.dependency 'Alamofire','4.9.1'
-   s.dependency 'SDWebImage'
-   s.dependency 'SDWebImageWebPCoder'
+#   s.dependency 'SDWebImage'
+#   s.dependency 'SDWebImageWebPCoder'
+   s.dependency 'Kingfisher'
    s.dependency 'MJRefresh', '3.7.2'
    s.dependency 'FDFullscreenPopGesture'
 

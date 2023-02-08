@@ -586,7 +586,7 @@ extension Go23SendNFTViewController {
             guard let obj = model else {
                 return
             }
-            self?.coverImgv.sd_setImage(with: URL(string: self?.nftDetailModel?.image ?? ""), placeholderImage: nil)
+            self?.coverImgv.kf.setImage(with: URL(string: self?.nftDetailModel?.image ?? ""))
             self?.layout(isNum: self?.isShowNumView ?? false)
             
             if obj.gas.count > 0, let walletObj = Go23WalletMangager.shared.walletModel, let holdLabel = self?.addressHoldLabel {

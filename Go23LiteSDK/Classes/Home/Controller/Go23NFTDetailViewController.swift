@@ -261,7 +261,7 @@ class NFTDetailHeaderView: UIView {
     }
     
     func filled(cover: String, title: String, desc: String) {
-        coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil)
+        coverImgv.kf.setImage(with: URL(string: cover))
         descLabel.text = desc
         titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: title)
     }
