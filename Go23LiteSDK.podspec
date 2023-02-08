@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Go23LiteSDK'
-  s.version          = '0.3.0'
+  s.version          = '0.4.0'
   s.summary          = 'A short description of Go23LiteSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -35,7 +35,7 @@ TODO: Add long description of the pod here.
       'OTHER_LDFLAGS' => ['-lObjC'] ,
       'VALID_ARCHS[sdk=iphonesimulator*]' => '' }
 
-  s.public_header_files = 'Pod/Classes/**/*.h'
+#  s.public_header_files = 'Pod/Classes/**/*.h'
   s.source_files = 'Go23LiteSDK/Classes/**/*.{swift}'
   s.swift_version = '5.0'
 
