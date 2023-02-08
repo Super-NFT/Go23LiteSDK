@@ -26,7 +26,7 @@
 import Foundation
 import UIKit
 
-public enum ESRefreshViewState {
+enum ESRefreshViewState {
     case pullToRefresh
     case releaseToRefresh
     case refreshing
@@ -40,7 +40,7 @@ public enum ESRefreshViewState {
  *  You can customize the refresh or custom animation effects
  *  Mutating is to be able to modify or enum struct variable in the method - http://swifter.tips/protocol-mutation/ by ONEVCAT
  */
-public protocol ESRefreshProtocol {
+protocol ESRefreshProtocol {
     
     /**
      Refresh operation begins execution method
@@ -63,7 +63,7 @@ public protocol ESRefreshProtocol {
 }
 
 
-public protocol ESRefreshAnimatorProtocol {
+protocol ESRefreshAnimatorProtocol {
     
     // The view that called when component refresh, returns a custom view or self if 'self' is the customized views.
     var view: UIView {get}
@@ -99,7 +99,7 @@ fileprivate class ESRefreshImpacter {
         return nil
     }()
     
-    static public func impact() -> Void {
+    static func impact() -> Void {
         if #available(iOS 10.0, *) {
             if let impacter = impacter as? UIImpactFeedbackGenerator {
                 impacter.impactOccurred()
@@ -108,8 +108,8 @@ fileprivate class ESRefreshImpacter {
     }
 }
 
-public protocol ESRefreshImpactProtocol {}
-public extension ESRefreshImpactProtocol {
+protocol ESRefreshImpactProtocol {}
+extension ESRefreshImpactProtocol {
     
     func impact() -> Void {
         ESRefreshImpacter.impact()

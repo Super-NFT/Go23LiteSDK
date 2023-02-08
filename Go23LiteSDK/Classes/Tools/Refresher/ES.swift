@@ -9,21 +9,21 @@
 import UIKit
 
 
-public protocol ESExtensionsProvider: class {
+protocol ESExtensionsProvider: class {
     associatedtype CompatibleType
     var es: CompatibleType { get }
 }
 
 extension ESExtensionsProvider {
     /// A proxy which hosts reactive extensions for `self`.
-    public var es: ES<Self> {
+    var es: ES<Self> {
         return ES(self)
     }
 
 }
 
-public struct ES<Base> {
-    public let base: Base
+struct ES<Base> {
+    let base: Base
     
     // Construct a proxy.
     //

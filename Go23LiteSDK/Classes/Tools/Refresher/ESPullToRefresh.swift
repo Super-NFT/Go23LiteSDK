@@ -29,7 +29,7 @@ import UIKit
 private var kESRefreshHeaderKey: Void?
 private var kESRefreshFooterKey: Void?
 
-public extension UIScrollView {
+extension UIScrollView {
     
     /// Pull-to-refresh associated property
     var header: ESRefreshHeaderView? {
@@ -44,7 +44,7 @@ public extension UIScrollView {
     }
 }
 
-public extension ES where Base: UIScrollView {
+extension ES where Base: UIScrollView {
     /// Add pull-to-refresh
     @discardableResult
     func addPullToRefresh(handler: @escaping ESRefreshHandler) -> ESRefreshHeaderView {
@@ -148,7 +148,7 @@ public extension ES where Base: UIScrollView {
     
 }
 
-public extension UIScrollView /* Date Manager */ {
+extension UIScrollView /* Date Manager */ {
     
     /// Identifier for cache expired timeinterval and last refresh date.
     var refreshIdentifier: String? {
@@ -194,21 +194,21 @@ public extension UIScrollView /* Date Manager */ {
 }
 
 
-open class ESRefreshHeaderView: ESRefreshComponent {
+class ESRefreshHeaderView: ESRefreshComponent {
     fileprivate var previousOffset: CGFloat = 0.0
     fileprivate var scrollViewInsets: UIEdgeInsets = UIEdgeInsets.zero
     fileprivate var scrollViewBounces: Bool = true
 
-    open var lastRefreshTimestamp: TimeInterval?
-    open var refreshIdentifier: String?
+    var lastRefreshTimestamp: TimeInterval?
+    var refreshIdentifier: String?
     
-    public convenience init(frame: CGRect, handler: @escaping ESRefreshHandler) {
+    convenience init(frame: CGRect, handler: @escaping ESRefreshHandler) {
         self.init(frame: frame)
         self.handler = handler
         self.animator = ESRefreshHeaderAnimator.init()
     }
     
-    open override func didMoveToSuperview() {
+    override func didMoveToSuperview() {
         super.didMoveToSuperview()
         DispatchQueue.main.async {
             [weak self] in
@@ -217,7 +217,7 @@ open class ESRefreshHeaderView: ESRefreshComponent {
         }
     }
     
-    open override func offsetChangeAction(object: AnyObject?, change: [NSKeyValueChangeKey : Any]?) {
+    override func offsetChangeAction(object: AnyObject?, change: [NSKeyValueChangeKey : Any]?) {
         guard let scrollView = scrollView else {
             return
         }
@@ -273,7 +273,7 @@ open class ESRefreshHeaderView: ESRefreshComponent {
         
     }
     
-    open override func start() {
+    override func start() {
         guard let scrollView = scrollView else {
             return
         }
@@ -310,7 +310,7 @@ open class ESRefreshHeaderView: ESRefreshComponent {
         
     }
     
-    open override func stop() {
+    override func stop() {
         guard let scrollView = scrollView else {
             return
         }
@@ -337,9 +337,9 @@ open class ESRefreshHeaderView: ESRefreshComponent {
     
 }
 
-open class ESRefreshFooterView: ESRefreshComponent {
+class ESRefreshFooterView: ESRefreshComponent {
     fileprivate var scrollViewInsets: UIEdgeInsets = UIEdgeInsets.zero
-    open var noMoreData = false {
+    var noMoreData = false {
         didSet {
             if noMoreData != oldValue {
                 self.animator.refresh(view: self, stateDidChange: noMoreData ? .noMoreData : .pullToRefresh)
@@ -347,7 +347,7 @@ open class ESRefreshFooterView: ESRefreshComponent {
         }
     }
     
-    open override var isHidden: Bool {
+    override var isHidden: Bool {
         didSet {
             if isHidden == true {
                 scrollView?.contentInset.bottom = scrollViewInsets.bottom
@@ -363,7 +363,7 @@ open class ESRefreshFooterView: ESRefreshComponent {
         }
     }
     
-    public convenience init(frame: CGRect, handler: @escaping ESRefreshHandler) {
+    convenience init(frame: CGRect, handler: @escaping ESRefreshHandler) {
         self.init(frame: frame)
         self.handler = handler
         self.animator = ESRefreshFooterAnimator.init()
@@ -373,7 +373,7 @@ open class ESRefreshFooterView: ESRefreshComponent {
       In didMoveToSuperview, it will cache superview(UIScrollView)'s contentInset and update self's frame.
       It called ESRefreshComponent's didMoveToSuperview.
      */
-    open override func didMoveToSuperview() {
+    override func didMoveToSuperview() {
         super.didMoveToSuperview()
         DispatchQueue.main.async {
             [weak self] in
@@ -385,7 +385,7 @@ open class ESRefreshFooterView: ESRefreshComponent {
         }
     }
  
-    open override func sizeChangeAction(object: AnyObject?, change: [NSKeyValueChangeKey : Any]?) {
+    override func sizeChangeAction(object: AnyObject?, change: [NSKeyValueChangeKey : Any]?) {
         guard let scrollView = scrollView else { return }
         super.sizeChangeAction(object: object, change: change)
         let targetY = scrollView.contentSize.height + scrollViewInsets.bottom
@@ -396,7 +396,7 @@ open class ESRefreshFooterView: ESRefreshComponent {
         }
     }
     
-    open override func offsetChangeAction(object: AnyObject?, change: [NSKeyValueChangeKey : Any]?) {
+    override func offsetChangeAction(object: AnyObject?, change: [NSKeyValueChangeKey : Any]?) {
         guard let scrollView = scrollView else {
             return
         }
@@ -430,7 +430,7 @@ open class ESRefreshFooterView: ESRefreshComponent {
         }
     }
     
-    open override func start() {
+    override func start() {
         guard let scrollView = scrollView else {
             return
         }
@@ -449,7 +449,7 @@ open class ESRefreshFooterView: ESRefreshComponent {
         })
     }
     
-    open override func stop() {
+    override func stop() {
         guard let scrollView = scrollView else {
             return
         }
@@ -483,12 +483,12 @@ open class ESRefreshFooterView: ESRefreshComponent {
     }
     
     /// Change to no-more-data status.
-    open func noticeNoMoreData() {
+    func noticeNoMoreData() {
         self.noMoreData = true
     }
     
     /// Reset no-more-data status.
-    open func resetNoMoreData() {
+    func resetNoMoreData() {
         self.noMoreData = false
     }
     

@@ -28,22 +28,22 @@ import Foundation
 import QuartzCore
 import UIKit
 
-open class ESRefreshHeaderAnimator: UIView, ESRefreshProtocol, ESRefreshAnimatorProtocol, ESRefreshImpactProtocol {
-    open var pullToRefreshDescription = NSLocalizedString("Pull to refresh", comment: "") {
+class ESRefreshHeaderAnimator: UIView, ESRefreshProtocol, ESRefreshAnimatorProtocol, ESRefreshImpactProtocol {
+    var pullToRefreshDescription = NSLocalizedString("Pull to refresh", comment: "") {
         didSet {
             if pullToRefreshDescription != oldValue {
                 titleLabel.text = pullToRefreshDescription;
             }
         }
     }
-    open var releaseToRefreshDescription = NSLocalizedString("Release to refresh", comment: "")
-    open var loadingDescription = NSLocalizedString("Loading...", comment: "")
+    var releaseToRefreshDescription = NSLocalizedString("Release to refresh", comment: "")
+    var loadingDescription = NSLocalizedString("Loading...", comment: "")
 
-    open var view: UIView { return self }
-    open var insets: UIEdgeInsets = UIEdgeInsets.zero
-    open var trigger: CGFloat = 60.0
-    open var executeIncremental: CGFloat = 60.0
-    open var state: ESRefreshViewState = .pullToRefresh
+    var view: UIView { return self }
+    var insets: UIEdgeInsets = UIEdgeInsets.zero
+    var trigger: CGFloat = 60.0
+    var executeIncremental: CGFloat = 60.0
+    var state: ESRefreshViewState = .pullToRefresh
 
     fileprivate let imageView: UIImageView = {
         let imageView = UIImageView.init()
@@ -74,7 +74,7 @@ open class ESRefreshHeaderAnimator: UIView, ESRefreshProtocol, ESRefreshAnimator
         return indicatorView
     }()
     
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         titleLabel.text = pullToRefreshDescription
         self.addSubview(imageView)
@@ -82,11 +82,11 @@ open class ESRefreshHeaderAnimator: UIView, ESRefreshProtocol, ESRefreshAnimator
         self.addSubview(indicatorView)
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    open func refreshAnimationBegin(view: ESRefreshComponent) {
+    func refreshAnimationBegin(view: ESRefreshComponent) {
         indicatorView.startAnimating()
         indicatorView.isHidden = false
         imageView.isHidden = true
@@ -94,7 +94,7 @@ open class ESRefreshHeaderAnimator: UIView, ESRefreshProtocol, ESRefreshAnimator
         imageView.transform = CGAffineTransform(rotationAngle: 0.000001 - CGFloat.pi)
     }
   
-    open func refreshAnimationEnd(view: ESRefreshComponent) {
+    func refreshAnimationEnd(view: ESRefreshComponent) {
         indicatorView.stopAnimating()
         indicatorView.isHidden = true
         imageView.isHidden = false
@@ -102,12 +102,12 @@ open class ESRefreshHeaderAnimator: UIView, ESRefreshProtocol, ESRefreshAnimator
         imageView.transform = CGAffineTransform.identity
     }
     
-    open func refresh(view: ESRefreshComponent, progressDidChange progress: CGFloat) {
+    func refresh(view: ESRefreshComponent, progressDidChange progress: CGFloat) {
         // Do nothing
         
     }
     
-    open func refresh(view: ESRefreshComponent, stateDidChange state: ESRefreshViewState) {
+    func refresh(view: ESRefreshComponent, stateDidChange state: ESRefreshViewState) {
         guard self.state != state else {
             return
         }
@@ -140,7 +140,7 @@ open class ESRefreshHeaderAnimator: UIView, ESRefreshProtocol, ESRefreshAnimator
         }
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
         let s = self.bounds.size
         let w = s.width
