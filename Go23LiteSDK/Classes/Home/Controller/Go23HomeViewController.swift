@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import SnapKit
-import BigInt
-import Alamofire
 import Go23SDK
 
 class Go23WalletMangager {

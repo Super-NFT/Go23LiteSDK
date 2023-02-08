@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 let barPadding:CGFloat = 5.0
 let barGap:CGFloat = 5.0

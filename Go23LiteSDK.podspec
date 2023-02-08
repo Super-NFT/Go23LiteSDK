@@ -31,8 +31,9 @@ TODO: Add long description of the pod here.
   s.static_framework = true
 #  s.requires_arc = true
 #  s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC'}
-  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => ['-lObjC'] }
-  s.pod_target_xcconfig = { 'VALID_ARCHS[sdk=iphonesimulator*]' => '' }
+  s.pod_target_xcconfig = {
+      'OTHER_LDFLAGS' => ['-lObjC'] ,
+      'VALID_ARCHS[sdk=iphonesimulator*]' => '' }
 
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.source_files = 'Go23LiteSDK/Classes/**/*.{swift}'
@@ -44,13 +45,13 @@ TODO: Add long description of the pod here.
    
    s.vendored_frameworks = ['Go23LiteSDK/Classes/Frameworks/Client.xcframework','Go23LiteSDK/Classes/Frameworks/Go23SDK.framework']
    s.dependency 'IQKeyboardManager'
-   s.dependency 'Alamofire','4.9.1'
+#   s.dependency 'Alamofire','4.9.1'
    s.dependency 'SDWebImage'
    s.dependency 'SDWebImageWebPCoder'
    s.dependency 'MJRefresh', '3.7.2'
    s.dependency 'FDFullscreenPopGesture'
 
-   s.dependency 'BigInt'
-   s.dependency 'SnapKit'
+#   s.dependency 'BigInt'
+#   s.dependency 'SnapKit'
    
 end

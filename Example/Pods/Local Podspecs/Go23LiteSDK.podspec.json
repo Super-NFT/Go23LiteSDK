@@ -20,6 +20,9 @@
   },
   "static_framework": true,
   "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-lObjC"
+    ],
     "VALID_ARCHS[sdk=iphonesimulator*]": ""
   },
   "public_header_files": "Pod/Classes/**/*.h",
@@ -39,9 +42,6 @@
     "IQKeyboardManager": [
 
     ],
-    "Alamofire": [
-      "4.9.1"
-    ],
     "SDWebImage": [
 
     ],
@@ -52,12 +52,6 @@
       "3.7.2"
     ],
     "FDFullscreenPopGesture": [
-
-    ],
-    "BigInt": [
-
-    ],
-    "SnapKit": [
 
     ]
   },
