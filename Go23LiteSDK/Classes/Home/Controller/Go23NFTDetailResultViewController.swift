@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 import Go23SDK
 
 class Go23NFTDetailResultViewController: UIViewController {
@@ -19,7 +20,10 @@ class Go23NFTDetailResultViewController: UIViewController {
         setNav()
 
     }
-
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

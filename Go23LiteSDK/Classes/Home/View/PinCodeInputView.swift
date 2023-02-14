@@ -25,7 +25,6 @@ class PincodeLabel: UILabel {
         layer.masksToBounds = true
         font = .systemFont(ofSize: 19.0)
         textColor = .black
-        
     }
     
     required init?(coder: NSCoder) {

@@ -20,29 +20,24 @@ class Go23TokenDetailListViewController: UIViewController {
      
     private var listModel = [Go23ActivityModel]()
     
+    private var pageIndex = 1
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initSubviews()
-        
         getList()
-        
-        tableView.es.addPullToRefresh { [weak self] in
-            self?.tableView.es.stopPullToRefresh()
-            NotificationCenter.default.post(name: NSNotification.Name(kRefreshTokenListDetailKey),
-                                            object: nil,
-                                            userInfo: nil)
-            self?.getList(isLoading: false)
-            
-        }
-
     }
     
     private func initSubviews() {
         view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalToSuperview()
+            make.left.right.top.bottom.equalToSuperview()
         }
         
         tableView.addSubview(noDataV)
@@ -50,6 +45,27 @@ class Go23TokenDetailListViewController: UIViewController {
             make.center.equalToSuperview()
         }
         noDataV.isHidden = true
+        
+        let header = Go23RefreshHeaderAnimator.init(frame: .zero)
+        tableView.es.addPullToRefresh(animator: header) {
+            [weak self] in
+            //            self?.tableView.es.stopPullToRefresh()
+            NotificationCenter.default.post(name: NSNotification.Name(kRefreshTokenListDetailKey),
+                                            object: nil,
+                                            userInfo: nil)
+            self?.pageIndex = 1
+            self?.getList(isLoading: false)
+        }
+        
+        tableView.es.addInfiniteScrolling {
+            [weak self] in
+            NotificationCenter.default.post(name: NSNotification.Name(kRefreshTokenListDetailKey),
+                                            object: nil,
+                                            userInfo: nil)
+            self?.pageIndex += 1
+            self?.getList(isLoading: false)
+            
+        }
     }
     
     private lazy var tableView: UITableView = {
@@ -65,15 +81,21 @@ class Go23TokenDetailListViewController: UIViewController {
         
         tableView.register(Go23TokenDetailTableViewCell.self, forCellReuseIdentifier: Go23TokenDetailTableViewCell.reuseIdentifier())
 
-
         return tableView
     }()
     
     
     private lazy var noDataV: UIView = {
         let view = UIView()
+        let imgv = UIImageView()
+        imgv.image = Go23Helper.image(named: "nodata")
+        view.addSubview(imgv)
+        imgv.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-50)
+        }
         let label = UILabel()
-        label.text = "No records"
+        label.text = "No transaction records"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
@@ -150,17 +172,25 @@ extension Go23TokenDetailListViewController {
         if isLoading {
             Go23Loading.loading()
         }
-        shared.getActivityList(with: Go23WalletMangager.shared.walletModel?.chainId ?? 0, contract: obj.contractAddr, walletAddress: Go23WalletMangager.shared.address, type: self.activityType ?? .all, pageNumber: 1, pageSize: 10) {  [weak self]model in
+        shared.getActivityList(with: Go23WalletMangager.shared.walletModel?.chainId ?? 0, contract: obj.contractAddr, walletAddress: Go23WalletMangager.shared.address, type: self.activityType ?? .all, pageNumber: self.pageIndex, pageSize: 10) {  [weak self]model in
             if isLoading {
                 Go23Loading.clear()
             }
-            self?.tableView.es.startPullToRefresh()
+            if self?.pageIndex ?? 1 > 1 {
+                self?.tableView.es.stopLoadingMore()
+            } else {
+                self?.tableView.es.stopPullToRefresh()
+            }
             guard let mm = model else {
                 self?.noDataV.isHidden = false
                 return
             }
-            self?.listModel.removeAll()
-            self?.listModel = mm.listModel
+            if self?.pageIndex ?? 1 > 1 {
+                self?.listModel += mm.listModel
+            } else {
+                self?.listModel.removeAll()
+                self?.listModel = mm.listModel
+            }
             
              if let list = self?.listModel, list.count > 0 {
                  self?.noDataV.isHidden = true

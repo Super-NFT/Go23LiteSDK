@@ -19,19 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-//        let WebPCoder = SDImageWebPCoder.shared
-//        SDImageCodersManager.shared.addCoder(WebPCoder)
-//
-//        IQKeyboardManager.shared().isEnabled = true
-//        IQKeyboardManager.shared().isEnableAutoToolbar = false
-//        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
-//        IQKeyboardManager.shared().previousNextDisplayMode = .alwaysHide
-//        IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
 
         // Replace yout appKey and secretKey here.
-        Go23WalletSDK.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e",
-                           secretKey: "KX6OquHkkKQmzLSncmnmNt2q") { result in
+        //release
+//        Go23WalletSDK.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e",
+//                           secretKey: "KX6OquHkkKQmzLSncmnmNt2q") { result in
+//            if result {
+//                NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
+//                                                object: nil,
+//                                                userInfo: nil)
+//            }
+//            print("Go23WalletSDK.auth === \(result)")
+//        }
+        
+        //debug
+        Go23WalletSDK.auth(appKey: "j9ASxn5REHG8akytevRYZwCp",
+                           secretKey: "QHXFT28Nu1u4R7IiGBlFCVXF") { result in
             if result {
                 NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
                                                 object: nil,

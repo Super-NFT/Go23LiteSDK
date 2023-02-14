@@ -11,6 +11,11 @@ import Go23SDK
 class Go23EmailViewController: UIViewController {
 
     var settingType: SettingType = .resharding
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,8 +60,15 @@ class Go23EmailViewController: UIViewController {
         forgetView.isHidden = true
     }
     
-    func filled(email: String){
-        emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.email)
+    func filled(){
+        if Go23WalletMangager.shared.email.count > 0 {
+            emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.email)
+            sendDescLabel.text = "Send verification email"
+        } else {
+            emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.phone)
+            sendDescLabel.text = "Send verification SMS"
+            
+        }
         
     }
     
@@ -72,13 +84,24 @@ class Go23EmailViewController: UIViewController {
         }
         
         Go23Loading.loading()
-        shared.sendVerifyCode(for: .email(str)) { [weak self]status in
-            Go23Loading.clear()
-            if status {
-                self?.forgetView.isHidden = false
-                self?.forgetView.codeView.startInput()
+        if Go23WalletMangager.shared.email.count > 0 {
+            shared.sendVerifyCode(for: .email(str)) { [weak self]status in
+                Go23Loading.clear()
+                if status {
+                    self?.forgetView.isHidden = false
+                    self?.forgetView.codeView.startInput()
+                }
+            }
+        } else {
+            shared.sendVerifyCode(for: .phone(str)) { [weak self]status in
+                Go23Loading.clear()
+                if status {
+                    self?.forgetView.isHidden = false
+                    self?.forgetView.codeView.startInput()
+                }
             }
         }
+        
         
     }
     

@@ -289,8 +289,6 @@ class ESRefreshHeaderView: ESRefreshComponent {
         
         self.animator.refreshAnimationBegin(view: self)
         
-        // 缓存scrollview当前的contentInset, 并根据animator的executeIncremental属性计算刷新时所需要的contentInset，它将在接下来的动画中应用。
-        // Tips: 这里将self.scrollViewInsets.top更新，也可以将scrollViewInsets整个更新，因为left、right、bottom属性都没有用到，如果接下来的迭代需要使用这三个属性的话，这里可能需要额外的处理。
         var insets = scrollView.contentInset
         self.scrollViewInsets.top = insets.top
         insets.top += animator.executeIncremental
@@ -404,7 +402,6 @@ class ESRefreshFooterView: ESRefreshComponent {
         super.offsetChangeAction(object: object, change: change)
         
         guard isRefreshing == false && isAutoRefreshing == false && noMoreData == false && isHidden == false else {
-            // 正在loading more或者内容为空时不相应变化
             return
         }
 
@@ -416,13 +413,11 @@ class ESRefreshFooterView: ESRefreshComponent {
         }
         
         if scrollView.contentSize.height + scrollView.contentInset.top > scrollView.bounds.size.height {
-            // 内容超过一个屏幕 计算公式，判断是不是在拖在到了底部
             if scrollView.contentSize.height - scrollView.contentOffset.y + scrollView.contentInset.bottom  <= scrollView.bounds.size.height {
                 self.animator.refresh(view: self, stateDidChange: .refreshing)
                 self.startRefreshing()
             }
         } else {
-            //内容没有超过一个屏幕，这时拖拽高度大于1/2footer的高度就表示请求上拉
             if scrollView.contentOffset.y + scrollView.contentInset.top >= animator.trigger / 2.0 {
                 self.animator.refresh(view: self, stateDidChange: .refreshing)
                 self.startRefreshing()

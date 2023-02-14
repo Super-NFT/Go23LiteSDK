@@ -18,6 +18,10 @@ class Go23AddCustomTokenViewController: UIViewController {
         setNav()
 
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

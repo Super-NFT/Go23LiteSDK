@@ -1,15 +1,16 @@
 //
-//  Go23SettingEmailView.swift
+//  Go23SettingAccountView.swift
 //  Go23WalletSDKDemo
 //
 //  Created by luming on 2023/1/4.
 //
 import UIKit
 
-class Go23SettingEmailView: UIView {
+class Go23SettingAccountView: UIView {
     
     var confirmBlock:(()->())?
     var closeBlock: (()->())?
+    var areaCode = "+63"
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
@@ -26,8 +27,11 @@ class Go23SettingEmailView: UIView {
 
         backgroundColor = .white
         addSubview(titleLabel)
-        addSubview(emailLabel)
+        addSubview(emailBtn)
+        addSubview(smsBtn)
         addSubview(emailTxtFiled)
+        addSubview(smsCodeBtn)
+        addSubview(smsTxtFiled)
         addSubview(confirmBtn)
         
         titleLabel.snp.makeConstraints { make in
@@ -36,14 +40,34 @@ class Go23SettingEmailView: UIView {
             make.height.equalTo(32)
         }
         
-        emailLabel.snp.makeConstraints { make in
+        emailBtn.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(30)
             make.leading.equalTo(20)
+            make.width.equalTo(50)
+            make.height.equalTo(22)
+        }
+        
+        smsBtn.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(30)
+            make.left.equalTo(emailBtn.snp.right)
+            make.width.equalTo(50)
             make.height.equalTo(22)
         }
         emailTxtFiled.snp.makeConstraints { make in
-            make.top.equalTo(emailLabel.snp.bottom).offset(8)
+            make.top.equalTo(emailBtn.snp.bottom).offset(8)
             make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
+            make.height.equalTo(46)
+        }
+        smsCodeBtn.snp.makeConstraints { make in
+            make.top.equalTo(emailBtn.snp.bottom).offset(8)
+            make.leading.equalTo(20)
+            make.width.equalTo(85)
+            make.height.equalTo(46)
+        }
+        smsTxtFiled.snp.makeConstraints { make in
+            make.top.equalTo(emailBtn.snp.bottom).offset(8)
+            make.left.equalTo(smsCodeBtn.snp.right).offset(15)
             make.trailing.equalTo(-20)
             make.height.equalTo(46)
         }
@@ -60,20 +84,28 @@ class Go23SettingEmailView: UIView {
     
     @objc private func confirmBtnClick() {
         
-        if let emailT = emailTxtFiled.text, !validateEmail(email: emailT) {
-            let totast = Go23Toast.init(frame: .zero)
-            totast.show("Email input error!", after: 1)
-            return
-        }
-        
         if let emailT = emailTxtFiled.text, emailT.count > 0 {
+            
+            if  !validateEmail(email: emailT) {
+                let totast = Go23Toast.init(frame: .zero)
+                totast.show("Email input error!", after: 1)
+                return
+            }
+            
             UserDefaults.standard.set(emailT, forKey: kEmailPrivateKey)
             self.confirmBlock?()
             return
         }
         
+        if let smsT = smsTxtFiled.text, smsT.count > 0 {
+            
+            UserDefaults.standard.set(self.areaCode+" "+smsT, forKey: kPhonePrivateKey)
+            self.confirmBlock?()
+            return
+        }
+        
         let totast = Go23Toast.init(frame: .zero)
-        totast.show("Please enter email!", after: 1)
+        totast.show("Please enter email or SMS", after: 1)
     }
     
     
@@ -86,6 +118,52 @@ class Go23SettingEmailView: UIView {
         return emailTest.evaluate(with: email)
     }
     
+    
+    @objc private func emailBtnClick() {
+        emailBtn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#262626"), for: .normal)
+        smsBtn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
+        emailTxtFiled.isHidden = false
+        smsCodeBtn.isHidden = true
+        smsTxtFiled.isHidden = true
+        
+    }
+    
+    @objc private func smsBtnClick() {
+        emailBtn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
+        smsBtn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#262626"), for: .normal)
+        emailTxtFiled.isHidden = true
+        smsCodeBtn.isHidden = false
+        smsTxtFiled.isHidden = false
+    }
+    
+    @objc private func smsCodeBtnClick() {
+        codeTxtFiled.resignFirstResponder()
+        let alert = Go23PhoneSelectedView(frame: CGRectMake(0, 0, ScreenWidth, 720))
+        
+        let ovc = OverlayController(view: alert)
+        ovc.maskStyle = .black(opacity: 0.4)
+        ovc.layoutPosition = .bottom
+        ovc.presentationStyle = .fromToBottom
+        ovc.isDismissOnMaskTouched = false
+        ovc.isPanGestureEnabled = true
+        
+        alert.chooseBlock = {[weak self]model in
+            self?.areaCode = model
+            let attri = NSMutableAttributedString()
+            attri.add(text: model) { attr in
+                attr.font(14)
+                attr.color(UIColor.rdt_HexOfColor(hexString: "#262626"))
+                attr.kern(0.5)
+            }
+            attri.add(text: " ") { attr in
+                
+            }
+            attri.addBundleImage("arrowDown", CGRectMake(0, 0, 12, 12))
+            self?.smsCodeBtn.setAttributedTitle(attri, for: .normal)
+            
+        }
+        UIApplication.shared.keyWindow?.present(overlay: ovc)
+    }
     
     @objc private func closeBtnClick() {
         self.closeBlock?()
@@ -118,12 +196,22 @@ class Go23SettingEmailView: UIView {
         return label
     }()
     
-    private lazy var emailLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Email"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-        return label
+    private lazy var emailBtn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.setTitle("Email", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#262626"), for: .normal)
+        btn.addTarget(self, action: #selector(emailBtnClick), for: .touchUpInside)
+        return btn
+    }()
+    
+    private lazy var smsBtn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.setTitle("SMS", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
+        btn.addTarget(self, action: #selector(smsBtnClick), for: .touchUpInside)
+        return btn
     }()
     
     private lazy var emailTxtFiled: UITextField = {
@@ -138,6 +226,48 @@ class Go23SettingEmailView: UIView {
         textfield.layer.cornerRadius = 8
         textfield.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
         textfield.addTarget(self, action: #selector(textDidChange(_ :)), for: .editingChanged)
+        return textfield
+    }()
+    
+    private lazy var smsCodeBtn: UIButton = {
+        let btn = UIButton(type: .custom)
+//        btn.setTitle("SMS", for: .normal)
+        let attri = NSMutableAttributedString()
+        attri.add(text: "+63") { attr in
+            attr.font(14)
+            attr.color(UIColor.rdt_HexOfColor(hexString: "#262626"))
+            attr.kern(0.5)
+        }
+        attri.add(text: " ") { attr in
+            
+        }
+        attri.addBundleImage("arrowDown", CGRectMake(0, 0, 12, 12))
+        btn.setAttributedTitle(attri, for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.layer.masksToBounds = true
+        btn.layer.cornerRadius = 8
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#262626"), for: .normal)
+        btn.addTarget(self, action: #selector(smsCodeBtnClick), for: .touchUpInside)
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
+        btn.isHidden = true
+        return btn
+    }()
+    
+    private lazy var smsTxtFiled: UITextField = {
+        let textfield = UITextField()
+        textfield.autocapitalizationType = .none
+        textfield.autocorrectionType = .no
+        textfield.font = UIFont.systemFont(ofSize: 14)
+        textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        textfield.leftViewMode = .always
+        textfield.leftView = UIView.init(frame: CGRectMake(0, 0, 15, 0))
+        textfield.clearButtonMode = .always
+        textfield.layer.cornerRadius = 8
+        textfield.placeholder = "Phone no."
+        textfield.keyboardType = .phonePad
+        textfield.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
+        textfield.addTarget(self, action: #selector(textDidChange(_ :)), for: .editingChanged)
+        textfield.isHidden = true
         return textfield
     }()
     
@@ -182,7 +312,7 @@ class Go23SettingEmailView: UIView {
     
 }
 
-extension Go23SettingEmailView {
+extension Go23SettingAccountView {
     @objc func textDidChange(_ textField:UITextField) {
         print("event:\(textField.text)")
         if let txt = textField.text {

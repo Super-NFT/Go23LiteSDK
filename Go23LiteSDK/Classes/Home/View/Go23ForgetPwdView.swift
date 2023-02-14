@@ -11,10 +11,11 @@ import Go23SDK
 class Go23ForgetPwdView: UIView {
 
     var settingType: SettingType = .resharding
-    
     var pk = ""
-    
     var pinCode = ""
+    
+    private var resendTimer: Timer?
+    private var timeInterval: Int = 60
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +27,10 @@ class Go23ForgetPwdView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        removeTimer()
     }
     
     private func initSubviews() {
@@ -75,13 +80,24 @@ class Go23ForgetPwdView: UIView {
             make.centerX.equalToSuperview().offset(45)
         }
         
-        emailLabel.text = Go23WalletMangager.shared.email
+        if Go23WalletMangager.shared.email.count > 0 {
+            emailLabel.text = Go23WalletMangager.shared.email
+        } else {
+            emailLabel.text = Go23WalletMangager.shared.phone
+        }
 
 
     }
     
     func filled(email: String){
-        emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.email)
+        if Go23WalletMangager.shared.email.count > 0 {
+            emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.email)
+            emailTipsLabel.text = "Enter the 6-digit code sent to your email."
+        } else {
+            emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.phone)
+            emailTipsLabel.text = "Enter the 6-digit code sent to your SMS."
+            
+        }
     }
     
     
@@ -95,14 +111,27 @@ class Go23ForgetPwdView: UIView {
     }
     
     @objc private func verifyBtnClick() {
-        guard let shared = Go23WalletSDK.shared, pinCode.count == 6 else {
+        
+        guard let shared = Go23WalletSDK.shared else {
             return
         }
         
-
+        if Go23WalletMangager.shared.email.count > 0, pinCode.count != 6 {
+            return
+        }
+        
+        if Go23WalletMangager.shared.phone.count > 0, pinCode.count != 4 {
+            return
+        }
+        
+        var codeType: Go23VerifyCode = .email(pinCode)
+        if Go23WalletMangager.shared.phone.count > 0 {
+            codeType = .phone(pinCode)
+        }
         if settingType == .resharding {
             
-            shared.forgetShardPincode(with: Go23WalletMangager.shared.address, shard: self.pk, verifyCode: self.pinCode, delegate: self) { [weak self] status in
+
+            shared.forgetShardPincode(with: Go23WalletMangager.shared.address, shard: self.pk, verifyCode: codeType, delegate: self) { [weak self] status in
 
                     switch status {
                     case .success(let str):
@@ -140,7 +169,8 @@ class Go23ForgetPwdView: UIView {
             }
 
         } else {
-            shared.restoreWallet(with: Go23WalletMangager.shared.address, verifyCode: self.pinCode, delegate: self) { [weak self]status in
+            
+            shared.restoreWallet(with: Go23WalletMangager.shared.address, verifyCode: codeType, delegate: self) { [weak self]status in
                     switch status {
                     case .success:
                         let alert = Go23PwdSuccessView(frame: CGRectMake(0, 0, ScreenWidth, 720))
@@ -188,18 +218,53 @@ class Go23ForgetPwdView: UIView {
         guard let shared = Go23WalletSDK.shared else {
             return
         }
+
+        creatTimer()
+
         var str = ""
         if settingType == .recover {
             str = "recover"
         } else {
             str = "reshare"
         }
-        
-        shared.sendVerifyCode(for: .email(str)) { status in
-            
+
+        if Go23WalletMangager.shared.email.count > 0 {
+            shared.sendVerifyCode(for: .email(str)) { status in
+            }
+        } else {
+            shared.sendVerifyCode(for: .phone(str)) { status in
+            }
         }
         
     }
+    
+    private func creatTimer() {
+        notReceiveBtn.setTitle("Wait 60s", for: .normal)
+        resendTimer = Timer(timeInterval: 1.0, repeats: true) { [weak self] timer in
+            self?.timeInterval -= 1
+            self?.notReceiveBtn.isEnabled = false
+            self?.notReceiveBtn.setTitle("Wait \(self?.timeInterval ?? 0)s", for: .normal)
+            self?.notReceiveBtn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
+            if self?.timeInterval == 0 {
+                self?.removeTimer()
+                self?.timeInterval = 60
+                self?.notReceiveBtn.isEnabled = true
+                self?.notReceiveBtn.setTitle("Resend.", for: .normal)
+                self?.notReceiveBtn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
+            }
+        }
+        guard let timer = resendTimer else {
+            return
+        }
+        RunLoop.current.add(timer, forMode: .common)
+        
+    }
+    
+    private func removeTimer() {
+        self.resendTimer?.invalidate()
+        self.resendTimer = nil
+    }
+    
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -255,11 +320,24 @@ class Go23ForgetPwdView: UIView {
     lazy var codeView: PinCodeInputView = {
         let eachWidth = 44.0
         let config = PincodConfig(eachHeight: 48.0, eachWidth: eachWidth, margin: 12.0)
-        let view = PinCodeInputView(frame: CGRect(x: (UIScreen.main.bounds.size.width - 44*6 - 12*5)/2.0, y: 100.0, width: UIScreen.main.bounds.size.width, height: 60.0), with: 6, config: config)
+        if Go23WalletMangager.shared.email.count > 0 {
+            let view = PinCodeInputView(frame: CGRect(x: (UIScreen.main.bounds.size.width - 44*6 - 12*5)/2.0, y: 100.0, width: UIScreen.main.bounds.size.width, height: 60.0), with: 6, config: config)
+            view.inputCompleteBlock = { [weak self] (pincode) in
+                self?.pinCode = pincode
+                if pincode.count == 6, Go23WalletMangager.shared.email.count > 0 {
+                    self?.verifyBtnClick()
+                }
+            }
+            return view
+        }
+        let view = PinCodeInputView(frame: CGRect(x: (UIScreen.main.bounds.size.width - 44*4 - 12*3)/2.0, y: 100.0, width: UIScreen.main.bounds.size.width, height: 60.0), with: 4, config: config)
+        view.pincodeCount = 4
         view.inputCompleteBlock = { [weak self] (pincode) in
             self?.pinCode = pincode
+            if pincode.count == 4, Go23WalletMangager.shared.phone.count > 0 {
+                self?.verifyBtnClick()
+            }
         }
-        
         return view
     }()
     

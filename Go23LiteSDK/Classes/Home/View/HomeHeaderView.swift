@@ -7,47 +7,42 @@
 
 import Foundation
 import UIKit
+import Kingfisher
+
+protocol HomeTopViewDelegate: AnyObject {
+    func chooseClick()
+    func settingBtnClick()
+
+}
 
 protocol HomeHeaderViewDelegate: AnyObject {
-    func chooseClick()
     func receiveBtnClick()
     func sendBtnClick()
-    func settingBtnClick()
+    func eyeBtnClick()
     
 }
 
-class HomeHeaderView: UIView {
+class HomeTopView: UIView {
     
-    static var cellHight = 420.0
-    private var email = ""
-    weak var delegate: HomeHeaderViewDelegate?
+    static var cellHight = 145.0
+    weak var delegate: HomeTopViewDelegate?
     
-    var token = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
          
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func initSubviews() {
         backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
         addSubview(rightBtn)
         addSubview(chooseV)
         addSubview(iconImgv)
         addSubview(emailLabel)
-        addSubview(tokenLabel)
-        addSubview(tokenControl)
-        addSubview(numLabel)
-        addSubview(titleLabel)
-        addSubview(receiveBtn)
-        addSubview(sendBtn)
-        addSubview(lineV)
-        
         rightBtn.snp.makeConstraints { make in
             make.top.equalTo(44)
             make.trailing.equalTo(0)
@@ -70,59 +65,20 @@ class HomeHeaderView: UIView {
             make.centerY.equalTo(iconImgv.snp.centerY)
         }
         emailLabel.isHidden = true
-        tokenLabel.snp.makeConstraints { make in
-            make.top.equalTo(iconImgv.snp.bottom).offset(36)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(35)
-            make.width.equalTo(134)
-        }
-        tokenControl.snp.makeConstraints { make in
-            make.center.equalTo(tokenLabel.snp.center)
-            make.height.equalTo(35)
-            make.width.equalTo(134)
-        }
         
-        numLabel.snp.makeConstraints { make in
-            make.top.equalTo(tokenLabel.snp.bottom).offset(25)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(36)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(numLabel.snp.bottom).offset(8)
-            make.height.equalTo(20)
-            make.centerX.equalToSuperview()
-        }
-        
-        receiveBtn.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(25)
-            make.width.equalTo(82.5)
-            make.height.equalTo(77)
-            make.left.equalTo(numLabel.snp.centerX).offset(-100)
-        }
-        
-        sendBtn.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(25)
-            make.width.equalTo(82.5)
-            make.height.equalTo(77)
-            make.right.equalTo(numLabel.snp.centerX).offset(100)
-        }
-        
-        lineV.snp.makeConstraints { make in
-            make.height.equalTo(1)
-            make.trailing.leading.equalToSuperview()
-            make.bottom.equalToSuperview()
-        }
-        
-    }
-    
-    func filled(cover: String, email: String) {
         iconImgv.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         iconImgv.layer.cornerRadius = 14
-        self.email = email
+        
     }
     
-    func filled(money: String, symbol: String, chainName: String, balanceU: String) {
+    func filled(chainName: String) {
+        var email = ""
+        if Go23WalletMangager.shared.email.count > 0 {
+            
+            email = Go23WalletMangager.shared.email
+        } else {
+            email = Go23WalletMangager.shared.phone
+        }
         var ee = email
         if email.count > 17 {
             ee = email.substring(to: 15) + "..."
@@ -133,14 +89,8 @@ class HomeHeaderView: UIView {
             ee = email
         }
         emailLabel.isHidden = false
-        
         emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: ee)
-        var mon = money
-        var bal = balanceU
-        if let ss = Double(money), ss <= 0 {
-            mon = "0.00"
-        }
-        numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
+
         chooseV.isHidden = false
         chooseV.snp.remakeConstraints() { make in
             make.trailing.equalTo(-20)
@@ -153,10 +103,7 @@ class HomeHeaderView: UIView {
             make.centerY.equalTo(iconImgv.snp.centerY)
             make.width.equalTo(emailWidth)
         }
-        if let bb = Double(balanceU), bb <= 0 {
-            bal = "0.00"
-        }
-        titleLabel.text = "$"+bal
+
     }
     
     func getRowWidth(desc: String) -> CGFloat {
@@ -176,7 +123,172 @@ class HomeHeaderView: UIView {
          return rowHeight
      }
     
-    func filled(address: String) {
+    
+    @objc private func settingBtnDidClick() {
+        self.delegate?.settingBtnClick()
+    }
+    
+    private lazy var rightBtn: UIButton = {
+        let rightBtn = UIButton()
+        rightBtn.frame = CGRectMake(0, 0, 44, 44)
+        let imgv = UIImageView()
+        rightBtn.addSubview(imgv)
+        imgv.image = Go23Helper.image(named: "rightDot")
+        imgv.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(20)
+            make.height.equalTo(20)
+        }
+        rightBtn.addTarget(self, action: #selector(settingBtnDidClick), for: .touchUpInside)
+        return rightBtn
+    }()
+
+    private lazy var iconImgv: UIImageView = {
+        let imgv = UIImageView()
+        
+        return imgv
+    }()
+
+    private lazy var emailLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: BarlowCondensed, size: 14)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        return label
+    }()
+
+    lazy var chooseV: ChooseView = {
+        let view = ChooseView()
+        view.clickBlock = { [weak self] in
+            self?.delegate?.chooseClick()
+        }
+        return view
+    }()
+    
+     
+}
+
+
+
+class HomeHeaderView: UIView {
+    
+    static var cellHight = 280.0
+    private var email = ""
+    weak var delegate: HomeHeaderViewDelegate?
+    
+    var token = ""
+    var imageViewFrame: CGRect = CGRect.zero
+    private var money = ""
+    private var symbol = ""
+    private var balanceU = ""
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initSubviews()
+         
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        imageViewFrame = bounds
+    }
+    
+    private func initSubviews() {
+        backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
+        addSubview(contentV)
+        contentV.addSubview(tokenLabel)
+        contentV.addSubview(tokenControl)
+        contentV.addSubview(numLabel)
+        contentV.addSubview(eyeBtn)
+        contentV.addSubview(titleLabel)
+        contentV.addSubview(receiveBtn)
+        contentV.addSubview(sendBtn)
+        contentV.addSubview(lineV)
+        
+        contentV.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        tokenLabel.snp.makeConstraints { make in
+            make.top.equalTo(25)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(35)
+            make.width.equalTo(134)
+        }
+        tokenControl.snp.makeConstraints { make in
+            make.center.equalTo(tokenLabel.snp.center)
+            make.height.equalTo(35)
+            make.width.equalTo(134)
+        }
+
+        numLabel.snp.makeConstraints { make in
+            make.top.equalTo(tokenLabel.snp.bottom).offset(25)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(36)
+        }
+        
+        eyeBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(numLabel.snp.centerY).offset(-10)
+            make.left.equalTo(numLabel.snp.right).offset(-20)
+            make.width.height.equalTo(44)
+        }
+
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(numLabel.snp.bottom).offset(8)
+            make.height.equalTo(20)
+            make.centerX.equalToSuperview()
+        }
+
+        receiveBtn.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(25)
+            make.width.equalTo(82.5)
+            make.height.equalTo(77)
+            make.left.equalTo(numLabel.snp.centerX).offset(-100)
+        }
+
+        sendBtn.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(25)
+            make.width.equalTo(82.5)
+            make.height.equalTo(77)
+            make.right.equalTo(numLabel.snp.centerX).offset(100)
+        }
+
+        lineV.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.trailing.leading.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        if UserDefaults.standard.bool(forKey: kEyeBtnKey) {
+            eyeBtn.setImage(Go23Helper.image(named: "eyeOpen"), for: .normal)
+        } else {
+            eyeBtn.setImage(Go23Helper.image(named: "eyeClose"), for: .normal)
+        }
+        
+    }
+    
+    func filled(money: String, symbol: String, balanceU: String, address: String) {
+        self.money = money
+        self.symbol = symbol
+        self.balanceU = balanceU
+        var mon = money
+        var bal = balanceU
+        if let ss = Double(money), ss <= 0 {
+            mon = "0.00"
+        }
+        if Float(mon) ?? 0.0 > 0 {
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
+        } else {
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "0.00" + " " + symbol)
+        }
+        
+        if let bb = Double(balanceU), bb <= 0 {
+            bal = "0.00"
+        }
+        titleLabel.text = "$"+bal
+        
         self.token = address
         let str = String.getSecretString(token: token)
         
@@ -191,11 +303,8 @@ class HomeHeaderView: UIView {
         attri.addBundleImage("copy", CGRectMake(0, 0, 12, 12))
         tokenLabel.attributedText = attri
         tokenLabel.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#EBF5F5")
+        eyeBtn.isHidden = false
 
-    }
-    
-    @objc private func settingBtnDidClick() {
-        self.delegate?.settingBtnClick()
     }
     
     @objc private func controlClick() {
@@ -212,40 +321,42 @@ class HomeHeaderView: UIView {
         self.delegate?.sendBtnClick()
     }
     
-    
-    private lazy var rightBtn: UIButton = {
-        let rightBtn = UIButton()
-        rightBtn.frame = CGRectMake(0, 0, 44, 44)
-        let imgv = UIImageView()
-        rightBtn.addSubview(imgv)
-        imgv.image = Go23Helper.image(named: "rightDot")
-        imgv.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.width.equalTo(20)
-            make.height.equalTo(20)
+    @objc private func eyeBtnClick() {
+        if UserDefaults.standard.bool(forKey: kEyeBtnKey) {
+            eyeBtn.setImage(Go23Helper.image(named: "eyeClose"), for: .normal)
+            UserDefaults.standard.set(false, forKey: kEyeBtnKey)
+            var mon = money
+            var bal = balanceU
+            if let ss = Double(money), ss <= 0 {
+                mon = "0.00"
+            }
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
+            if let bb = Double(balanceU), bb <= 0 {
+                bal = "0.00"
+            }
+            titleLabel.text = "$"+bal
+        } else {
+            eyeBtn.setImage(Go23Helper.image(named: "eyeOpen"), for: .normal)
+            UserDefaults.standard.set(true, forKey: kEyeBtnKey)
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "**** " )
+            titleLabel.text = "****"
         }
-        rightBtn.addTarget(self, action: #selector(settingBtnDidClick), for: .touchUpInside)
-        return rightBtn
-    }()
+        self.delegate?.eyeBtnClick()
+    }
     
-    private lazy var iconImgv: UIImageView = {
-        let imgv = UIImageView()
+    func scrollViewDidScroll(contentOffsetY: CGFloat) {
         
-        return imgv
-    }()
+        var contentFrame = imageViewFrame
+        contentFrame.size.height -= contentOffsetY
+        contentFrame.origin.y = contentOffsetY
+//        print("contentOffet ========== \(contentOffsetY)")
+        self.contentV.frame = contentFrame
+    }
     
-    private lazy var emailLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 14)
-        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-        return label
-    }()
     
-    lazy var chooseV: ChooseView = {
-        let view = ChooseView()
-        view.clickBlock = { [weak self] in
-            self?.delegate?.chooseClick()
-        }
+    private lazy var contentV: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -278,6 +389,14 @@ class HomeHeaderView: UIView {
         label.text = "0.00"
         label.adjustsFontSizeToFitWidth = true
         return label
+    }()
+    
+    private lazy var eyeBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(Go23Helper.image(named: "eyeOpen"), for: .normal)
+        btn.isHidden = true
+        btn.addTarget(self, action: #selector(eyeBtnClick), for: .touchUpInside)
+        return btn
     }()
     
     private lazy var receiveBtn: UIButton = {
@@ -394,7 +513,6 @@ class ChooseView: UIView {
     private lazy var downImgv: UIImageView = {
         let imgv = UIImageView()
         imgv.image = Go23Helper.image(named: "arrowDown")
-        
         return imgv
     }()
     

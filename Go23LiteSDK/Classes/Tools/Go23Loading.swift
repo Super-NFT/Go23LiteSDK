@@ -172,7 +172,7 @@ class Go23Loading: UIView {
 //            iv.image = image
 //        }
         
-        if let gifUrlStr = Bundle.main.path(forResource: "loading", ofType: "gif") {
+        if let gifUrlStr = Bundle(for: Self.self).path(forResource: "Go23_Go23LiteSDK", ofType: "bundle") {
             let url = URL(fileURLWithPath: gifUrlStr)
             let provider = LocalFileImageDataProvider(fileURL: url)
             iv.kf.setImage(with: provider)

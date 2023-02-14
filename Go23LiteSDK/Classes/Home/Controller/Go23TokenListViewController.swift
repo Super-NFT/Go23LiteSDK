@@ -8,10 +8,30 @@
 import UIKit
 import Go23SDK
 
+
 class Go23TokenListViewController: UIViewController {
 
     
-    var tokenList: [Go23WalletTokenModel]?
+    var tokenList: [Go23WalletTokenModel]? {
+        didSet {
+            guard let list = tokenList else {
+                return
+            }
+            if list.count == 0 {
+                noDataV.isHidden = false
+            } else {
+                noDataV.isHidden = true
+            }
+            tableView.reloadData()
+        }
+    }
+    
+    var moreDataBlock: ((_ list: [Go23WalletTokenModel]?)->())?
+    var tokenIndex = 1
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,27 +41,28 @@ class Go23TokenListViewController: UIViewController {
             make.leading.trailing.top.bottom.equalToSuperview()
         }
         
-        self.getUserTokens()
-        
-        tableView.es.addPullToRefresh { [weak self] in
-            self?.tableView.es.stopPullToRefresh()
-            NotificationCenter.default.post(name: NSNotification.Name(kRefreshWalletBalance),
-                                            object: nil,
-                                            userInfo: nil)
-            
-            self?.getUserTokens()
-            
-        }
+//        self.getUserTokens()
+//        tableView.es.addPullToRefresh { [weak self] in
+//            NotificationCenter.default.post(name: NSNotification.Name(kRefreshWalletBalance),
+//                                            object: nil,
+//                                            userInfo: nil)
+//            self?.getUserTokens()
+//        }
         
         tableView.addSubview(noDataV)
         noDataV.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.top.equalTo(180 * Go23_Scale)
+            make.centerX.equalToSuperview()
         }
-        noDataV.isHidden = true
+        
+        tableView.es.addInfiniteScrolling { [weak self] in
+            self?.tokenIndex += 1
+            self?.getUserTokens()
+        }
     }
     
     
-    private lazy var tableView: UITableView = {
+     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
@@ -58,8 +79,15 @@ class Go23TokenListViewController: UIViewController {
         return tableView
     }()
     
-    private lazy var noDataV: UIView = {
+    lazy var noDataV: UIView = {
         let view = UIView()
+        let imgv = UIImageView()
+        imgv.image = Go23Helper.image(named: "nodata")
+        view.addSubview(imgv)
+        imgv.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-50)
+        }
         let label = UILabel()
         label.text = "No records"
         label.font = UIFont.systemFont(ofSize: 14)
@@ -69,6 +97,7 @@ class Go23TokenListViewController: UIViewController {
         label.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+        view.isHidden = true
         return view
     }()
 }
@@ -90,7 +119,7 @@ extension Go23TokenListViewController: UITableViewDelegate, UITableViewDataSourc
             }
         
         if let model = self.tokenList?[indexPath.row] {
-            cell.filled(cover: model.imageUrl, title: model.balance, type:model.symbol, money: model.balanceU, sourceImg: model.chainImageUrl)
+            cell.filled(cover: model.imageUrl, title: model.balance, type:model.symbol, money: model.balanceU, sourceImg: model.chainImageUrl, value: model.tokenValue)
         }
         return cell
     }
@@ -117,22 +146,33 @@ extension Go23TokenListViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 
-// MARK: - pragma mark =========== JXSegmentedListContainerViewListDelegate ===========
-extension Go23TokenListViewController: JXSegmentedListContainerViewListDelegate {
+
+extension Go23TokenListViewController: JXPagingViewListViewDelegate {
     func listView() -> UIView {
-        return view
+        self.view
     }
+    
+    func listScrollView() -> UIScrollView {
+        self.tableView
+    }
+    
+    func listViewDidScrollCallback(callback: @escaping (UIScrollView) -> ()) {
+        
+    }
+    
+    
 }
 
+
 extension Go23TokenListViewController {
-    private func getUserTokens() {
+     func getUserTokens() {
         guard let shared = Go23WalletSDK.shared
         else {
             return
         }
         
-        shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) { [weak self]tokenList in
-            self?.tableView.es.stopPullToRefresh()
+         shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: self.tokenIndex) { [weak self]tokenList in
+            self?.tableView.es.stopLoadingMore()
             guard let list = tokenList?.listModel else {
                 return
             }
@@ -142,8 +182,10 @@ extension Go23TokenListViewController {
             } else {
                 self?.noDataV.isHidden = true
             }
-            self?.tokenList?.removeAll()
-            self?.tokenList = list
+             if let _ = self?.tokenList {
+                 self?.tokenList! += list
+             }
+             self?.moreDataBlock?(self?.tokenList)
             self?.tableView.reloadData()
         }
         
@@ -151,13 +193,3 @@ extension Go23TokenListViewController {
     }
 }
 
-
-//class Go23RefreshHeader: MJRefreshNormalHeader {
-//    override func prepare() {
-//        super.prepare()
-//        self.setTitle("Loading...", for: .refreshing)
-//        self.setTitle("Release to refresh", for: .pulling)
-//        self.setTitle("Pull down to refresh", for: .idle)
-//        self.lastUpdatedTimeLabel?.isHidden = true
-//    }
-//}
