@@ -47,13 +47,11 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    
     public override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubViews()
         registerUser()
         NotificationCenter.default.addObserver(self, selector: #selector(registerUser), name: NSNotification.Name(rawValue: kRegisterUser), object: nil)

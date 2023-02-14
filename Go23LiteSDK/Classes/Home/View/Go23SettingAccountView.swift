@@ -13,6 +13,10 @@ class Go23SettingAccountView: UIView {
     var areaCode = "+63"
     override init(frame: CGRect) {
         super.init(frame: frame)
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
+
         initSubviews()
         changeSendBtnStatus(status: false)
          

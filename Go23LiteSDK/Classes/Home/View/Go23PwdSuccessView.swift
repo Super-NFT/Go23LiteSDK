@@ -10,6 +10,9 @@ import UIKit
 class Go23PwdSuccessView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
          
     }

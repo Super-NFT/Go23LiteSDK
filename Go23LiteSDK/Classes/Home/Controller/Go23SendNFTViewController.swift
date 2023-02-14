@@ -59,13 +59,12 @@ class Go23SendNFTViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
 
     }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         setNav()
         initSubviews()
     }

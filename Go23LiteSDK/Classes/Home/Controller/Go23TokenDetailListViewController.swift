@@ -21,14 +21,13 @@ class Go23TokenDetailListViewController: UIViewController {
     private var listModel = [Go23ActivityModel]()
     
     private var pageIndex = 1
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
         getList()
     }

@@ -25,7 +25,9 @@ class Go23ChooseAlertView: UIView {
     var chooseBlock: ((_ model: Go23WalletChainModel)->())?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
          
     }
@@ -149,6 +151,9 @@ class Go23ChooseAlertViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         selectionStyle = .none
         initSubviews()
     }

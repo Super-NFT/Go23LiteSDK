@@ -15,7 +15,9 @@ class Go23PhoneSelectedView: UIView {
     var chooseBlock: ((_ str: String)->())?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
         getPhoneList()
     }
@@ -153,6 +155,9 @@ class Go23PhoneAlertViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         selectionStyle = .none
         initSubviews()
     }

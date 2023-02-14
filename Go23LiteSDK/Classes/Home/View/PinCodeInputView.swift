@@ -49,6 +49,9 @@ class PinCodeInputView: UIView {
     // Pincode count
     init(frame: CGRect, with count: Int, config: PincodConfig) {
         super.init(frame: frame)
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         backgroundColor = .white
         pincodeCount = count
         pincodeConfig = config

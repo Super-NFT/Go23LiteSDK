@@ -17,6 +17,9 @@ class Go23SettingView: UIView {
     var reshardingBlock: ((_ pk: String)->())?
     override init(frame: CGRect) {
         super.init(frame: frame)
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
         getKeygen()
          
@@ -173,6 +176,9 @@ class SettingViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
     }
     

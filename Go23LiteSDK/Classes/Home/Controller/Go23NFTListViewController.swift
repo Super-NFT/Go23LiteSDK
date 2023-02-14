@@ -27,13 +27,13 @@ class Go23NFTListViewController: UIViewController {
     
     var moreDataBlock: ((_ list: [Go23WalletNFTModel]?)->())?
     var nftIndex = 1
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         view.backgroundColor = .white
         view.addSubview(collectionView)
         collectionView.backgroundColor = .white

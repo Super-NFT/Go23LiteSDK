@@ -22,6 +22,9 @@ class Go23ReshardingView: UIView {
         isShowBack = isShow
         self.settingType = type
         super.init(frame: frame)
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
          
     }

@@ -30,6 +30,9 @@ class HomeTopView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
          
     }
@@ -182,6 +185,9 @@ class HomeHeaderView: UIView {
     private var balanceU = ""
     override init(frame: CGRect) {
         super.init(frame: frame)
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
          
     }
@@ -438,7 +444,9 @@ class ChooseView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
     }
     

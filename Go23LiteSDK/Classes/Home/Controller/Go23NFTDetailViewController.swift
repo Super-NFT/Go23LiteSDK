@@ -25,12 +25,11 @@ class Go23NFTDetailViewController: UIViewController {
 
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         setNav()
         initSubviews()
         getNFTDetail()

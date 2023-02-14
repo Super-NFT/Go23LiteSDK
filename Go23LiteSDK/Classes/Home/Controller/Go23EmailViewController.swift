@@ -11,14 +11,13 @@ import Go23SDK
 class Go23EmailViewController: UIViewController {
 
     var settingType: SettingType = .resharding
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
             }
 

@@ -28,13 +28,13 @@ class Go23TokenListViewController: UIViewController {
     
     var moreDataBlock: ((_ list: [Go23WalletTokenModel]?)->())?
     var tokenIndex = 1
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in

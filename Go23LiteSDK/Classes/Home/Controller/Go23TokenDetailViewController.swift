@@ -32,12 +32,11 @@ class Go23TokenDetailViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         setNav()
         initSubviews()
         NotificationCenter.default.addObserver(self, selector: #selector(getDetail), name: Notification.Name(rawValue: kRefreshTokenListDetailKey), object: nil)

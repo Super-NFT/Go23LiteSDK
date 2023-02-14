@@ -11,7 +11,9 @@ class Go23ConfirmTransferView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+          }
         initSubviews()
         filled(cover: "", sign: "0.001 MATIC" , contract: "0x238Ce18d6Dcd3903d72D4BeF550dFd428B235744", from: "0x238Ce18d6Dcd3903d72D4BeF550dFd428B235744", to: "0x238Ce18d6Dcd3903d72D4BeF550dFd428B235744", token: "30323", value: 0.000567, gas: 0.000567, money: 0.000567, type: "BTC")
     }
