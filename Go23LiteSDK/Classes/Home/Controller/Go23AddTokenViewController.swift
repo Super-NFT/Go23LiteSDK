@@ -14,6 +14,7 @@ class Go23AddTokenViewController: UIViewController {
 
     
     var tokenList: [Go23ChainTokenModel]?
+    private var tokenIndex = 1
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,7 +24,6 @@ class Go23AddTokenViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
-
     }
     
     override func viewDidLoad() {
@@ -42,7 +42,15 @@ class Go23AddTokenViewController: UIViewController {
         
         getUserTokens()
         NotificationCenter.default.addObserver(self, selector: #selector(getUserTokens), name: NSNotification.Name(rawValue: kRefreshWalletData), object: nil)
-
+        
+        tableView.es.addPullToRefresh {[weak self] in
+            self?.tokenIndex = 1
+            self?.getUserTokens()
+        }
+        tableView.es.addInfiniteScrolling { [weak self] in
+            self?.tokenIndex += 1
+            self?.getUserTokens()
+        }
 
     }
     
@@ -389,26 +397,35 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
 
 
 extension Go23AddTokenViewController {
-   @objc private func getUserTokens() {
-        guard let shared = Go23WalletSDK.shared
-        else {
+    @objc private func getUserTokens() {
+         guard let shared = Go23WalletSDK.shared
+         else {
+             return
+         }
+         
+        guard let walletObj = Go23WalletMangager.shared.walletModel else {
             return
+            
         }
-        
-       guard let walletObj = Go23WalletMangager.shared.walletModel else {
-           return
-           
-       }
 
-       Go23Loading.loading()
-       shared.getChainTokenList(with: walletObj.chainId, pageSize: 10, pageNumber: 1) { [weak self] model in
-           Go23Loading.clear()
-           self?.tokenList?.removeAll()
-           self?.tokenList = model?.listModel
-           self?.tableView.reloadData()
-       }
-        
-    }
+        Go23Loading.loading()
+        shared.getChainTokenList(with: walletObj.chainId, pageSize: 20, pageNumber: self.tokenIndex) { [weak self] model in
+            self?.tableView.es.stopPullToRefresh()
+            self?.tableView.es.stopLoadingMore()
+            Go23Loading.clear()
+            if self?.tokenIndex ?? 1 > 1 {
+                if let _ = self?.tokenList, let _ = model?.listModel {
+                    self?.tokenList! += model!.listModel
+                }
+            } else {
+                self?.tokenList?.removeAll()
+                self?.tokenList = model?.listModel
+            }
+            
+            self?.tableView.reloadData()
+        }
+         
+     }
     
     func hideToken(model: Go23ChainTokenModel) {
         guard let shared = Go23WalletSDK.shared

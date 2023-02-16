@@ -23,10 +23,14 @@ class Go23TokenDetailResultViewController: UIViewController {
         removeTimer()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNav()
-
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func viewDidLoad() {
@@ -34,19 +38,14 @@ class Go23TokenDetailResultViewController: UIViewController {
         if #available(iOS 13.0, *) {
             self.overrideUserInterfaceStyle = .light
           }
+        setNav()
         initSubviews()
         getTrasactionDetail()
         creatTimer()
     }
     
     private func setNav() {
-        navigationItem.title = "Details"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-        if #available(iOS 13.0, *) {
-            let style = UINavigationBarAppearance()
-            style.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-            navigationController?.navigationBar.scrollEdgeAppearance = style
-        }
+
         let backBtn = UIButton()
         backBtn.frame = CGRectMake(0, 0, 44, 44)
         let imgv = UIImageView()
@@ -59,7 +58,12 @@ class Go23TokenDetailResultViewController: UIViewController {
         }
         backBtn.addTarget(self, action: #selector(backBtnDidClick), for: .touchUpInside)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backBtn)
+        if self.navgationBar == nil {
+            addBarView()
+            navgationBar?.title = "Details"
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+            navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
+        }
     }
     
     @objc private func backBtnDidClick() {
@@ -125,11 +129,7 @@ class Go23TokenDetailResultViewController: UIViewController {
         lendingGasView.addSubview(lendingGasLabel)
         
         statusImgv.snp.makeConstraints { make in
-            if #available(iOS 11.0, *) {
-                make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
-            } else {
-                make.top.equalTo(20)
-            }
+            make.top.equalTo(navgationBar!.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.height.width.equalTo(58)
         }

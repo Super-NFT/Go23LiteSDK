@@ -11,8 +11,8 @@ class Go23RefreshHeaderAnimator: UIView , ESRefreshProtocol, ESRefreshAnimatorPr
     
     public var insets: UIEdgeInsets = UIEdgeInsets.zero
     public var view: UIView { return self }
-    public var trigger: CGFloat = 40.0
-    public var executeIncremental: CGFloat = 0.0
+    public var trigger: CGFloat = 60.0
+    public var executeIncremental: CGFloat = 60.0
     public var state: ESRefreshViewState = .pullToRefresh
     
     private var timer: Timer?
@@ -82,7 +82,7 @@ class Go23RefreshHeaderAnimator: UIView , ESRefreshProtocol, ESRefreshAnimatorPr
     
     func startAnimating() {
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(Go23RefreshHeaderAnimator.timerAction), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(Go23RefreshHeaderAnimator.timerAction), userInfo: nil, repeats: true)
             RunLoop.current.add(timer!, forMode: RunLoop.Mode.common)
         }
     }

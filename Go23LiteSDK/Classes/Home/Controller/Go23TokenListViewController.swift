@@ -97,7 +97,6 @@ class Go23TokenListViewController: UIViewController {
         label.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-        view.isHidden = true
         return view
     }()
 }
@@ -171,7 +170,7 @@ extension Go23TokenListViewController {
             return
         }
         
-         shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: self.tokenIndex) { [weak self]tokenList in
+         shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 20, pageNumber: self.tokenIndex) { [weak self]tokenList in
             self?.tableView.es.stopLoadingMore()
             guard let list = tokenList?.listModel else {
                 return

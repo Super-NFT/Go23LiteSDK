@@ -37,6 +37,10 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     private var list1: Go23TokenListViewController?
     private var list2: Go23NFTListViewController?
     
+    private var timer: Timer?
+    private var timerProgress: Double = 0.0
+    private var isAniLoading = false
+    
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -63,6 +67,7 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        stopAnimating()
     }
     
     
@@ -110,12 +115,15 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         pagingView.mainTableView.gestureDelegate = self
         pagingView.mainTableView.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
         segmentedView.listContainer = pagingView.listContainerView
-        let header = Go23RefreshHeaderAnimator.init(frame: .zero)
-        pagingView.mainTableView.es.addPullToRefresh(animator: header) {[weak self] in
-            self?.list1?.tokenIndex = 1
-            self?.list2?.nftIndex = 1
-            self?.getUserTokens()
-        }
+//        let header = Go23RefreshHeaderAnimator.init(frame: .zero)
+//        pagingView.mainTableView.es.addPullToRefresh(animator: header) {[weak self] in
+//            self?.list1?.tokenIndex = 1
+//            self?.list2?.nftIndex = 1
+//            self?.getChainBalance()
+//            self?.getUserTokens()
+//        }
+        
+        view.addSubview(animationImgv)
 
     }
     
@@ -308,6 +316,13 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         return btn
     }()
     
+    private lazy var animationImgv: UIImageView = {
+        let imgv = UIImageView()
+        imgv.image = UIImage.init(named: "loading_30")
+        imgv.frame = CGRectMake((ScreenWidth-50)/2.0, -50, 40, 40)
+        return imgv
+    }()
+    
 
 }
 
@@ -323,8 +338,8 @@ extension Go23HomeViewController: HomeTopViewDelegate {
         ovc.isDismissOnMaskTouched = false
         ovc.isPanGestureEnabled = true
         
-        alert.chainList = self.chainList
         alert.chooseBlock = {[weak self]model in
+            self?.view.dissmiss(overlay: .last)
             Go23WalletMangager.shared.walletModel = model
             self?.self.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
             self?.topView.chooseV.filled(title: model.name, img: model.imageUrl)
@@ -332,7 +347,10 @@ extension Go23HomeViewController: HomeTopViewDelegate {
             self?.setDefaultChain(with: model.walletAddress, and: model.chainId)
             
         }
-        UIApplication.shared.keyWindow?.present(overlay: ovc)
+        alert.closeBlock = { [weak self] in
+            self?.view.dissmiss(overlay: .last)
+        }
+        self.view.present(overlay: ovc)
     }
     
     func settingBtnClick() {
@@ -393,6 +411,7 @@ extension Go23HomeViewController: JXSegmentedViewDelegate {
                 make.centerX.equalToSuperview()
             }
         }
+        animationForHeaderRefresh(offset: scrollView.contentOffset.y)
         headerView.scrollViewDidScroll(contentOffsetY: scrollView.contentOffset.y)
     }
     
@@ -589,37 +608,49 @@ extension Go23HomeViewController {
         else {
             return
         }
-        shared.fetchWalletChainlist(with: walletAddress, pageSize: 10, pageNumber: 1) { [weak self] chainModel in
-            guard let list = chainModel?.listModel else {
+//        shared.fetchWalletChainlist(with: walletAddress, pageSize: 20, pageNumber: 1) { [weak self] chainModel in
+//            guard let list = chainModel?.listModel else {
+//                return
+//            }
+//            self?.chooseDefaultWallet(list: list)
+//        }
+        
+        shared.getCurrentChain(with: walletAddress) { [weak self] model in
+            guard let obj = model else {
                 return
             }
-            self?.chooseDefaultWallet(list: list)
+            Go23WalletMangager.shared.walletModel = obj
+            self?.getUserTokens()
+            self?.getChainBalance()
+            self?.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
+            self?.topView.chooseV.filled(title: obj.name, img: obj.imageUrl)
         }
 
     }
     
-    private func chooseDefaultWallet(list: [Go23WalletChainModel]) {
-        self.chainList = list
-        for obj in list{
-            if obj.hasDefault {
-                Go23WalletMangager.shared.walletModel = obj
-                self.getUserTokens()
-                self.getChainBalance()
-                self.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
-                self.topView.chooseV.filled(title: obj.name, img: obj.imageUrl)
-
-            }
-        }
-
-    }
+//    private func chooseDefaultWallet(list: [Go23WalletChainModel]) {
+//        self.chainList = list
+//        for obj in list{
+//            if obj.hasDefault {
+//                Go23WalletMangager.shared.walletModel = obj
+//                self.getUserTokens()
+//                self.getChainBalance()
+//                self.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
+//                self.topView.chooseV.filled(title: obj.name, img: obj.imageUrl)
+//
+//            }
+//        }
+//
+//    }
     private func getUserTokens() {
         guard let shared = Go23WalletSDK.shared
         else {
             return
         }
         
-        shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) { [weak self]model in
-            self?.pagingView.mainTableView.es.stopPullToRefresh()
+        shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 20, pageNumber: 1) { [weak self]model in
+//            self?.pagingView.mainTableView.es.stopPullToRefresh()
+            self?.stopAnimating()
             Go23Loading.clear()
             guard let list = model?.listModel else {
                 return
@@ -721,7 +752,7 @@ extension Go23HomeViewController {
            return
        }
        
-       shared.getNftList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) {  [weak self]model in
+       shared.getNftList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 20, pageNumber: 1) {  [weak self]model in
            guard let obj = model else {
                return
            }
@@ -732,5 +763,67 @@ extension Go23HomeViewController {
        }
        
    }
+    
+}
+
+// header refresh animation
+extension Go23HomeViewController {
+    
+    func animationForHeaderRefresh(offset: CGFloat) {
+        if offset <= -60.0 && !isAniLoading {
+            self.isAniLoading = true
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: {
+                self.animationImgv.transform = CGAffineTransform(translationX: 0, y: 150)
+                self.startAnimating()
+
+            }, completion: { _ in
+            })
+        }
+    }
+    
+    @objc func timerAction() {
+//        timerProgress += 0.01
+//        self.animationImgv.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2).inverted().concatenating(self.animationImgv.transform)
+    }
+    
+    func startAnimating() {
+        
+//        if timer == nil {
+//            timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+//            RunLoop.current.add(timer!, forMode: RunLoop.Mode.common)
+        var images = [UIImage]()
+        for i in 1...16 {
+            if let img = Go23Helper.image(named: "loading_\(i)") {
+                images.append(img)
+            }
+        }
+        animationImgv.animationImages = images
+        animationImgv.animationDuration = 0.6
+        animationImgv.animationRepeatCount = LONG_MAX
+        animationImgv.startAnimating()
+            list1?.tokenIndex = 1
+            list2?.nftIndex = 1
+            getChainBalance()
+            getUserTokens()
+//        }
+    }
+    
+    func stopAnimating() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            if self.timer != nil {
+//                self.timerProgress = 0.0
+//                self.timer?.invalidate()
+//                self.timer = nil
+//            }
+            self.animationImgv.stopAnimating()
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: {
+                self.animationImgv.transform = .identity
+
+            }, completion: { _ in
+                self.isAniLoading = false
+            })
+        }
+        
+    }
     
 }
