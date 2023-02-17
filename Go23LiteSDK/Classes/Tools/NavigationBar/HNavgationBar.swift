@@ -58,7 +58,7 @@ let barGap:CGFloat = 5.0
         }
     }
     
-    var barFont: UIFont = UIFont.systemFont(ofSize: 16){
+    var barFont: UIFont = UIFont.systemFont(ofSize: 14){
         didSet{
             updateBarFont()
         }

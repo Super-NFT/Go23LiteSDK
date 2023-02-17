@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-let BarlowCondensed = "BarlowCondensed-Medium"
+//let BarlowCondensed = "BarlowCondensed-Medium"
 
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height

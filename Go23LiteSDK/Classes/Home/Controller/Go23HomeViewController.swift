@@ -97,10 +97,10 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
          
         dataSource.titles = ["Tokens", "NFTs"]
         dataSource.widthForTitleClosure = { name in
-            return String.getStringWidth(name,font: UIFont(name: BarlowCondensed, size: 16)!)+24
+            return String.getStringWidth(name,font: UIFont.systemFont(ofSize: 14))
         }
-        dataSource.titleNormalFont = UIFont(name: BarlowCondensed, size: 16)!
-        dataSource.titleSelectedFont = UIFont(name: BarlowCondensed, size: 16)!
+        dataSource.titleNormalFont = UIFont.systemFont(ofSize: 14)
+        dataSource.titleSelectedFont = UIFont.systemFont(ofSize: 14)
         dataSource.titleSelectedColor = UIColor.white
         dataSource.titleNormalColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         dataSource.kern = 1
@@ -128,40 +128,6 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     }
     
     // MARK: - Action
-    private func popSettingEmail() {
-        
-        if let kEmail = UserDefaults.standard.string(forKey: kEmailPrivateKey), kEmail.count > 0 {
-            return
-        }
-        
-        if  let kSMS = UserDefaults.standard.string(forKey: kPhonePrivateKey), kSMS.count > 0 {
-            return
-        }
-        
-        let alert = Go23SettingAccountView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight-120))
-        let ovc = OverlayController(view: alert)
-        ovc.maskStyle = .black(opacity: 0.4)
-        ovc.layoutPosition = .bottom
-        ovc.presentationStyle = .fromToBottom
-        ovc.isDismissOnMaskTouched = false
-        ovc.isPanGestureEnabled = true
-        alert.confirmBlock = {[weak self] in
-            self?.registerUser()
-            if let view = self?.view {
-                Go23Loading.loading()
-                DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-                    view.dissmiss(overlay: .last)
-                }
-            }
-        }
-        alert.closeBlock = { [weak self] in
-            if let view = self?.view {
-                view.dissmiss(overlay: .last)
-            }
-        }
-        self.view.present(overlay: ovc)
-    }
-    
     @objc private func settingBtnDidClick() {
         
         let alert = Go23SettingView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight-120))
@@ -356,6 +322,10 @@ extension Go23HomeViewController: HomeTopViewDelegate {
     func settingBtnClick() {
         self.settingBtnDidClick()
     }
+    
+    func backBtnDidClick() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension Go23HomeViewController: HomeHeaderViewDelegate {
@@ -506,15 +476,13 @@ extension Go23HomeViewController {
         }
         print("registerUser")
         
-        var uniqueId = ""
+        var uniqueId = Go23LiteSDKMangager.shared.uniqueId
         if let kEmail = UserDefaults.standard.string(forKey: kEmailPrivateKey), kEmail.count > 0 {
             Go23WalletMangager.shared.email = kEmail
-            uniqueId = kEmail
         }
         
         if let kSMS = UserDefaults.standard.string(forKey: kPhonePrivateKey), kSMS.count > 0 {
             Go23WalletMangager.shared.phone = kSMS
-            uniqueId = kSMS
         }
         
         var phone = ""
@@ -523,15 +491,14 @@ extension Go23HomeViewController {
             phone = Go23WalletMangager.shared.phone.components(separatedBy: " ")[1]
             areaCode = Go23WalletMangager.shared.phone.components(separatedBy: " ")[0]
         }
-        
-        popSettingEmail()
-        
+                
         if Go23WalletMangager.shared.email.count == 0 && Go23WalletMangager.shared.phone.count == 0 {
+            self.navigationController?.popViewController(animated: true)
             return
         }
         
         Go23Loading.loading()
-        shared.connect(with: uniqueId, email: Go23WalletMangager.shared.email,phone: (areaCode, phone), delegate: self) { [weak self] result in
+        shared.connect(with: uniqueId, email: Go23WalletMangager.shared.email, phone: (areaCode, phone), delegate: self) { [weak self] result in
             switch result {
             case .success(let successResult):
                 switch successResult {

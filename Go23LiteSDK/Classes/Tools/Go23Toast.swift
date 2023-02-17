@@ -38,7 +38,8 @@ class Go23Toast: UIView {
     
     private lazy var contentLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16.0)
+        label.font = UIFont.systemFont(ofSize: 14.0)
+        label.textAlignment = .center
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#ffffff")
         label.numberOfLines = 0
         
@@ -54,7 +55,7 @@ extension Go23Toast {
         paraph.lineSpacing = 0
         let viewSize = CGSize(width: 250.0, height: UIScreen.main.bounds.height - 200.0)
         
-        let stringRect = content.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 16.0), NSAttributedString.Key.kern: 0.5], context: nil)
+        let stringRect = content.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
         
         return stringRect.size
     }
@@ -75,10 +76,9 @@ extension Go23Toast {
         self.frame = CGRect(x: (UIScreen.main.bounds.width - viewWidth) / 2.0, y: (UIScreen.main.bounds.height - viewWidth) / 2.0, width: viewWidth, height: viewHeight)
         self.panelView.frame = self.bounds
         self.contentLabel.frame = CGRect(x: margin, y: margin, width: stringWidth, height: stringHeight)
-//        self.contentLabel.text = content
-//        self.contentLabel.textAlignment = .center
-//        self.contentLabel.font = UIFont(name: BarlowCondensed, size: 16)
-        self.contentLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.white, alignment: .center, title: content)
+        self.contentLabel.text = content
+        self.contentLabel.textAlignment = .center
+        self.contentLabel.font = UIFont.systemFont(ofSize: 14)
     }
     
     func show(_ content: String, after delay: Double) {

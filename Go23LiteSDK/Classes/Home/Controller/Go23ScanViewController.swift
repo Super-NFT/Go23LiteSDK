@@ -59,7 +59,7 @@ class Go23ScanViewController: LBXScanViewController {
             addBarView()
             navgationBar?.title = "QR code"
             navgationBar?.barBgColor = .clear
-            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5, NSAttributedString.Key.foregroundColor: UIColor.white] as [NSAttributedString.Key : Any]
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.kern: 0.5, NSAttributedString.Key.foregroundColor: UIColor.white] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
             navgationBar?.rightBarItem = HBarItem.init(customView: rightBtn)
         }
@@ -81,7 +81,7 @@ class Go23ScanViewController: LBXScanViewController {
         qrCodelLabel.text = "Scan QR-CODE"
         qrCodelLabel.textColor = .white
         qrCodelLabel.textAlignment = .center
-        qrCodelLabel.font = UIFont(name: BarlowCondensed, size: 20)
+        qrCodelLabel.font = UIFont.boldSystemFont(ofSize: 20)
         view.addSubview(qrCodelLabel)
         qrCodelLabel.snp.makeConstraints { make in
             make.bottom.equalTo(-120)

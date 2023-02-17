@@ -12,6 +12,7 @@ import Kingfisher
 protocol HomeTopViewDelegate: AnyObject {
     func chooseClick()
     func settingBtnClick()
+    func backBtnDidClick()
 
 }
 
@@ -42,10 +43,16 @@ class HomeTopView: UIView {
 
     private func initSubviews() {
         backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
+        addSubview(backBtn)
         addSubview(rightBtn)
         addSubview(chooseV)
         addSubview(iconImgv)
         addSubview(emailLabel)
+        backBtn.snp.makeConstraints { make in
+            make.top.equalTo(44)
+            make.left.equalTo(0)
+            make.width.height.equalTo(44)
+        }
         rightBtn.snp.makeConstraints { make in
             make.top.equalTo(44)
             make.trailing.equalTo(0)
@@ -69,30 +76,39 @@ class HomeTopView: UIView {
         }
         emailLabel.isHidden = true
         
-        iconImgv.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
-        iconImgv.layer.cornerRadius = 14
-        
     }
     
     func filled(chainName: String) {
         var email = ""
-        if Go23WalletMangager.shared.email.count > 0 {
-            
-            email = Go23WalletMangager.shared.email
+        if let nickName = Go23LiteSDKMangager.shared.nickName, nickName.count > 0 {
+            email = nickName
         } else {
-            email = Go23WalletMangager.shared.phone
+            if Go23WalletMangager.shared.email.count > 0 {
+                
+                email = Go23WalletMangager.shared.email
+            } else {
+                email = Go23WalletMangager.shared.phone
+            }
         }
+        
+        if let img = Go23LiteSDKMangager.shared.iconImage {
+            iconImgv.image = img
+        } else {
+            iconImgv.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
+            iconImgv.layer.cornerRadius = 14
+        }
+        
         var ee = email
         if email.count > 17 {
             ee = email.substring(to: 15) + "..."
         }
         
         let emailWidth = ScreenWidth-getRowWidth(desc: chainName)-20-52
-        if getStringWidth(email, lineHeight:  16.0, font: UIFont(name: BarlowCondensed, size: 14) ?? UIFont.systemFont(ofSize: 14)) <= emailWidth {
+        if getStringWidth(email, lineHeight:  16.0, font: UIFont.systemFont(ofSize: 14)) <= emailWidth {
             ee = email
         }
         emailLabel.isHidden = false
-        emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: ee)
+        emailLabel.text = ee
 
         chooseV.isHidden = false
         chooseV.snp.remakeConstraints() { make in
@@ -110,17 +126,17 @@ class HomeTopView: UIView {
     }
     
     func getRowWidth(desc: String) -> CGFloat {
-        return getStringWidth(desc, lineHeight:  16.0, font: UIFont(name: BarlowCondensed, size: 14) ?? UIFont.systemFont(ofSize: 14))  + 66.0
+        return getStringWidth(desc, lineHeight:  16.0, font: UIFont.systemFont(ofSize: 12))  + 66.0
     }
     
     private func getStringWidth(_ content: String,
                                  lineHeight:CGFloat = 27.0,
-                                 font: UIFont = UIFont.systemFont(ofSize: 14),
+                                 font: UIFont = UIFont.systemFont(ofSize: 12),
                                  wordWidth: CGFloat = (ScreenWidth - 40.0)) -> CGFloat {
         let paraph = NSMutableParagraphStyle()
         paraph.maximumLineHeight = lineHeight
         paraph.minimumLineHeight = lineHeight
-        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: font, NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: font] as [NSAttributedString.Key : Any]
 
         let rowHeight = (content.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: wordWidth, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.width
          return rowHeight
@@ -129,6 +145,10 @@ class HomeTopView: UIView {
     
     @objc private func settingBtnDidClick() {
         self.delegate?.settingBtnClick()
+    }
+    
+    @objc private func backBtnDidClick() {
+        self.delegate?.backBtnDidClick()
     }
     
     private lazy var rightBtn: UIButton = {
@@ -145,6 +165,21 @@ class HomeTopView: UIView {
         rightBtn.addTarget(self, action: #selector(settingBtnDidClick), for: .touchUpInside)
         return rightBtn
     }()
+    
+    private lazy var backBtn: UIButton = {
+        let backBtn = UIButton()
+        backBtn.frame = CGRectMake(0, 0, 44, 44)
+        let imgv = UIImageView()
+        backBtn.addSubview(imgv)
+        imgv.image = Go23Helper.image(named: "back")
+        imgv.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalTo(20)
+            make.width.equalTo(20)
+        }
+        backBtn.addTarget(self, action: #selector(backBtnDidClick), for: .touchUpInside)
+        return backBtn
+    }()
 
     private lazy var iconImgv: UIImageView = {
         let imgv = UIImageView()
@@ -154,7 +189,7 @@ class HomeTopView: UIView {
 
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -237,7 +272,7 @@ class HomeHeaderView: UIView {
         
         eyeBtn.snp.makeConstraints { make in
             make.centerY.equalTo(numLabel.snp.centerY).offset(-10)
-            make.left.equalTo(numLabel.snp.right).offset(-20)
+            make.left.equalTo(numLabel.snp.right).offset(-10)
             make.width.height.equalTo(44)
         }
 
@@ -267,12 +302,6 @@ class HomeHeaderView: UIView {
             make.bottom.equalToSuperview()
         }
         
-        if UserDefaults.standard.bool(forKey: kEyeBtnKey) {
-            eyeBtn.setImage(Go23Helper.image(named: "eyeClose"), for: .normal)
-        } else {
-            eyeBtn.setImage(Go23Helper.image(named: "eyeOpen"), for: .normal)
-        }
-        
     }
     
     func filled(money: String, symbol: String, balanceU: String, address: String) {
@@ -289,9 +318,9 @@ class HomeHeaderView: UIView {
             mon = "0.00"
         }
         if Float(mon) ?? 0.0 > 0 {
-            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
+            numLabel.text = mon + " " + symbol
         } else {
-            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "0.00" + " " + symbol)
+            numLabel.text = "0.00" + " " + symbol
         }
         
         if let bb = Double(balanceU){
@@ -312,6 +341,13 @@ class HomeHeaderView: UIView {
             attr.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
         }.add(text: " ") { att in
             
+        }
+        if UserDefaults.standard.bool(forKey: kEyeBtnKey) {
+            eyeBtn.setImage(Go23Helper.image(named: "eyeClose"), for: .normal)
+            numLabel.text = "****"
+            titleLabel.text = "****"
+        } else {
+            eyeBtn.setImage(Go23Helper.image(named: "eyeOpen"), for: .normal)
         }
         
         attri.addBundleImage("copy", CGRectMake(0, 0, 12, 12))
@@ -348,7 +384,7 @@ class HomeHeaderView: UIView {
             } else {
                 mon = "0.00"
             }
-            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
+            numLabel.text = mon + " " + symbol
             if let bb = Double(balanceU){
                 if bb <= 0 {
                     bal = "0.00"
@@ -360,7 +396,7 @@ class HomeHeaderView: UIView {
         } else {
             eyeBtn.setImage(Go23Helper.image(named: "eyeClose"), for: .normal)
             UserDefaults.standard.set(true, forKey: kEyeBtnKey)
-            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "**** " )
+            numLabel.text = "****"
             titleLabel.text = "****"
         }
         self.delegate?.eyeBtnClick()
@@ -399,14 +435,14 @@ class HomeHeaderView: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "$0.00"
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
     private lazy var numLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: BarlowCondensed, size: 32)
+        label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "0.00"
         label.adjustsFontSizeToFitWidth = true
@@ -500,9 +536,8 @@ class ChooseView: UIView {
             
         }
         attri.add(text: title) { attr in
-            attr.customFont(14, BarlowCondensed)
+            attr.font(12)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#262626"))
-            attr.kern(0.5)
         }
         attri.add(text: " ") { attr in
             
@@ -529,7 +564,7 @@ class ChooseView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 16)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .center
         return label
     }()

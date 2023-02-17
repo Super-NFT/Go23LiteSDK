@@ -42,15 +42,14 @@ class Go23NFTListCollectionViewCell: UICollectionViewCell {
     
     func filled(cover: String, title: String, num: Int) {
         coverImgv.kf.setImage(with: URL(string: cover), placeholder: UIImage(named: "holder"))
-        titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#000000"),alignment: .left, title: title)
-        
+        titleLabel.text = title        
         if num > 1 {
             numLabel.isHidden = false
             numLabel.text = "x\(num)"
             numLabel.snp.makeConstraints { make in
                 make.top.left.equalTo(10)
                 make.height.equalTo(28)
-                make.width.equalTo(String.getStringWidth("x\(num)", lineHeight: 16, font: UIFont.systemFont(ofSize: 16), wordWidth: (ScreenWidth-40-8)/2.0)+25.0)
+                make.width.equalTo(String.getStringWidth("x\(num)", lineHeight: 16, font: UIFont.systemFont(ofSize: 14), wordWidth: (ScreenWidth-40-8)/2.0)+25.0)
             }
         }
         
@@ -67,7 +66,7 @@ class Go23NFTListCollectionViewCell: UICollectionViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#000000")
         return label
     }()
@@ -77,7 +76,7 @@ class Go23NFTListCollectionViewCell: UICollectionViewCell {
         label.backgroundColor = .white
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 14
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.isHidden = true
         label.textAlignment = .center

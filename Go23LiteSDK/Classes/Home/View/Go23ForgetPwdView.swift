@@ -94,10 +94,10 @@ class Go23ForgetPwdView: UIView {
     
     func filled(email: String){
         if Go23WalletMangager.shared.email.count > 0 {
-            emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.email)
+            emailLabel.text = Go23WalletMangager.shared.email
             emailTipsLabel.text = "Enter the 6-digit code sent to your email."
         } else {
-            emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.phone)
+            emailLabel.text = Go23WalletMangager.shared.phone
             emailTipsLabel.text = "Enter the 6-digit code sent to your SMS."
             
         }
@@ -271,13 +271,16 @@ class Go23ForgetPwdView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont.systemFont(ofSize: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#8C8C8C"),alignment: .center, title: "Verify your account")
+        label.text = "Verify your account"
+        label.textAlignment = .center
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = UIColor.init(named: "#262626")
         label.textAlignment = .center
         return label
@@ -289,7 +292,7 @@ class Go23ForgetPwdView: UIView {
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Verify", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(verifyBtnClick), for: .touchUpInside)
         return btn
     }()

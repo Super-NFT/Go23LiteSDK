@@ -89,7 +89,10 @@ class Go23ChooseAlertView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Choose Mainnets")
+        label.text = "Choose Mainnets"
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textAlignment = .center
         return label
     }()
     
@@ -215,7 +218,7 @@ class Go23ChooseAlertViewCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     

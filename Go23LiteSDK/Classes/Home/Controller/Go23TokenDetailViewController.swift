@@ -64,7 +64,7 @@ class Go23TokenDetailViewController: UIViewController {
         
         if self.navgationBar == nil {
             addBarView()
-            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
     }
@@ -104,8 +104,8 @@ class Go23TokenDetailViewController: UIViewController {
         
         
         dataSource.titles = ["All", "Out", "In", "Failed"]
-        dataSource.titleNormalFont = UIFont(name: BarlowCondensed, size: 16)!
-        dataSource.titleSelectedFont = UIFont(name: BarlowCondensed, size: 16)!
+        dataSource.titleNormalFont = UIFont.systemFont(ofSize: 14)
+        dataSource.titleSelectedFont = UIFont.systemFont(ofSize: 14)
         dataSource.titleSelectedColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         dataSource.titleNormalColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         dataSource.kern = 1

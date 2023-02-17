@@ -82,7 +82,7 @@ class Go23TokenHeaderView: UIView {
         
         
         let paraph = NSMutableParagraphStyle()
-        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 24), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
         let rowWidth = (type.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: ScreenWidth, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.width
                 
         titleLabel.snp.makeConstraints { make in
@@ -113,9 +113,9 @@ class Go23TokenHeaderView: UIView {
         nameLabel.text = name
 //        numLabel.text = "\(num)"
         if Float(num) ?? 0.0 > 0 {
-            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "\(num)"+" "+type)
+            numLabel.text = "\(num)"+" "+type
         } else {
-            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "0.00"+" "+type)
+            numLabel.text = "0.00"+" "+type
         }
         
         moneyLabel.text = "$\(money)"
@@ -150,7 +150,7 @@ class Go23TokenHeaderView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 24)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .center
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
@@ -181,7 +181,7 @@ class Go23TokenHeaderView: UIView {
     
     private lazy var numLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 36)
+        label.font = UIFont.boldSystemFont(ofSize: 32)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .center
         return label
@@ -189,7 +189,7 @@ class Go23TokenHeaderView: UIView {
     
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
         return label

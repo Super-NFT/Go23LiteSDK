@@ -92,7 +92,9 @@ class Go23ReceiveView: UIView {
     
     func filled(title: String, qrcode: String ) {
         self.token = qrcode
-        titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: title)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        titleLabel.text = title
+        titleLabel.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         let attri = NSMutableAttributedString()
         attri.add(text: token) { attr in
             attr.font(12)
@@ -218,7 +220,7 @@ class Go23ReceiveView: UIView {
     
     private lazy var imgV: UIImageView = {
         let imgv = UIImageView()
-        imgv.image = UIImage(named: "popResult")
+        imgv.image = Go23Helper.image(named: "popResult")
         return imgv
     }()
 }

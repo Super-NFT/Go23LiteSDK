@@ -229,7 +229,7 @@ class Go23NFTMessageView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Send NFT"
-        label.font = UIFont.init(name: BarlowCondensed, size: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -251,7 +251,7 @@ class Go23NFTMessageView: UIView {
     
     private lazy var programLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
     }()
@@ -270,7 +270,7 @@ class Go23NFTMessageView: UIView {
     }()
     private lazy var nftLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
     }()
@@ -378,7 +378,7 @@ class Go23NFTMessageView: UIView {
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Confirm", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(signBtnClick), for: .touchUpInside)
         return btn
     }()

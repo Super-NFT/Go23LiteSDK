@@ -13,7 +13,6 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		61E8B5C0298CE81000118825 /* BarlowCondensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61E8B5BF298CE7F800118825 /* BarlowCondensed-Medium.ttf */; };
 		68CDD24F3E2D4FB78B12A033 /* Pods_Go23LiteSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C75ED616E286801EE07C71 /* Pods_Go23LiteSDK_Example.framework */; };
 		B7D36CAC871A9FA7024597C5 /* Pods_Go23LiteSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F6864B0409CA449D574BBA /* Pods_Go23LiteSDK_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -44,7 +43,6 @@
 		607FACE51AFB9204008FA782 /* Go23LiteSDK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Go23LiteSDK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		61E8B5BF298CE7F800118825 /* BarlowCondensed-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-Medium.ttf"; sourceTree = "<group>"; };
 		73C75ED616E286801EE07C71 /* Pods_Go23LiteSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Go23LiteSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		760AB92737DEB08EBDC5CAD3 /* Pods-Go23LiteSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23LiteSDK_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Go23LiteSDK_Tests/Pods-Go23LiteSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC4F62E2A66BE7E94FECBE6E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 		607FACD21AFB9204008FA782 /* Example for Go23LiteSDK */ = {
 			isa = PBXGroup;
 			children = (
-				61E8B5BF298CE7F800118825 /* BarlowCondensed-Medium.ttf */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -252,7 +249,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61E8B5C0298CE81000118825 /* BarlowCondensed-Medium.ttf in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,

@@ -49,7 +49,7 @@ class Go23AddCustomTokenViewController: UIViewController {
         if self.navgationBar == nil {
             addBarView()
             navgationBar?.title = "Add Custom Token"
-            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
     }
@@ -264,7 +264,7 @@ class Go23AddCustomTokenViewController: UIViewController {
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Confirm", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(confirmBtnClick), for: .touchUpInside)
         return btn
     }()

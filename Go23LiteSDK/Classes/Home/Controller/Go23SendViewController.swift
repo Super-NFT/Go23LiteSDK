@@ -64,7 +64,7 @@ class Go23SendViewController: UIViewController {
         if self.navgationBar == nil {
             addBarView()
             navgationBar?.title = "Send"
-            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
     }
@@ -325,7 +325,7 @@ class Go23SendViewController: UIViewController {
     private func getHeight(content: String) -> CGFloat {
         let paraph = NSMutableParagraphStyle()
         paraph.alignment = .left
-        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)]
+        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
 
         let rowHeight = (content.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: ScreenWidth-102.0, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.height
          return rowHeight
@@ -590,7 +590,7 @@ class Go23SendViewController: UIViewController {
     private lazy var addressHoldLabel: UILabel = {
         let label = UILabel()
         label.text = "Receiving Address"
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         return label
     }()
@@ -619,7 +619,7 @@ class Go23SendViewController: UIViewController {
         btn.setTitle("Paste", for: .normal)
         btn.titleLabel?.textAlignment = .right
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 16)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(pasteBtnClick), for: .touchUpInside)
         return btn
     }()
@@ -651,8 +651,8 @@ class Go23SendViewController: UIViewController {
     private lazy var amoutTxtFiled: UITextField = {
         let textfield = UITextField()
         textfield.text = ""
-        textfield.font = UIFont(name: BarlowCondensed, size: 20)
-        let attributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16) as Any,  NSAttributedString.Key.foregroundColor:UIColor.rdt_HexOfColor(hexString: "#BFBFBF")] as [NSAttributedString.Key : Any]
+        textfield.font = UIFont.systemFont(ofSize: 14)
+        let attributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14) as Any,  NSAttributedString.Key.foregroundColor:UIColor.rdt_HexOfColor(hexString: "#BFBFBF")] as [NSAttributedString.Key : Any]
         let attri = NSAttributedString(string: "Enter Amount", attributes: attributes as [NSAttributedString.Key : Any])
         textfield.leftViewMode = .always
         textfield.leftView = UIView(frame: CGRectMake(0, 0, 8, 0))
@@ -686,7 +686,7 @@ class Go23SendViewController: UIViewController {
     
     private lazy var amoutTypeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         label.textAlignment = .right
         return label
@@ -703,7 +703,7 @@ class Go23SendViewController: UIViewController {
         btn.setTitle("All", for: .normal)
         btn.titleLabel?.textAlignment = .right
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 16)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(allBtnClick), for: .touchUpInside)
         return btn
     }()
@@ -747,7 +747,7 @@ class Go23SendViewController: UIViewController {
     
     private lazy var totalTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 20)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Total"
         return label
@@ -755,7 +755,7 @@ class Go23SendViewController: UIViewController {
     
     private lazy var totalLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 20)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right
         return label
@@ -767,7 +767,7 @@ class Go23SendViewController: UIViewController {
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Send", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(sendBtnClick), for: .touchUpInside)
         return btn
     }()
@@ -855,7 +855,7 @@ class SendHeaderView: UIView {
     
     func filled(cover: String, name: String) {
         self.coverImgv.kf.setImage(with: URL(string: cover))
-        self.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 18), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: name)
+        self.titleLabel.text = name
     }
     
     @objc private func controlClick() {
@@ -870,7 +870,7 @@ class SendHeaderView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 18)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()

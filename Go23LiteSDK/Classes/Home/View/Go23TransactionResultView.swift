@@ -150,7 +150,10 @@ class Go23TransactionResultView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Transaction Result")
+        label.text = "Transaction Result"
+        label.textAlignment = .center
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
@@ -162,7 +165,7 @@ class Go23TransactionResultView: UIView {
     
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 24)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .center
         return label
@@ -182,7 +185,7 @@ class Go23TransactionResultView: UIView {
         btn.setTitle("Got it", for: .normal)
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.layer.cornerRadius = 8
         btn.addTarget(self, action: #selector(closeBtnClick), for: .touchUpInside)
         return btn
@@ -194,7 +197,7 @@ class Go23TransactionResultView: UIView {
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Confirm", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(signBtnClick), for: .touchUpInside)
         return btn
     }()
@@ -205,7 +208,7 @@ class Go23TransactionResultView: UIView {
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#f7f7f7")
         btn.setTitle("View Details", for: .normal)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#262626"), for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)
         return btn
     }()

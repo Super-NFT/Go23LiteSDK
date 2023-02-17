@@ -111,8 +111,11 @@ class Go23SendTokenListView: UIView {
         }()
         
     private lazy var titleLabel: UILabel = {
-            let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Select a token to send")
+        let label = UILabel()
+        label.text = "Select a token to send"
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textAlignment = .center
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
             return label
         }()
     
@@ -120,7 +123,9 @@ class Go23SendTokenListView: UIView {
         let btn = UIButton()
         btn.layer.cornerRadius = 8
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
-        btn.setAttributedTitle(String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.white, alignment: .center, title: "Add a token"), for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        btn.setTitleColor(.white, for: .normal)
+        btn.titleLabel?.textAlignment = .center
         btn.addTarget(self, action: #selector(addBtnClick), for: .touchUpInside)
         return btn
     }()
@@ -255,14 +260,14 @@ class SendTokenListCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
     
     private lazy var numLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right
         return label
@@ -270,7 +275,7 @@ class SendTokenListCell: UITableViewCell {
     
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
         return label

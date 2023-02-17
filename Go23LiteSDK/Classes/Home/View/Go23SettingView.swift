@@ -10,7 +10,7 @@ import Go23SDK
 
 class Go23SettingView: UIView {
 
-    var dataArray: [String] = ["Reshard Private Key", "Remove Email", "Remove Phone"]
+    var dataArray: [String] = ["Reshard Private Key"]
     var email = ""
     var pk = ""
     var cancelBlock: (()->())?
@@ -73,7 +73,10 @@ class Go23SettingView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Setting")
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.text = "Setting"
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.textAlignment = .center
         return label
     }()
     
@@ -129,15 +132,6 @@ extension Go23SettingView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 1 {
-            UserDefaults.standard.set("", forKey: kEmailPrivateKey)
-            let totast = Go23Toast.init(frame: .zero)
-            totast.show("Remove email success!", after: 1)
-        } else if indexPath.row == 2 {
-            UserDefaults.standard.set("", forKey: kPhonePrivateKey)
-            let totast = Go23Toast.init(frame: .zero)
-            totast.show("Remove Phone success!", after: 1)
-        }
         guard self.pk.count > 0 else {
             return
         }
@@ -204,12 +198,13 @@ class SettingViewCell: UITableViewCell {
     }
     
     func filled(title: String) {
-        titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: title)
+        
+        titleLabel.text = title
     }
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 20)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()

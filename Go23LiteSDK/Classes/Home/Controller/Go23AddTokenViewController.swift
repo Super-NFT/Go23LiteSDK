@@ -43,13 +43,14 @@ class Go23AddTokenViewController: UIViewController {
         getUserTokens()
         NotificationCenter.default.addObserver(self, selector: #selector(getUserTokens), name: NSNotification.Name(rawValue: kRefreshWalletData), object: nil)
         
-        tableView.es.addPullToRefresh {[weak self] in
+        let header = Go23RefreshHeaderAnimator.init(frame: .zero)
+        tableView.es.addPullToRefresh(animator: header) {[weak self] in
             self?.tokenIndex = 1
-            self?.getUserTokens()
+            self?.getUserTokens(isLoading: false)
         }
         tableView.es.addInfiniteScrolling { [weak self] in
             self?.tokenIndex += 1
-            self?.getUserTokens()
+            self?.getUserTokens(isLoading: false)
         }
 
     }
@@ -76,7 +77,7 @@ class Go23AddTokenViewController: UIViewController {
         if self.navgationBar == nil {
             addBarView()
             navgationBar?.title = "Add a Token"
-            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
     }
@@ -229,7 +230,7 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
         private lazy var titleLabel: UILabel = {
             let label = UILabel()
             label.text = "Add Custom Token"
-            label.font = UIFont.systemFont(ofSize: 16)
+            label.font = UIFont.systemFont(ofSize: 14)
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
             return label
         }()
@@ -397,7 +398,7 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
 
 
 extension Go23AddTokenViewController {
-    @objc private func getUserTokens() {
+    @objc private func getUserTokens(isLoading: Bool = true) {
          guard let shared = Go23WalletSDK.shared
          else {
              return
@@ -407,12 +408,17 @@ extension Go23AddTokenViewController {
             return
             
         }
-
-        Go23Loading.loading()
+        if isLoading {
+            Go23Loading.loading()
+        }
+        
         shared.getChainTokenList(with: walletObj.chainId, pageSize: 20, pageNumber: self.tokenIndex) { [weak self] model in
             self?.tableView.es.stopPullToRefresh()
             self?.tableView.es.stopLoadingMore()
-            Go23Loading.clear()
+            
+            if isLoading {
+                Go23Loading.clear()
+            }
             if self?.tokenIndex ?? 1 > 1 {
                 if let _ = self?.tokenList, let _ = model?.listModel {
                     self?.tokenList! += model!.listModel

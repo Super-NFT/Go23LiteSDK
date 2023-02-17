@@ -86,7 +86,7 @@ class Go23SendNFTViewController: UIViewController {
         if self.navgationBar == nil {
             addBarView()
             navgationBar?.title = "Details"
-            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
     }
@@ -314,7 +314,7 @@ class Go23SendNFTViewController: UIViewController {
     private func getHeight(content: String) -> CGFloat {
         let paraph = NSMutableParagraphStyle()
         paraph.alignment = .left
-        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)]
+        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
 
         let rowHeight = (content.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: ScreenWidth-102.0, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.height
          return rowHeight
@@ -375,7 +375,7 @@ class Go23SendNFTViewController: UIViewController {
     private lazy var addressHoldLabel: UILabel = {
         let label = UILabel()
         label.text = "Receiving Address"
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         return label
     }()
@@ -404,7 +404,7 @@ class Go23SendNFTViewController: UIViewController {
         let btn = UIButton()
         btn.setTitle("Paste", for: .normal)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 16)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(pasteBtnClick), for: .touchUpInside)
         return btn
     }()
@@ -453,7 +453,7 @@ class Go23SendNFTViewController: UIViewController {
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Send", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(sendBtnClick), for: .touchUpInside)
         return btn
     }()
@@ -461,21 +461,17 @@ class Go23SendNFTViewController: UIViewController {
     private lazy var cancelBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#f7f7f7")
         btn.setTitle("Cancel", for: .normal)
-        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
-        btn.backgroundColor = .white
-        btn.layer.cornerRadius = 8
-        btn.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1").cgColor
-        btn.layer.borderWidth = 1
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#262626"), for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)
         return btn
     }()
     
     private lazy var lossGassLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#D83548")
         label.text = "Insufficient Gas Fee"
         return label
@@ -502,7 +498,7 @@ class Go23SendNFTViewController: UIViewController {
         let btn = UIButton()
         btn.setTitle("All", for: .normal)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 16)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(allBtnClick), for: .touchUpInside)
         return btn
     }()

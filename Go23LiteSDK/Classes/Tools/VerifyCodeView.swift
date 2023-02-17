@@ -63,7 +63,7 @@ public class VerifyCodeView: UIStackView, UITextFieldDelegate {
     }
      var verifyCodes: [VerifyCodeSingleView]!
     
-    public var font: UIFont = UIFont.systemFont(ofSize: 16) {
+    public var font: UIFont = UIFont.systemFont(ofSize: 14) {
         didSet{
             for verifyCode in self.verifyCodes{
                 verifyCode.font = font

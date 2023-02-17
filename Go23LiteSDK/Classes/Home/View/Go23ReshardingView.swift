@@ -69,8 +69,8 @@ class Go23ReshardingView: UIView {
         
         
         dataSource.titles = ["Email"]
-        dataSource.titleNormalFont = UIFont(name: BarlowCondensed, size: 16)!
-        dataSource.titleSelectedFont = UIFont(name: BarlowCondensed, size: 16)!
+        dataSource.titleNormalFont = UIFont.systemFont(ofSize: 14)
+        dataSource.titleSelectedFont = UIFont.systemFont(ofSize: 14)
 //        dataSource.titleSelectedColor = UIColor.rdt_HexOfColor(hexString: "#262626")
 //        dataSource.titleNormalColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         dataSource.titleSelectedColor = UIColor.clear
@@ -101,7 +101,10 @@ class Go23ReshardingView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Verify")
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textAlignment = .center
+        label.text = "Verify"
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
     

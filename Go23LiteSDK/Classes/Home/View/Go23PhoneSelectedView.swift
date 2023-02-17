@@ -82,7 +82,10 @@ class Go23PhoneSelectedView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Search Country")
+        label.text = "Search Country"
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.textAlignment = .center
         return label
     }()
     

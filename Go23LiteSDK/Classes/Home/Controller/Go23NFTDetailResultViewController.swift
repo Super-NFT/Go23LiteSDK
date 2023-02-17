@@ -82,7 +82,7 @@ class Go23NFTDetailResultViewController: UIViewController {
         if self.navgationBar == nil {
             addBarView()
             navgationBar?.title = "Details"
-            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
     }
@@ -305,7 +305,7 @@ class Go23NFTDetailResultViewController: UIViewController {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -323,7 +323,7 @@ class Go23NFTDetailResultViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 32)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -386,7 +386,7 @@ class Go23NFTDetailResultViewController: UIViewController {
     private lazy var totalTxt: UILabel = {
         let label = UILabel()
         label.text = "Total"
-        label.font = UIFont(name: BarlowCondensed, size: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -441,7 +441,7 @@ class Go23NFTDetailResultViewController: UIViewController {
     
     private lazy var totalLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right
         return label

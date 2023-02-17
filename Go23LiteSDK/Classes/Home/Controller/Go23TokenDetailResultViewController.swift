@@ -61,7 +61,7 @@ class Go23TokenDetailResultViewController: UIViewController {
         if self.navgationBar == nil {
             addBarView()
             navgationBar?.title = "Details"
-            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
     }
@@ -313,7 +313,8 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 32)
+        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.textAlignment = .center
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -385,7 +386,7 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var totalTxt: UILabel = {
         let label = UILabel()
         label.text = "Total"
-        label.font = UIFont(name: BarlowCondensed, size: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -440,7 +441,7 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var totalLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right
         return label
@@ -544,16 +545,14 @@ extension Go23TokenDetailResultViewController {
             self?.timeLabel.isHidden = false
             if obj.status == 2 {
                 self?.statusImgv.image = Go23Helper.image(named: "success")
-                self?.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Successful")
+                self?.titleLabel.text = "Successful"
             } else if obj.status == 1 {
                 self?.statusImgv.image = Go23Helper.image(named: "waiting")
-                self?.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Processing...")
-
+                self?.titleLabel.text = "Processing..."
                 self?.timeLabel.isHidden = true
             } else if obj.status == 3{
                 self?.statusImgv.image = Go23Helper.image(named: "failed")
-                self?.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Failed")
-
+                self?.titleLabel.text = "Failed"
 
             }
             

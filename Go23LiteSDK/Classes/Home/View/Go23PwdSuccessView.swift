@@ -90,7 +90,10 @@ class Go23PwdSuccessView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Set Pincode")
+        label.text = "Set Pincode"
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.textAlignment = .center
         return label
     }()
     
@@ -102,7 +105,10 @@ class Go23PwdSuccessView: UIView {
     
     private lazy var tipLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Successful")
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textAlignment = .center
+        label.text = "Successful"
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .center
         return label
     }()
@@ -113,7 +119,7 @@ class Go23PwdSuccessView: UIView {
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Confirm", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(confirmBtnClick), for: .touchUpInside)
         return btn
     }()

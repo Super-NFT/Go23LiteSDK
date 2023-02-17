@@ -120,7 +120,7 @@ class Go23AddNFTView: UIView {
     private func getHeight(content: String) -> CGFloat {
         let paraph = NSMutableParagraphStyle()
         paraph.alignment = .left
-        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)]
+        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
 
         let rowHeight = (content.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: ScreenWidth-102.0, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.height
          return rowHeight
@@ -142,7 +142,7 @@ class Go23AddNFTView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Import NFTs"
-        label.font = UIFont.init(name: BarlowCondensed, size: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -199,7 +199,7 @@ class Go23AddNFTView: UIView {
     private lazy var addressHoldLabel: UILabel = {
         let label = UILabel()
         label.text = "0x"
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         return label
     }()
@@ -237,7 +237,7 @@ class Go23AddNFTView: UIView {
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Import", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(importBtnClick), for: .touchUpInside)
         return btn
     }()

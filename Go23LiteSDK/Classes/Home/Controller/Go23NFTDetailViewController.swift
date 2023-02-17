@@ -52,7 +52,7 @@ class Go23NFTDetailViewController: UIViewController {
         if self.navgationBar == nil {
             addBarView()
             navgationBar?.title = "Details"
-            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
     }
@@ -266,7 +266,7 @@ class NFTDetailHeaderView: UIView {
     func filled(cover: String, title: String, desc: String) {
         coverImgv.kf.setImage(with: URL(string: cover))
         descLabel.text = desc
-        titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: title)
+        titleLabel.text = title
     }
     
     private lazy var coverImgv: UIImageView = {
@@ -278,7 +278,7 @@ class NFTDetailHeaderView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 24)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -336,7 +336,8 @@ class NFTDetailFooterView: UIView {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
-        btn.setAttributedTitle(String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.white,alignment: .left, title: "Transfer"), for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        btn.setTitle("Transfer", for: .normal)
         btn.addTarget(self, action: #selector(transferBtnClick), for: .touchUpInside)
         return btn
     }()
@@ -401,7 +402,9 @@ class NFTDetailDescCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: "Description")
+        label.text = "Description"
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
     
@@ -479,7 +482,7 @@ class NFTNumberCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.numberOfLines = 0
         label.isHidden = true
@@ -545,10 +548,9 @@ class NFTDetailAttributesCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: BarlowCondensed, size: 20)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-//        label.text = "Attributes"
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: "Attributes")
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.text = "Attributes"
         return label
     }()
     
@@ -655,8 +657,7 @@ class NFTDetailAttributesCollectionCell: UICollectionViewCell {
     
     func filled(title: String, desc: String) {
         titleLabel.text = title
-        descLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: desc)
-        
+        descLabel.text = desc
     }
     
     private lazy var titleLabel: UILabel = {
@@ -668,7 +669,8 @@ class NFTDetailAttributesCollectionCell: UICollectionViewCell {
     }()
     private lazy var descLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 16)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textAlignment = .center
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .center
         return label
@@ -817,7 +819,9 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: "Details")
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.text = "Details"
         return label
     }()
     
@@ -832,7 +836,7 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var addressBtn: UIButton = {
         let btn = UIButton()
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 14)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#262626"), for: .normal)
         btn.titleLabel?.textAlignment = .right
         btn.addTarget(self, action: #selector(addressClick), for: .touchUpInside)
@@ -849,7 +853,7 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var tokenIdBtn: UIButton = {
         let btn = UIButton()
-        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 14)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#262626"), for: .normal)
         btn.titleLabel?.textAlignment = .right
         btn.addTarget(self, action: #selector(tokenIdClick), for: .touchUpInside)

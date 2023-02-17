@@ -95,29 +95,29 @@ class Go23TokenDetailTableViewCell: UITableViewCell {
         }
         if model.status == 3 {
             coverImgv.image = Go23Helper.image(named: "failed")
-            tokenLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#595959"),alignment: .left, title: model.type+" "+String.getSubSecretString(string: model.fromAddr))
-            moneyLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .right, title: "-\(model.value) "+model.symbol)
+            tokenLabel.text = model.type+" "+String.getSubSecretString(string: model.fromAddr)
+            moneyLabel.text = "-\(model.value) "+model.symbol
         } else {
             if model.type == "Receive" {
                 coverImgv.image = Go23Helper.image(named: "in")
-                tokenLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#595959"),alignment: .left, title: model.type+" "+String.getSubSecretString(string: model.fromAddr))
-                moneyLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#00D6E1"),alignment: .right, title: "+\(model.value) "+model.symbol)
+                tokenLabel.text = model.type+" "+String.getSubSecretString(string: model.fromAddr)
+                moneyLabel.text = "+\(model.value) "+model.symbol
             } else if model.type == "Send" {
                 coverImgv.image = Go23Helper.image(named: "out")
-                tokenLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#595959"),alignment: .left, title: model.type+" "+String.getSubSecretString(string: model.toAddr))
-                moneyLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .right, title: "-\(model.value) "+model.symbol)
+                tokenLabel.text = model.type+" "+String.getSubSecretString(string: model.toAddr)
+                moneyLabel.text = "-\(model.value) "+model.symbol
             } else if model.type == "Approve" {
                 coverImgv.image = Go23Helper.image(named: "approve")
-                tokenLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#595959"),alignment: .left, title: model.type+" "+String.getSubSecretString(string: model.toAddr))
-                moneyLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .right, title: "\(model.value) "+model.symbol)
+                tokenLabel.text = model.type+" "+String.getSubSecretString(string: model.toAddr)
+                moneyLabel.text = "\(model.value) "+model.symbol
             } else if model.type == "Mint" {
                 coverImgv.image = Go23Helper.image(named: "mint")
-                tokenLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#595959"),alignment: .left, title: model.type+" "+String.getSubSecretString(string: model.toAddr))
-                moneyLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .right, title: "-\(model.value) "+model.symbol)
+                tokenLabel.text = model.type+" "+String.getSubSecretString(string: model.toAddr)
+                moneyLabel.text = "-\(model.value) "+model.symbol
             }else if model.type == "Swap" {
                 coverImgv.image = Go23Helper.image(named: "mint")
-                tokenLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#595959"),alignment: .left, title: model.type+" "+String.getSubSecretString(string: model.toAddr))
-                moneyLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .right, title: "-\(model.value) "+model.symbol)
+                tokenLabel.text = model.type+" "+String.getSubSecretString(string: model.toAddr)
+                moneyLabel.text = "-\(model.value) "+model.symbol
             }
         }
         
@@ -161,7 +161,7 @@ class Go23TokenDetailTableViewCell: UITableViewCell {
     
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString:  "#595959")
         return label
     }()
@@ -175,7 +175,7 @@ class Go23TokenDetailTableViewCell: UITableViewCell {
     
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right
         return label
