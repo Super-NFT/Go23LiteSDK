@@ -1,5 +1,5 @@
 PODS:
-  - Go23LiteSDK (0.4.0):
+  - Go23LiteSDK (0.5.0):
     - Kingfisher
   - Kingfisher (6.3.1)
 
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Go23LiteSDK: 639d99669dffd4217962f92681c606708de65853
+  Go23LiteSDK: 6ef626dee67f36f09c262109d90a9a62ab900206
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
 
 PODFILE CHECKSUM: a0620bed99ebaa5078e606bb33a8b61e83d04ac4

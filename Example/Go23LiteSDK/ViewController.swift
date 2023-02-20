@@ -47,6 +47,7 @@ class ViewController: UIViewController {
 //        Go23LiteSDKMangager.shared.initialization(uniqueId: "feruiehg347097feif347ffggeiryer", email: "ming.lu@coins.ph", phone: ("",""))
         
         //This value is the unique identifier of the wallet when it is registered, and it is determined by the third-party access itself
+        //demo use the email for uniqueId
         Go23LiteSDKMangager.shared.initialization(uniqueId: email, email: email, phone: (areaCode, phone), iconImage: UIImage.init(named: "nickName"), nickName: "mig.bulid.your.eth.dream")
         let vc = Go23HomeViewController()
         self.navigationController?.pushViewController(vc, animated: true)
