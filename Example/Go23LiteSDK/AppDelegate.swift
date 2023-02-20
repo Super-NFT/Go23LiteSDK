@@ -19,19 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Replace yout appKey and secretKey here.
         //release
-//        Go23LiteSDKMangager.shared.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e",
-//                           secretKey: "KX6OquHkkKQmzLSncmnmNt2q") { result in
-//            if result {
-//                NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
-//                                                object: nil,
-//                                                userInfo: nil)
-//            }
-//            print("Go23WalletSDK.auth === \(result)")
-//        }
-        
-        //debug
-        Go23LiteSDKMangager.shared.auth(appKey: "j9ASxn5REHG8akytevRYZwCp",
-                           secretKey: "QHXFT28Nu1u4R7IiGBlFCVXF") { result in
+        Go23LiteSDKMangager.shared.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e",
+                           secretKey: "KX6OquHkkKQmzLSncmnmNt2q") { result in
             if result {
                 NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
                                                 object: nil,
@@ -39,6 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             print("Go23WalletSDK.auth === \(result)")
         }
+        
+        //debug
+//        Go23LiteSDKMangager.shared.auth(appKey: "j9ASxn5REHG8akytevRYZwCp",
+//                           secretKey: "QHXFT28Nu1u4R7IiGBlFCVXF") { result in
+//            if result {
+//                NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
+//                                                object: nil,
+//                                                userInfo: nil)
+//            }
+//            print("Go23WalletSDK.auth === \(result)")
+//        }
         
         window = UIWindow.init(frame: UIScreen.main.bounds)
         let vc = ViewController()
