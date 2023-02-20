@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class Go23Toast: UIView {
+class Go23Toast: UIView {
     
     var contentString: String
     
@@ -38,8 +38,7 @@ public class Go23Toast: UIView {
     
     private lazy var contentLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 16.0)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#ffffff")
         label.numberOfLines = 0
         
@@ -55,7 +54,7 @@ extension Go23Toast {
         paraph.lineSpacing = 0
         let viewSize = CGSize(width: 250.0, height: UIScreen.main.bounds.height - 200.0)
         
-        let stringRect = content.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
+        let stringRect = content.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.kern: 0.5], context: nil)
         
         return stringRect.size
     }
@@ -78,7 +77,8 @@ extension Go23Toast {
         self.contentLabel.frame = CGRect(x: margin, y: margin, width: stringWidth, height: stringHeight)
         self.contentLabel.text = content
         self.contentLabel.textAlignment = .center
-        self.contentLabel.font = UIFont.systemFont(ofSize: 14)
+        self.contentLabel.font = UIFont.systemFont(ofSize: 16)
+        self.contentLabel.textColor = UIColor.white
     }
     
     func show(_ content: String, after delay: Double) {
@@ -148,3 +148,45 @@ extension Go23Toast {
     }
 }
 
+
+extension UIView {
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        if #available(iOS 11.0, *) {
+            layerMaskedCorner(CACornerMask(rawValue: corners.rawValue), radius: radius)
+        } else {
+            let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+            let mask = CAShapeLayer()
+            mask.path = path.cgPath
+            self.layer.mask = mask
+        }
+    }
+    @available(iOS 11.0, *)
+    func layerMaskedCorner(_ maskedCorners: CACornerMask, radius: CGFloat) {
+        layer.masksToBounds = true
+        layer.cornerRadius = radius
+        layer.maskedCorners = maskedCorners
+    }
+}
+
+
+
+func currentViewController(_ vc :UIViewController?) -> UIViewController? {
+   if vc == nil {
+      return nil
+   }
+   if let presentVC = vc?.presentedViewController {
+      return currentViewController(presentVC)
+   }
+   else if let tabVC = vc as? UITabBarController {
+      if let selectVC = tabVC.selectedViewController {
+          return currentViewController(selectVC)
+       }
+       return nil
+    }
+    else if let naiVC = vc as? UINavigationController {
+       return currentViewController(naiVC.visibleViewController)
+    }
+    else {
+       return vc
+    }
+ }

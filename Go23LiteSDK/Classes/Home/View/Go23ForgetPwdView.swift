@@ -187,7 +187,7 @@ class Go23ForgetPwdView: UIView {
                     case .failure(let result):
                         switch result {
                         case .forgetPincode:
-                            let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, 720),type: .resharding)
+                            let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight - 120),type: .resharding)
                             let ovc = OverlayController(view: alert)
                             ovc.maskStyle = .black(opacity: 0.4)
                             ovc.layoutPosition = .bottom

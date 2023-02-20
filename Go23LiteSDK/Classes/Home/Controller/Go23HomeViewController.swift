@@ -67,7 +67,7 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        stopAnimating()
+//        stopAnimating()
     }
     
     
@@ -177,7 +177,7 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
                     switch status {
                     case .forgetPincode:
                         self?.view.dissmiss(overlay: .last)
-                        let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, 720),type: .resharding)
+                        let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight - 120),type: .resharding)
                         let ovc = OverlayController(view: alert)
                         ovc.maskStyle = .black(opacity: 0.4)
                         ovc.layoutPosition = .bottom
@@ -459,7 +459,7 @@ extension Go23HomeViewController {
         guard walletlist.count > 0 else {return}
         let wallet = walletlist[0]
         Go23WalletMangager.shared.address = wallet.address
-        let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, 720),type: .recover, isShow: false)
+        let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight - 120),type: .recover, isShow: false)
         let ovc = OverlayController(view: alert)
         ovc.maskStyle = .black(opacity: 0.4)
         ovc.layoutPosition = .bottom

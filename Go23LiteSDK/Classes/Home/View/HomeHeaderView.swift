@@ -50,7 +50,7 @@ class HomeTopView: UIView {
         addSubview(emailLabel)
         backBtn.snp.makeConstraints { make in
             make.top.equalTo(44)
-            make.left.equalTo(0)
+            make.left.equalTo(5)
             make.width.height.equalTo(44)
         }
         rightBtn.snp.makeConstraints { make in
